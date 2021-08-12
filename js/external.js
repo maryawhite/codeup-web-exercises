@@ -17,7 +17,6 @@ alert("you said " + bear + " days");
 var hercules = prompt("How many days do you want to rent Hercules?");
 alert("you said " + hercules + " days");
 
-console.log(mermaid * 3 + bear * 3 + hercules * 3)
 alert("your total is $" + (mermaid * 3 + bear * 3 + hercules * 3));
 
 var hoursGoogle = prompt("How many hours did you work for Google this week?");
@@ -29,15 +28,12 @@ alert("you said " + hoursAmazon + " hours");
 var hoursFacebook = prompt("How many hours did you work for Facebook this week?");
 alert("you said " + hoursFacebook + " hours");
 
-console.log(hoursGoogle * 400 + hoursAmazon * 380 + hoursFacebook * 350);
 alert("your total salary for the week is $" + (hoursGoogle * 400 + hoursAmazon * 380 + hoursFacebook * 350));
 
 var notFull = confirm("Are there seats available in the class. Click ok for yes.");
-console.log("you entered: " + notFull);
 alert("you entered: " + notFull);
 
 var noConflict = confirm("Is the day and time open on your schedule?");
-console.log("you entered: " + noConflict);
 alert("you entered: " + noConflict);
 
 
@@ -51,8 +47,6 @@ var premiumMember = confirm("Are you a premium member?");
 alert("you entered: " + premiumMember);
 
 alert("The user meets the requirements for the offer: " + ((moreThanTwo || premiumMember) && notExpired));
-
-
 
 
 

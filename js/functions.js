@@ -83,7 +83,13 @@ function calculateTip(x, y) {
  * then display the dollar amount they should tip
  */
 
+var y = prompt("What was your bill total?");
+alert("you entered " + y);
 
+var x = prompt("What percentage do you want to tip? Please enter a decimal i.e. 20% is .20")
+alert("you entered " + x);
+
+alert("your tip amount is $" + calculateTip(x, y));
 
 /**
  * TODO:
@@ -99,3 +105,7 @@ function calculateTip(x, y) {
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+function applyDiscount(p, d) {
+    return p - (p * d);
+}

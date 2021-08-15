@@ -29,13 +29,6 @@ const calcArea = function(radius){
 const area = calcArea(5);
 console.log(area);
 
-
-function add(a, b) {
-    return a + b;
-}
-console.log(add(2, 3));
-
-
 //function challenge 1.
 function returnTwo(x) {
     return 2;
@@ -105,3 +98,68 @@ function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+function firstInput(string){
+    return string.substring(0,1);
+}
+console.log("Zebra begins with the letter " + firstInput("Zebra"));
+
+function lastInput(string){
+    return string.slice(-1);
+}
+console.log("Roux ends in " + lastInput("Roux"));
+
+function anotherLastInput(string){
+    return string.charAt(string.length -1);
+}
+console.log("Eagle ends with " + anotherLastInput("Eagle"));
+
+function restInput(string) {
+    return string.slice(1, string.length);
+}
+console.log("everything but the first letter of Hello: " + restInput("Hello"));
+
+function reverseInput(string) {
+    const split = string.split("");
+    const separated = split.reverse();
+    const rejoined = separated.join("");  //you must use the "" separator or it will put a comma between each letter
+    return rejoined;
+}
+console.log(reverseInput("Hello"));
+
+function isNumeric(number){
+    return isNaN(number);
+}
+console.log(isNumeric(3));
+console.log(isNumeric("tree"));
+
+function countInput(string) {
+    return string.length;
+}
+console.log(countInput("four"));
+
+function add(a, b) {
+    return a + b;
+}
+console.log(add(2, 3));
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(numerator, denominator) {
+    return numerator / denominator;
+}
+
+function remainder(num, den) {
+    return num % den;
+}
+
+function square(x){
+    return x * x;
+}
+
+//function sumOfSquares()

@@ -89,7 +89,8 @@ alert("you entered " + y);
 var x = prompt("What percentage do you want to tip? Please enter a decimal i.e. 20% is .20")
 alert("you entered " + x);
 
-alert("your tip amount is $" + calculateTip(x, y));
+var tip = calculateTip(x, y);
+alert("your tip amount is $" + tip);
 
 /**
  * TODO:

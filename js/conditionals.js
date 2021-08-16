@@ -30,7 +30,7 @@ function analyzeColor(string){
     } else {
         return "That is not one of my colors!";
     }
-};
+}
 console.log(analyzeColor("blue"));
 console.log(analyzeColor("red"));
 console.log(analyzeColor("cyan"));
@@ -127,9 +127,6 @@ function calculateTotal(number, total){
 calculateTotal();
 
 
-
-
-
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -138,12 +135,11 @@ calculateTotal();
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
 
-
-
-
-
+var userTotal = prompt("What was your bill total?");
+alert("Your lucky number is " + luckyNumber);
+alert("your price before the discount was $" + userTotal + " Your price after the discount is $" + calculateTotal(luckyNumber, userTotal));
 
 /**
  * TODO:
@@ -161,3 +157,29 @@ calculateTotal();
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+function mathQuestions () {
+    var confirmation = confirm("Would you like to enter a number? Click ok for yes.");
+    if (confirmation === true) {
+        var number = prompt("Enter a number.");
+        var newNum = parseInt(number);
+        var plusHundred = newNum + 100;
+        if (isNaN(number)) {
+            alert("that's not a number");
+        } else if (number % 2 === 0) {
+            alert("your number is even");
+            alert("your number plus 100 is " + plusHundred);
+        } else if (number % 2 === 1) {
+            alert("your number is odd");
+            alert("your number plus 100 is " + plusHundred);
+        }
+        if (number > 0) {
+            alert("your number is positive");
+        } else if (number < 0) {
+            alert("your number is negative");
+        }
+    }
+}
+mathQuestions ()
+
+

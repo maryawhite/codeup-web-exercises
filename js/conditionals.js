@@ -20,6 +20,23 @@
  * console.logging the function's return value
  */
 
+function analyzeColor(string){
+    if(string === "blue") {
+        return "Blue is the color of the sky.";
+    } else if (string === "red"){
+        return "Strawberries are red.";
+    } else if (string === "cyan"){
+        return "I don't know anything about cyan.";
+    } else {
+        return "That is not one of my colors!";
+    }
+};
+console.log(analyzeColor("blue"));
+console.log(analyzeColor("red"));
+console.log(analyzeColor("cyan"));
+console.log(analyzeColor("brown"));
+
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -32,11 +49,32 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+function analyzeColorSwitch(string){
+    switch(string) {
+        case "blue":
+            return "Switch: Blue is the color of the sky.";
+            break;
+        case "red":
+            return "Switch: Strawberries are red.";
+            break;
+        case "cyan":
+            return "Switch: I don't know anything about cyan.";
+            break;
+        default:
+            return "Switch: That was not one of my colors.";
+            break;
+    }
+}
+console.log(analyzeColorSwitch("blue"));
+console.log(analyzeColorSwitch("red"));
+console.log(analyzeColorSwitch("cyan"));
+console.log(analyzeColorSwitch("olive"));
 
 /**
  * TODO:
@@ -44,6 +82,8 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+var userColor = prompt("What is your favorite color?");
+alert(analyzeColor(userColor));
 
 /* ########################################################################## */
 
@@ -67,6 +107,29 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+function calculateTotal(number, total){
+    if(number == 0) {
+        return total;
+    } else if (number == 1) {
+        return total - (total * .10);
+    } else if (number == 2) {
+        return total - (total * .25);
+    } else if (number == 3) {
+        return total - (total * .35);
+    } else if (number == 4) {
+        return total - (total * .50);
+    } else if (number == 5) {
+        return "free";
+    } else {
+        return "You didn't enter a valid number";
+    }
+}
+calculateTotal();
+
+
+
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -76,6 +139,11 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+
+
+
+
+
 
 /**
  * TODO:

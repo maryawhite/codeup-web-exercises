@@ -7,6 +7,7 @@ alert("Welcome to my Website!");
 var userInput = prompt("What is your favorite color?");
 alert(userInput + " is my favorite color too!");
 
+//TODO: complete exercise 3 from the previous lesson.
 
 var mermaid = prompt("How many days do you want to rent The Little Mermaid?");
 alert("you said " + mermaid + " days");
@@ -36,8 +37,11 @@ alert("you entered: " + notFull);
 var noConflict = confirm("Is the day and time open on your schedule?");
 alert("you entered: " + noConflict);
 
+//a product offer can be applied only if a person buys 2 or more items
+//and the offer has not expired.
+//premium members do not need to buy a specific amt of products
 
-var moreThanTwo = confirm("Are you buying 2 or more items? Click ok for yes.");
+var moreThanTwo = confirm("Are you buying 2 or more items? Click ok for yes."); //I could have used prompt here
 alert("you entered: " + moreThanTwo);
 
 var notExpired = confirm("Is today prior to the expiration date of the offer?");
@@ -48,5 +52,12 @@ alert("you entered: " + premiumMember);
 
 alert("The user meets the requirements for the offer: " + ((moreThanTwo || premiumMember) && notExpired));
 
+
+//alternate solution without using confirm 8/16/21
+var productQuantity = 4;
+var offerValid = false;
+var isPremiumMem = true;
+
+console.log((productQuantity >2 || isPremiumMem) && offerValid);
 
 

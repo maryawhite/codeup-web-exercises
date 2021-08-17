@@ -1,7 +1,8 @@
 /* Which Generation Are You?
  * Try finding your ancestors and offspring with code.
  *
- * Create a function that takes a number x and a character y ("m" for male, "f" for female), and returns the name of an ancestor (m/f) or descendant (m/f).
+ * Create a function that takes a number x and a character y ("m" for male, "f" for female), and returns the
+ * name of an ancestor (m/f) or descendant (m/f).
  *
  * If the number is negative, return the related ancestor.
  * If positive, return the related descendant.
@@ -36,7 +37,18 @@
  * The name you return must be capitalized.
  */
 
-
+function helloBye (name, num) {
+    var name = name.toUpperCase();
+    if (num === 1) {
+        return "Hello " + name + " " + num;
+    } else {
+        return "Bye " + name;
+    }
+}
+//helloBye()
+console.log(helloBye("Alon", 1));
+console.log(helloBye("Toni", 0));
+console.log(helloBye("Jose", 0));
 
 
 

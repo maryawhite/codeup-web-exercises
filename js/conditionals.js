@@ -162,14 +162,14 @@ function mathQuestions () {
     var confirmation = confirm("Would you like to enter a number? Click ok for yes.");
     if (confirmation === true) {
         var number = prompt("Enter a number.");
-        var newNum = parseInt(number);
+        var newNum = parseInt(number, 10);
         var plusHundred = newNum + 100;
         if (isNaN(number)) {
             alert("that's not a number");
         } else if (number % 2 === 0) {
             alert("your number is even");
             alert("your number plus 100 is " + plusHundred);
-        } else if (number % 2 === 1) {
+        } else {
             alert("your number is odd");
             alert("your number plus 100 is " + plusHundred);
         }
@@ -178,6 +178,8 @@ function mathQuestions () {
         } else if (number < 0) {
             alert("your number is negative");
         }
+    } else {
+        alert("goodbye, have a nice day!")
     }
 }
 mathQuestions ()

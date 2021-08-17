@@ -56,13 +56,32 @@ while (j >= 0){
 
 
 // We can also use what we've learned above within the body of your functions:
+//multiply by 2 until it is greater than 100
+//num will be our starting point
+function multiplybyTwo(num) {
+    do {
+        num = num * 2;
+        console.log(num);
+    } while (num < 100)
+}
+multiplybyTwo(2);
+
+console.log("now try a while loop instead of do while");
+
+function whilemultiplyByTwo(num){
+    while(num < 100) {
+        num = num * 2;
+        console.log(num);
+    }
+}
+whilemultiplyByTwo(2);
 
 
 // For loops: Loops that are designed to run a given number of times. Think more math thinking.
 
-// for (var incrementer = 1; incrementer <= 10; incrementer++) {
-//     console.log("This loop has run " + incrementer + " time(s).");
-// }
+for (var incrementer = 1; incrementer <= 5; incrementer++) {
+     console.log("This loop has run " + incrementer + " time(s).");
+ }
 
 // The for loop has more to it as you can see. Let's break down the arguments:
 
@@ -84,11 +103,24 @@ while (j >= 0){
 // }
 
 // TODO: Quasar, how would we refactor the above back into a WHILE loop as we saw earlier?
+var i = 1;
+while(i < 25) {
+    if(i % 6 == 0){
+        console.log("Codeup");
+    } else if (i % 2 == 0){
+        console.log("Code");
+    } else if (i % 3 == 0){
+        console.log("up");
+    } else {
+        console.log(i + " while if");
+    }
+        i++   //remember to include i++ before the final } or you'll get an infinite loop
+    }
 
 // Below is a funky example that works, but will rely on moving between different data types.
-// for (var i = "A"; i.length < 8; i = i + "A") {
-//     console.log("This is a bit of a tricky way to run a for loop, but hey, it works...");
-// }
+for (var i = "A"; i.length < 8; i = i + "A") {
+    console.log("This is a bit of a trick " + i);
+ }
 
 // We can get a loop to stop using break;
 
@@ -126,7 +158,7 @@ function allOddNumbersToX (x) {
     return x;
 }
 
-// allOddNumbersToX(17);
+ allOddNumbersToX(17);
 // allOddNumbersToX(18);
 
 

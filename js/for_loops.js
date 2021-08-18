@@ -13,7 +13,7 @@ showMultiplicationTable(7);
 //and output whether each number is odd or even. i.e 123 is odd
 //Note to self, random is generating numbers larger than 200...
     for(var i = 0; i < 10; i++){
-    var random = Math.floor((Math.random() * 200) + 20);
+    var random = Math.floor((Math.random() * 180) + 20);
 
     if(random % 2 === 0){
         console.log(random + " is even")
@@ -23,12 +23,19 @@ showMultiplicationTable(7);
 }
 
 //create a pyramid 1 22 333, etc
-for(var i = 0; i <= 7; i++){
-    for(var j = 0; j < i; j++){
-        console.log(i);
+function oneOneTwoTwos() {
+    for (var i = 1; i < 10; i = i + 1) {
+        console.log(i.toString().repeat(i));
     }
-    //console.log("this is j " + j);
 }
+
+//my first attempt that doesn't work.
+// for(var i = 0; i <= 7; i++){
+//   for(var j = 0; j < i; j++){
+//       console.log(i);
+//   }
+// console.log("this is j " + j);
+//}
 
 //count down by 5's
 for(var i = 100; i >= 5; i = i - 5){

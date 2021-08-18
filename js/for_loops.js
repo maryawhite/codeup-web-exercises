@@ -23,6 +23,14 @@ showMultiplicationTable(7);
 }
 
 //create a pyramid 1 22 333, etc
-for (var i = "A"; i.length < 8; i = i + "A") {
-    console.log("this is tricky " + i);
+for(var i = 0; i <= 7; i++){
+    for(var j = 0; j < i; j++){
+        console.log(i);
+    }
+    //console.log("this is j " + j);
+}
+
+//count down by 5's
+for(var i = 100; i >= 5; i = i - 5){
+    console.log(i);
 }

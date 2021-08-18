@@ -23,5 +23,3 @@ for (var i = 1; i <= 50; i++) {
         console.log("here's an odd number " + i)
     }
 }
-
-//ice cream cones, you must sell all of your ice cream cones before going home. Use a do-while loop

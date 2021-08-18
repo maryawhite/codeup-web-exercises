@@ -16,7 +16,7 @@ for (var i = 1; i <= 50; i++) {
     if (i % 2 === 0) {
         continue;
     }
-        if (i == userEntry) {
+        if (i == userEntry) {     //I think parseInt would make this code better
             console.log("skipping this one: " + userEntry);
             continue;
         } else {

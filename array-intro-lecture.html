@@ -42,11 +42,19 @@
         // ============================= Declaring/Initializing an Array with Array Literal Syntax
 
         // empty arrays may be declared
-            // var pies = [];
-            // console.log(pies);
+        //     var pies = [];
+        //    console.log(pies);  //while the array is empty, this would just log  []
             //
-            // var pies = ["apple", "cherry", "key lime", "huckleberry"];
-            // console.log(pies);
+             var pies = ["apple", "cherry", "key lime", "huckleberry"];
+             console.log(pies);
+             var applePie = pies[0];
+             console.log("console logging my variable: " + applePie);
+             console.log("console logging pies[0]: " + pies[0]);
+             //replace a pie
+             //douglas' rule of 3, if you need an element 3 times make it a variable
+            pies[3] = "banana cream"; //to assign a new value you can just use the index
+                                        // and the = sign and assign a new string
+            console.log(pies);
 
         // declaring and initializing a large array
 
@@ -62,16 +70,17 @@
             // ];
 
 
-        // separate declaration and initialization
+        // separate declaration and initialization...in the example below, we are going to
+        //declare an empty array named pies, then we are going to enter items into an array.
 
             // var pies = [];
             // pies[0] = "apple";
             // pies[1] = "cherry";
 
         // declaring and initializing a high index number
+        //go in order, it's not recommended to add empty spots like this.
             // pies[10] = "huckleberry";
             // console.log(pies);
-
 
 
         // ============================= Counting Array Items
@@ -105,11 +114,12 @@
 
         // example
 
-            // for (var i = 0; i < pies.length; i += 1) {
-            //     console.log("I like " + pies[i]);
-            // }
+             //for (var i = 0; i < pies.length; i += 1) {
+             //    console.log("I like " + pies[i]);
+             //}
 
         // backwards
+        //this will start at the end and go backwards.
 
             // for (var i = pies.length - 1; i >= 0; i -= 1) {
             //     console.log("I like " + pies[i]);
@@ -173,13 +183,21 @@
 
 
         // callback function syntax
+        //we can also write our own function and use it instead of using the anonymous function
 
             // function logElements(element) {
             //     console.log("Element " + element);
             // }
             //
-            // pies.forEach(logElements);
+            // pies.forEach(logElements);  //we don't need the () bc we want to pass logElements into forEach.
 
+            //You can use logElements for other arrays. like students.forEach(logElements);
+
+        //function myForEach(array, callBack){
+        //    for (var i = 0; i < array.length; i++){
+        //      callBack(array[i], i, array);
+        //      }}
+        //      myForEach(students, logElements);  //logElements is another function that you created.
 
     </script>
 

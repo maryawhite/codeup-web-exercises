@@ -56,19 +56,27 @@ for(var i = 0; i < peoplesNames.length; i++) {
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
     function first(array){
-        console.log("The first item is " + peoplesNames[0]);
+        //console.log("The first item is " + peoplesNames[0]);
+        console.log("Using a function, the first item is " + array[0]);
     }
     first(peoplesNames);
 
     function second(array){
-        console.log("The second item is " + peoplesNames[1]);
+        //console.log("The second item is " + peoplesNames[1]);
+        console.log("Using a function, the second item is " + array[1]);
     }
     second(peoplesNames);
 
     function last(array){
-        console.log("The last item is " + peoplesNames[peoplesNames.length - 1]);
+        //console.log("The last item is " + peoplesNames[peoplesNames.length - 1]);
+        console.log("Using a function, the last item is " + array[array.length -1]);
     }
     last(peoplesNames);
+
+    //var testArray = [1, 2, 3, 4, 5];
+    //console.log(first(testArray));
+    //second(testArray);
+    //last(testArray);
 
 
 

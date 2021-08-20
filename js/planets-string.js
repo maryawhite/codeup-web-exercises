@@ -11,7 +11,8 @@
      * console.log planetsArray to check your work
      */
 
-    // console.log(planetsArray);
+    var planetsArray = planetsString.split("|");
+    console.log(planetsArray);
 
     /**
      * TODO:
@@ -23,5 +24,19 @@
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
      */
+
+    var newPlanetsString = planetsArray.join("<br>");
+    console.log(newPlanetsString);
+
+    var unorderedPlanetsString = planetsArray.join("</li><li> ");  // join converts the array to a string with a separator
+    var newArray = unorderedPlanetsString.split(" ");
+    console.log(unorderedPlanetsString.split(" "));
+    newArray.unshift("<ul><li>");  //unshift adds something to the beginning of an array
+    newArray.push("</li></ul>");      //push adds something to the end of the array
+
+    console.log(newArray.join(""));  //join turns the array back to a string;
+
+
+
 
 })();

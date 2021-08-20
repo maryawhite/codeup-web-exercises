@@ -6,24 +6,31 @@
      * Create an array of 4 people's names and store it in a variable called
      * 'names'.
      */
+    var peoplesNames = ["Roxanne", "Betsy", "Sage", "Daphne"];
 
     /**
      * TODO:
      * Create a log statement that will log the number of elements in the names
      * array.
      */
+    console.log("There are " + peoplesNames.length + " elements in this array.");
 
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
+    console.log(peoplesNames[0]);
+    console.log(peoplesNames[1]);
+    console.log(peoplesNames[2]);
+    console.log(peoplesNames[3]);
 
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
+
 
     /**
      * TODO:

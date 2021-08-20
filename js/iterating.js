@@ -30,12 +30,17 @@
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
-
+for(var i = 0; i < peoplesNames.length; i++) {
+    console.log("This is my for loop " + peoplesNames[i]);
+}
 
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
+    peoplesNames.forEach(function(element, index, array){
+        console.log("Here's the forEach loop " + element);
+});
 
     /**
      * TODO:
@@ -50,5 +55,29 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+    function first(array){
+        console.log("The first item is " + peoplesNames[0]);
+    }
+    first(peoplesNames);
+
+    function second(array){
+        console.log("The second item is " + peoplesNames[1]);
+    }
+    second(peoplesNames);
+
+    function last(array){
+        console.log("The last item is " + peoplesNames[peoplesNames.length - 1]);
+    }
+    last(peoplesNames);
+
+
+
+
+
+
+
+
+
+
 
 })();

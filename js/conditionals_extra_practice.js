@@ -23,6 +23,52 @@
  *
  */
 
+function whichGeneration(x, y){
+    if(x > 0 && y === "f"){
+        if (x === 1){
+            return "daughter";
+        } else if (x === 2){
+            return "granddaughter";
+        } else if (x === 3) {
+            return "great-granddaughter"
+        }
+    }
+
+    if (x > 0 && y === "m"){
+        if (x === 1){
+            return "son";
+        } else if (x === 2){
+            return "grandson";
+        } else if (x === 3){
+            return "great-grandson";
+        }
+    }
+
+    if(x < 0 && y === "f"){
+        if (x === -1){
+            return "mom";
+        } else if (x === -2){
+            return "grandma";
+        } else if (x === -3){
+            return "great-grandma"
+        }
+    }
+
+    if(x < 0 && y === "m"){
+        if (x === -1){
+            return "dad"
+        } else if (x === -2) {
+            return "grandpa"
+        } else if (x === -3){
+            return "great-grandpa";
+        }
+    }
+
+    if(x === 0 && y === "m" || "f"){
+        return "That's me!";
+    }
+}
+whichGeneration()
 
 
 /* Say "Hello" Say "Bye"

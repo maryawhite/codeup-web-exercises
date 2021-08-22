@@ -69,8 +69,15 @@ console.log(helloBye("Jose", 0));
  */
 
 function possibleBonus(a, b) {
-    // write your code here
+if (a < b && a + 6 >= b && a !== b) {
+    return true;
+    //console.log("you get a bonus");
+} else {
+    return false;
+    //console.log("you don't get a bonus")
 }
+}
+possibleBonus();
 
 /* Integer in Range?
  * Create a function that validates whether a number n is within the bounds of lower and upper. Return false if n is not an integer.

@@ -122,3 +122,13 @@ intWithinBounds()
  * >> perimeter("c", 4) ➞ 25.12
  * >> perimeter("c", 9) ➞ 56.52
  */
+
+function perimeters(l, num){
+    if(l === "s"){
+        return num * 4;
+    }
+    if (l === "c"){
+        return num * 6.28;
+    }
+}
+perimeters()

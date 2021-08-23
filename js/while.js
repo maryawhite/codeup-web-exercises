@@ -2,7 +2,7 @@
 var i = 1;
 while (i < 65536) {
     i = i * 2
-    console.log(i);
+    console.log(i);    //try testing what happens when you swap lines 4 & 5
 }
 
 //ice cream cone question will be here

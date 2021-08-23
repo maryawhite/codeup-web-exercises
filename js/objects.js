@@ -167,7 +167,6 @@
     });
 
 
-
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -178,6 +177,13 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+function createBook(title, author){
+
+    }
+
+    books.unshift({author: {firstName: "Mary", lastName: "White"}, title: "This is the title."});
+    console.log(books.length);
+    console.log(books);
 
 
 

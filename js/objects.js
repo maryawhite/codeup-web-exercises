@@ -46,15 +46,26 @@
      * discount, the discount, if any, and the amount after the discount.
      *
      * Uncomment the lines below to create an array of objects where each object
-     * represents one shopper. Use a foreach loop to iterate through the array,
+     * represents one shopper. Use a forEach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+     var shoppers = [
+         {name: 'Cameron', amount: 180},
+         {name: 'Ryan', amount: 250},
+         {name: 'George', amount: 320}
+     ];
+    shoppers.forEach(function(shopper){
+        if (shopper.amount > 200) {
+            var discount = shopper.amount * .12
+            //console.log(shopper.amount - discount);
+        } else {
+            var discount = 0;
+            console.log(shopper.amount)
+        }
+        console.log(shopper.name + " your total before discount is " + shopper.amount + ". " + "Your discount is " + discount + ". Your new total is " +  (shopper.amount - discount));
+    });
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a

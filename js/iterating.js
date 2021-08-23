@@ -23,7 +23,7 @@
     console.log(peoplesNames[0]);
     console.log(peoplesNames[1]);
     console.log(peoplesNames[2]);
-    console.log(peoplesNames[3]);
+    console.log(peoplesNames[3]);  //test this one using names.length-1
 
     /**
      * TODO:
@@ -33,6 +33,7 @@
 for(var i = 0; i < peoplesNames.length; i++) {
     console.log("This is my for loop " + peoplesNames[i]);
 }
+
 
     /**
      * TODO:
@@ -57,7 +58,7 @@ for(var i = 0; i < peoplesNames.length; i++) {
      */
     function first(array){
         //console.log("The first item is " + peoplesNames[0]);
-        console.log("Using a function, the first item is " + array[0]);
+        console.log("Using a function, the first item is " + array[0]); //I need to add a return statement, bc the istructions say to return
     }
     first(peoplesNames);
 
@@ -80,9 +81,7 @@ for(var i = 0; i < peoplesNames.length; i++) {
 
 
 
-
-
-
+//the IIFE will block our script from being run from the console...
 
 
 

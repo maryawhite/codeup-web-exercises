@@ -177,29 +177,56 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-function createBook(title, author){
+    console.log("This is the create books function: ");
+function createBook(title, firstName, lastName){
     var newBook = {
         title: title,
-        author: author,
+        author: {
+            firstName: firstName,
+            lastName: lastName,
+        }
     };
         //return bookObject;
         books.unshift(newBook);
     }
+
+    console.log(createBook("The sun", "Jack", "Ryan"));
+
     //books.unshift(newBook) put this inside function
     //object methods are invoked by appending the objects name.method bookObject.title()
 
-    createBook("Congo", "Michael Crichton");
-    createBook("The Lost World", "Michael Crichton");
-    createBook("The Shining", "Stephen King");
+    createBook("Congo", "Michael", "Crichton");
     console.log(books);
 
-function showBookInfo (object){
-    object.title = "Another Book title";
-    object.author = "Amy Barnes";
+function showBookInfo(object) {
+    console.log(object.title + " " + object.author.firstName + object.author.lastName);
+
 }
-    console.log(newArray);
     console.log("this is showBookInfo:")
-    console.log(showBookInfo());
+
+    var book1 = {
+        title: "Zebra Stripes",
+        author: {
+            firstName: "Berry",
+            lastName: "Cary"
+
+        },
+    }
+    var book2 = {
+        title: "X-ray Machine",
+        author: {
+            firstName: "Amy",
+            lastName: "Barnes",
+        }
+    }
+
+  showBookInfo(book1)
+  showBookInfo(book2)
+
+    console.log("This is the newest for Each loop");
+      books.forEach(function(book, index){
+      showBookInfo(book);
+    });
 
 
 

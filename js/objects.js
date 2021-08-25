@@ -178,27 +178,29 @@
      *   `showBookInfo` function.
      */
 function createBook(title, author){
-    var bookObject = {
+    var newBook = {
         title: title,
         author: author,
     };
-        return bookObject;
+        //return bookObject;
+        books.unshift(newBook);
     }
-
+    //books.unshift(newBook) put this inside function
     //object methods are invoked by appending the objects name.method bookObject.title()
 
-    console.log(createBook(books));
     createBook("Congo", "Michael Crichton");
     createBook("The Lost World", "Michael Crichton");
     createBook("The Shining", "Stephen King");
-    console.log(createBook("Congo", "Michael Crichton"));
-    console.log(createBook("The Shining", "Stephen King"));
+    console.log(books);
 
-    var showBookInfo = function(object){
-        return object.title;
-    }
+function showBookInfo (object){
+    object.title = "Another Book title";
+    object.author = "Amy Barnes";
+}
+    console.log(newArray);
+    console.log("this is showBookInfo:")
+    console.log(showBookInfo());
 
-    //console.log(showBookInfo(books));
 
 
 

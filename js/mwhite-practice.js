@@ -58,7 +58,48 @@ d += f;
 //d = d + f is the same as d+=f
 console.log("d+=f: " + d);
 
-//javascript data type
+//javascript data types: number, string, boolean, undefined, null, object, array
+//how do you execute a function? you call it using it's name and (), like myFunction()
+//write a function function myFunction(){ alert("Hello World") }
+
+//Strings: use the length property to alert the length of txt below
+console.log("use the string length property. Length includes spaces")
+let txt = "Hello World";
+let len = txt.length
+//alert(len);
+console.log(len);
+
+//Strings: find the position of the character h in the string below. remember to use quotes inside "" indexOf("")
+let txtBe = "abcdefghijklmn";
+let pos = txtBe.indexOf("h");
+console.log(pos);
+
+//Strings: use slice to return the word bananas from the string below. remember to use the start, and then 1 after the end.
+let txtNe = "I can eat bananas all day";
+let nextXx = txtNe.slice(10, 17);     //declare a new variable here and then you can console log your variable
+console.log("use slice: " + nextXx);
+
+//Strings: use a string method to replace a word (the word you want to replace, the  replacement)
+let txtNex = "Hello World";
+txtNex = txtNex.replace("Hello", "Welcome");
+console.log(txtNex);
+
+
+//Condtions: write an if statement to alert Hello World is x > y
+//proper format of an if statement if(conditions here){action here}
+   //if(x > y) {
+   //    alert("Hello World!!!");
+   //}
+
+//now add an else statement to the code above to alert Goodbye
+   //if(x > y) {
+   //    alert("Hello World!!!");
+   //} else {
+   //    alert("Goodbye!!!");
+   //}
+
+
+
 
 
 

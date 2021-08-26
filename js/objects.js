@@ -20,6 +20,9 @@
     console.log(person.firstName);
     console.log(person.lastName);
 
+    //in class review shanshan did her's differently
+
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -30,7 +33,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    person.sayHello = function(){
+    person.sayHello = function(){    //bc you already created the person object, you can use .notation to add properties
         console.log("Hello from " + this.firstName + " " + this.lastName + "!");
     };
 
@@ -55,7 +58,7 @@
          {name: 'Ryan', amount: 250},
          {name: 'George', amount: 320}
      ];
-    shoppers.forEach(function(shopper){
+    shoppers.forEach(function(shopper){    //shopper is an object of shoppers
         if (shopper.amount > 200) {
             var discount = shopper.amount * .12
             //console.log(shopper.amount - discount);
@@ -160,7 +163,7 @@
      *      ...
      */
     books.forEach(function(book, index){
-        console.log("book #" + index);
+        console.log("book #" + index);         //in class review: could do (index + 1) bc we want to count from #1
         console.log("Author: " + book.author.firstName + " " + book.author.lastName);
         console.log("Title: " + book.title);
         console.log("- - - -");
@@ -178,7 +181,8 @@
      *   `showBookInfo` function.
      */
     console.log("This is the create books function: ");
-function createBook(title, firstName, lastName){
+
+function createBook(title, firstName, lastName){    //check in class review on how to use title, author
     var newBook = {
         title: title,
         author: {
@@ -198,9 +202,10 @@ function createBook(title, firstName, lastName){
     createBook("Congo", "Michael", "Crichton");
     console.log(books);
 
-function showBookInfo(object) {
-    console.log(object.title + " " + object.author.firstName + object.author.lastName);
+   //see in class review
 
+function showBookInfo(object) {
+    console.log(object.title + " " + object.author.firstName + " " + object.author.lastName);
 }
     console.log("this is showBookInfo:")
 
@@ -223,7 +228,7 @@ function showBookInfo(object) {
   showBookInfo(book1)
   showBookInfo(book2)
 
-    console.log("This is the newest for Each loop");
+    console.log("--This is the newest for Each loop--");
       books.forEach(function(book, index){
       showBookInfo(book);
     });

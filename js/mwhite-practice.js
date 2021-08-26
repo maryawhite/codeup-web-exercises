@@ -98,6 +98,41 @@ console.log(txtNex);
    //    alert("Goodbye!!!");
    //}
 
+//from second assessment
+function increment(input){
+   // if(typeof input === "number"){
+        var input2 = parseInt(input, 10);  //parseInt should convert string to integer
+        return input2 += 1;
+   // } else {
+   //     return false
+    }
+//}
+
+//this solution seems to work...if you enter "10"
+function incrementBb (input) {
+    var result = parseInt(input) + 1;
+    return result;
+}
+
+function decrement(input){
+    if(typeof input === "number"){
+        return input -= 1;
+    } else {
+        return false;
+    }
+}
+
+function multiply (num1, num2){
+    if(typeof num1 === "number" && typeof num2 === "number"){
+        var result = parseInt(num1) * parseInt(num2);
+        return result;
+    } else if (typeof num1 === "string" && typeof num2 === "string") {
+        return false;
+    } else {
+        return false;
+    }
+}
+
 
 
 

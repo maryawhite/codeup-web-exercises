@@ -98,40 +98,80 @@ console.log(txtNex);
    //    alert("Goodbye!!!");
    //}
 
-//from second assessment
-function increment(input){
-   // if(typeof input === "number"){
-        var input2 = parseInt(input, 10);  //parseInt should convert string to integer
-        return input2 += 1;
-   // } else {
-   //     return false
+
+//Write a program to check two numbers and return true if one of the numbers is 100
+//or if the sum of the two numbers is 100
+
+function checkNums(a, b){
+    var y = 100;
+    var result = a + b;
+    if(a === 100 || b === 100) {
+        return true;
     }
-//}
-
-//this solution seems to work...if you enter "10"
-function incrementBb (input) {
-    var result = parseInt(input) + 1;
-    return result;
-}
-
-function decrement(input){
-    if(typeof input === "number"){
-        return input -= 1;
-    } else {
-        return false;
+    if (result === y){
+        return true;
     }
 }
+console.log(checkNums(100, 0));    //true
+console.log(checkNums(50, 50));    //true
+console.log(checkNums(90, 10));    //true
+console.log(checkNums(0, 0));      //undefined
+console.log(checkNums(101, 101));  //undefined
+console.log(checkNums(100, 100));  //true
+console.log(checkNums(101, -1));   //true
 
-function multiply (num1, num2){
-    if(typeof num1 === "number" && typeof num2 === "number"){
-        var result = parseInt(num1) * parseInt(num2);
-        return result;
-    } else if (typeof num1 === "string" && typeof num2 === "string") {
-        return false;
-    } else {
-        return false;
+
+function isEqualTo100(a, b){
+    if (a === 100 || b === 100 || (a + b) === 100){
+        return true
     }
 }
+console.log("---");
+console.log(isEqualTo100(50, 50));
+
+//write a program to get the extension of a filename
+var getFileExtension = (str) => str.slice(str.lastIndexOf("."));
+
+console.log(getFileExtension("index.html"));
+//using slice with one element, will give that element to the end, so this will
+//output .html bc it gives you everything after the .
+
+function getFileExt(string){
+    var output = string.slice(string.lastIndexOf("."));
+    return output;
+}
+console.log(getFileExt("index.js"));
+
+function secretCode(string){
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    string = string.split("");
+    for(var i = 0; i < string.length; i++){
+        var code = string + alphabet[i]
+    }
+    return code;
+}
+console.log(secretCode("Mary")); //M,a,r,yd
+
+//String.fromCharCode
+//charCodeAt
+
+const moveCharsForward = (str) =>
+    str.split("").map(char => String.fromCharCode(char.charCodeAt(0) + 1)).join('');
+
+console.log(moveCharsForward("ABC"));
+console.log(moveCharsForward("Mary"));
+
+//writ a javascript program to get the current date
+//expected mm-dd-yyyy
+
+const formatDate = (date = new Date()) => {
+    const months = date.getMonth() + 1;
+    const days = date.getDate() + 1;
+    const years = date.getFullYear();
+    return `${months}/${days}/${years}`;
+}
+console.log("this is not today's date " + formatDate()); //adding a day? index 0 is Jan.
+
 
 
 

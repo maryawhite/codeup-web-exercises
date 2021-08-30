@@ -5,16 +5,16 @@
     var circle = {
         radius: 3,
 
-        getArea: function (radius, pi) {
+        getArea: function (radius, pi) {  //I don't need parameters in this function...
             // TODO: complete this method
             // hint: area = pi * radius^2
-            var area = circle.radius**2 * Math.PI;
+            var area = circle.radius**2 * Math.PI;    //in class review, use Math.PI * Math.pow(this.radius, 2)
             return area // TODO: return the proper value
         },
 
         logInfo: function (doRounding) {
             // TODO: complete this method.
-            var newArea = circle.getArea();
+            var newArea = circle.getArea();   //we are calling getArea() from above. you could use this.getArea()
             if (doRounding === true) {
                 newArea = Math.round(newArea);
             }

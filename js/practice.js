@@ -27,3 +27,30 @@
 // calculateTax([1, 2, 3], 10)      // false
 // calculateTax(“Codeup”, 100)      // false
 // calculateTax()                   // false
+
+
+
+
+//in class exercise Thur 9-2-21
+//write a fortune teller function that takes in 4 arguments: future job, future spouse, future location, and
+//future number of kids.
+
+function fortuneTeller(x, y, z, n){
+    console.log("Your future job is: " + x + ". Your future husband is " + z + ". Your future house will be in: " + y + ". You will have " + n + " kids.");
+}
+
+fortuneTeller("computer programmer", "the mountains", "Brad", "1"  );
+fortuneTeller("computer programmer", "the beach", "George", "2"  );
+fortuneTeller("computer programmer", "the bunker", "Zac", "3"  );
+
+console.log("-- reworking the in class exercise --");
+//rework the in class exercise:
+function tellFortune(numChildren, partnerName, geoLocation, jobTitle){
+    var output = "You will have " + numChildren + " kids, and be married to " + partnerName + " and live in " + geoLocation + ", and you will be a " + jobTitle;
+    return output;
+}
+console.log(tellFortune("3", "Brad,", "the mountains", "computer programmer"));
+console.log(tellFortune("2", "Tim", "the bunker", "back end developer"));
+
+
+

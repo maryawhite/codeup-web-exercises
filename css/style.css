@@ -1,5 +1,56 @@
+html {
+    background-color: #c5fac5;
+    font-family: Arial, Verdana, Helvetica, Sans-Serif, serif;
+}
+
+header {
+    text-align: center;
+    background-image: linear-gradient(#c5fac6, pink);
+}
+
 .fancy-header {
-    color: teal;
+    color: #b201a8;
     text-decoration: underline;
 }
+
+h1 {
+    text-decoration: underline;
+}
+
+.business-header {
+    color: black;
+    font-family: Chalkboard, Arial, Sans-Serif, serif;
+}
+
+ul {
+    list-style: circle;
+}
+
+ol {
+    list-style: upper-alpha;
+}
+
+th, td, tr {
+    padding: 5px;
+    border-style: groove;
+    font-family: Chalkboard, Arial, Sans-Serif, Serif, serif;
+}
+
+a:link {
+    color:darkgreen;
+}
+
+a:visited {
+    color:gray;
+}
+
+a:hover {
+    color:dodgerblue;
+}
+
+a:active {
+    color:red;
+}
+
+
 

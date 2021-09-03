@@ -179,3 +179,29 @@ console.log(alphaBet(null));
 // Example string : 'the quick brown fox'
 // Expected Output : 'The Quick Brown Fox '
 
+
+//in class warm up. 9-3-21
+//write a function named calculateDogAge that takes in 1 parameter, calc the dog's age 1 human yr is 7 dog yrs
+//output your doggie is NN years old
+function calculateDogAge(x){
+    return "Your doggie is " + x * 7 + " years old in dog years!"
+}
+
+console.log(calculateDogAge(14));
+console.log(calculateDogAge(10));
+console.log(calculateDogAge(2));
+
+//in class warmup take two. add an additional param that takes in the conversion rate
+function calculatedogAgeConv(humanYears, conversion){
+    var result = humanYears * conversion
+    return "your dog in human years is " + humanYears + ", and your dog in dog years is " + result;
+}
+console.log(calculatedogAgeConv(1, 7));
+console.log(calculatedogAgeConv(5, 7));
+
+
+
+
+
+
+

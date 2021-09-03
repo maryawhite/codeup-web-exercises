@@ -6,6 +6,11 @@ body, html {
     font-family: Arial, Ubuntu, sans-serif;
 }
 
+:root {
+    --bg-info: #e7f9ff;
+    --text-info: #005571;
+}
+
 .message {
     border: 1px solid lightgrey;
     border-radius: 4px;
@@ -17,8 +22,9 @@ body, html {
 }
 
 .message-info {
-    background-color: rgba(173, 216, 230, 0.7);
-    color: darkblue;
+
+    background-color: var(--bg-info);
+    color: var(--text-info);
 }
 
 .message-success {

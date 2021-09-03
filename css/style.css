@@ -1,11 +1,14 @@
 html {
-    background-color: #c5fac5;
+    background-image: url('/img/156053-green-yellow-and-white-background.jpg');
+    background-size: cover;
     font-family: Arial, Verdana, Helvetica, Sans-Serif, serif;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 header {
     text-align: center;
-    background-image: linear-gradient(#c5fac6, pink);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.62), rgba(232, 167, 202, 0.78));
 }
 
 .fancy-header {
@@ -37,7 +40,7 @@ th, td, tr {
 }
 
 a:link {
-    color:darkgreen;
+    color:lightgreen;
 }
 
 a:visited {

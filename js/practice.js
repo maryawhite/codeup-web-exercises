@@ -108,14 +108,14 @@ console.log(reverseNum(102103));   //301201
 console.log(reverseNum("456"));    //654
 
 //2. Write a JavaScript function that checks whether a passed string is palindrome or not?  For the assessment, if the string is numeric return false.
-function isPalindrome(string) {
-    if (string === null || !isNaN(string)) {
+function isPalindrome(input) {
+    if (input === null || !isNaN(input)) {
         return false;
     }
-    string = string.toString();
-    string = string.toLowerCase();
-    var newString = string.split("").reverse().join("");
-    if(newString === string){
+    input = input.toString();
+    input = input.toLowerCase();   //only works for string
+    var newString = input.split("").reverse().join("");
+    if(newString === input){
         return true;
     }
     return false;
@@ -130,19 +130,49 @@ console.log(isPalindrome(232));      //false
 console.log(isPalindrome(231));      //false
 console.log(isPalindrome("101"));      //false
 console.log(isPalindrome(null));      //false
+console.log(isPalindrome([2, 3, 3]));
+console.log(isPalindrome({color: "blue"}));
 
 
 
 //3. Write a JavaScript function that generates all combinations of a string.
 // Example string : 'dog'
 // Expected Output : d,do,dog,o,og,g
-
+function comboString(input){
+    var result = [];     //initialize an empty array
+    for(var i = 0; i < input.length; i++){
+       //result.push(input[i]);
+       //console.log("this is i " + input[i]);
+       for (var j = i + 1; j < input.length; j++){  //instead of j = 0 or j = 1 use i + 1
+           result.push(input.substring(i, j));     //use substring to get a piece
+           console.log("this is j " + input.substring(i, j));
+       }
+       result.push(input.substring(i));
+       console.log(input.substring(i))
+    }
+    return result;
+}
+console.log(comboString("dog"));
 
 
 //4. Write a JavaScript function that returns a passed string with letters in alphabetical order. Go to the editor
 // Example string : 'webmaster'
 // Expected Output : 'abeemrstw'
 // Assume punctuation and numbers symbols are not included in the passed string.
+
+//You cannot sort a string. split sort join
+function alphaBet(input){
+    var output = false;
+    if(typeof input === "string"){
+        output = input.split("").sort().join("");  //if it's a string output will be this
+    }
+    return output;    //if it's not a string, my if statement won't run
+}
+
+console.log(alphaBet("webmaster"));
+console.log(alphaBet(1234));
+console.log(alphaBet(null));
+
 
 
 //5. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string in upper case. Go to the editor

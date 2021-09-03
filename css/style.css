@@ -1,5 +1,5 @@
 html {
-    background-image: url('/img/156053-green-yellow-and-white-background.jpg');
+    background-image: url('/img/156053-green-yellow-and-white-background.jpg'); /*be careful when using background img in the html*/
     background-size: cover;
     font-family: Arial, Verdana, Helvetica, Sans-Serif, serif;
     padding-left: 10px;

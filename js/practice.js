@@ -200,6 +200,110 @@ console.log(calculatedogAgeConv(1, 7));
 console.log(calculatedogAgeConv(5, 7));
 
 
+// bubbleSort.js
+//from medium.com/jeremy-gottfrieds-tech-blog/algorithms-common-edge-cases-in-js-ce35a2d47674
+
+function bubbleSort(array) {
+    var swapped;
+    do {
+        swapped = false;
+        for(var i = 0; i < array.length; i++) {
+            if(array[i] > array[i + 1]) {
+                swap(array, i, i + 1);
+                swapped = true;
+            }
+        }
+    } while(swapped);
+    return array;
+}
+function swap(array, i, j) {  //this function is being called by the function above
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+}
+
+var newArray = [8, 1, 2, 5, 4, 3, 7, 6];
+var anewArr = [200, 150, 125, 175, 225, 110];
+console.log(bubbleSort(newArray));
+console.log(bubbleSort(anewArr));
+
+//from geeksforgeeks.org
+// Bubble sort Implementation using Javascript
+
+function bblSort(arr){
+    for(var i = 0; i < arr.length; i++){
+// Last i elements are already in place
+        for(var j = 0; j < ( arr.length - i -1 ); j++){
+
+            // Checking if the item at present iteration
+            // is greater than the next iteration
+            if(arr[j] > arr[j+1]){
+
+                // If the condition is true then swap them
+                var temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j+1] = temp
+            }
+        }
+    }
+// Print the sorted array
+    return arr;
+}
+
+// This is our unsorted array
+var arr = [234, 43, 55, 63, 5, 6, 235, 547];
+
+
+// Now pass this array to the bblSort() function
+console.log(bblSort(arr));
+
+//from jshero.net
+//Write a function shortcut that takes two strings and returns the initial letters
+// of theses strings.
+//
+// Example: shortcut('Amnesty', 'International') should return 'AI'.
+
+function shortcut(string1, string2){
+    var firstFirst = string1.charAt(0);
+    var firstSecond = string2.charAt(0);
+    return firstFirst + firstSecond;
+}
+
+console.log(shortcut("Appalachian", "Trail"));
+console.log(shortcut("New", "York"));
+//now account for numbers, numerical strings, empty strings and other edge cases
+
+
+//from jshero.net
+//Write a function indexOfIgnoreCase taking two strings and determining
+// the first occurrence of the second string in the first string.
+// The function should be case insensitive.
+function indexOfIgnoreCase(s1, s2){
+    var news1 = s1.toLowerCase();
+    var news2 = s2.toLowerCase();
+    return news1.indexOf(news2);
+}
+console.log(indexOfIgnoreCase("bit", "it")); //should return 1 bc i is at index 1
+console.log(indexOfIgnoreCase("Mary", "ry")); //should return 2 bc r is at index 2
+console.log(indexOfIgnoreCase("Sarah", "H")); //should return 4
+console.log(indexOfIgnoreCase("ROXANNE", "a")); //should return 3
+console.log(indexOfIgnoreCase("happy", "meal")); //should return -1;
+
+//from jshero//  Write a function secondIndexOf, taking two strings and
+// determining the second occurrence of the second string in the first string.
+// If the search string does not occur twice, -1 should be returned.
+
+function secondIndexOf(inp1, inp2){
+    var n1 = inp1.indexOf(inp2, 0);  //this would find the first index of whatever inp2 is
+    var n2 = inp1.indexOf(inp2, n1 + 1); //you need to add 1 or it will start at n1
+    return n2;
+}
+
+console.log(secondIndexOf("White Rabbit", "it"));  //10
+console.log(secondIndexOf("White Rabbit", "bit")); //-1
+console.log(secondIndexOf("Oh Dear Oh Dear", "Oh"));  //8
+console.log(secondIndexOf("happy happy", "meal"));  //-1
+
 
 
 

@@ -304,6 +304,62 @@ console.log(secondIndexOf("White Rabbit", "bit")); //-1
 console.log(secondIndexOf("Oh Dear Oh Dear", "Oh"));  //8
 console.log(secondIndexOf("happy happy", "meal"));  //-1
 
+//write a function called isEven that takes in an input and returns
+// true if the input is an even number. Return false for odd numbers
+// or empty strings
+
+function isEven(input){
+    if(input === ""){
+        return false;
+    }
+    var remainder = input % 2;
+    return remainder === 0;
+}
+
+console.log("--is even--");
+console.log(isEven(2));  //true
+console.log(isEven(3));  //false
+console.log(isEven(-4));  //true
+console.log(isEven(-5));  //false
+console.log(isEven("Mary"));  //false
+console.log(isEven(""));      //false
+console.log(isEven("10"));    //true
+
+//from w3resource.com Write a JavaScript program that accept two
+// integers and display the larger. if input is not a number of numeric
+//string, return "not a number or numeric string
+function whichIsBigger(a, b){
+    if(isNaN(a) || isNaN(b)){
+        return "not a number";
+    }
+    if(a > b){
+        return a;
+    } else {
+        return b;
+    }
+}
+console.log(whichIsBigger(4, 10));      //10
+console.log(whichIsBigger(20, 30));     //30
+console.log(whichIsBigger(1,2));        //2
+console.log(whichIsBigger("Mary", "encyclopedia"));  //not a number
+
+
+//given 2 strings, return which one is bigger.
+function whichIsBiggerString(string1, string2){
+    if(string1.length > string2.length || string1.length === string2.length){
+        return string1;
+    } else {
+        return string2;
+    }
+}
+console.log("--which is bigger string--");
+console.log(whichIsBiggerString("ant", "anteater"));
+console.log(whichIsBiggerString("dog", "dogcatcher"));
+console.log(whichIsBiggerString("Mary", "encyclopedia"));
+console.log(whichIsBiggerString("apple", "apple"));
+console.log(whichIsBiggerString("four", "fore"));
+
+
 
 
 

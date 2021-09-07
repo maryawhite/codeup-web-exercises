@@ -86,7 +86,7 @@ a {
     color: var(--main-link-color);
 }
 .container {
-    margin: 2em;
+    margin: 2em 0;
 }
 .profile-details {
     float: left;

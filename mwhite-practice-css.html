@@ -14,12 +14,23 @@
       height: 100px;
       width: 100px;
       margin: 10px;
+      border-radius: 25px;
     }
     #box2 {
       background-color: #1969B2; /* blueish */
       height: 125px;
       width: 125px;
       margin: 10px;
+      border-left: 3px solid #042748;
+      border-bottom: 3px solid #042748;
+    }
+    #box2b {
+      background-color: #2d80cb; /* lighter blueish */
+      height: 115px;
+      width: 115px;
+      margin: 10px;
+      border-left: 3px solid #042748;
+      border-bottom: 3px solid #042748;
       float: left;
     }
     #box3 {
@@ -29,11 +40,16 @@
       margin: 10px;
       float: right;
     }
+
+    p {
+      clear: left;
+    }
   </style>
 </head>
 <body>
 <div id="container">
   <div id="box1"></div><p>Hello</p>
+  <div id="box2b"></div>
   <div id="box2"></div>
   <div id="box3"></div>
   <p>

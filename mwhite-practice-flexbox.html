@@ -15,13 +15,29 @@
         }
         .flex-container {
             width: 100%;
+            border: 3px solid rgba(241, 156, 156, 0.7);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center; height: 5em;
+        }
+        .flex-container-column {
+            width: 100%;
             border: 3px solid goldenrod;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
         }
         .flex-item {
             background: #BFD45D;
             border: 2px solid #F9EFD6;
             padding: 1em;
         }
+        .flex-item-column {
+            background: #619cd2;
+            border: 2px solid #f3ae02;
+            padding: 1em;
+        }
+
     </style>
 </head>
 <body>
@@ -30,6 +46,20 @@
     <div class="flex-item">Item 1</div>
     <div class="flex-item">Item 2</div>
     <div class="flex-item">Item 3</div>
+    <div class="flex-item">Item 4</div>
+    <div class="flex-item">Item 5</div>
+    <div class="flex-item">Item 6</div>
+
+</div>
+
+<div class="flex-container-column">
+    <div class="flex-item-column">Thing 1</div>
+    <div class="flex-item-column">Thing 2</div>
+    <div class="flex-item-column">Thing 3</div>
+    <div class="flex-item-column">Thing 4</div>
+    <div class="flex-item-column">Thing 5</div>
+    <div class="flex-item-column">Thing 6</div>
+
 </div>
 
 </body>

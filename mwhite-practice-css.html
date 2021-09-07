@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Floats in-class Example 9-7-21</title>
+  <title>Positioning in-class Example 9-7-21</title>
   <style>
     #container {
       margin: 50px auto;
@@ -17,16 +17,25 @@
     }
     #box2 {
       background-color: #1969B2; /* blueish */
-      height: 150px;
-      width: 150px;
+      height: 125px;
+      width: 125px;
       margin: 10px;
+      float: left;
+    }
+    #box3 {
+      background-color: purple;
+      height: 125px;
+      width: 125px;
+      margin: 10px;
+      float: right;
     }
   </style>
 </head>
 <body>
 <div id="container">
-  <div id="box1"></div>
+  <div id="box1"></div><p>Hello</p>
   <div id="box2"></div>
+  <div id="box3"></div>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

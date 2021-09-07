@@ -55,11 +55,10 @@ a {
 }
 .profile-image{
     position: absolute;
-    top: 225px;
-
+    top: 255px;
 }
 .profile-form {
-    line-height: 75px;
+    line-height: 80px;
 }
 .profile-entry {
     margin: .5em;

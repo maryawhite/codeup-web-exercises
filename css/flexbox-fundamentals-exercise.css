@@ -34,19 +34,26 @@ h2, h3 {
     padding: 1em;
     margin: 0 auto;
     /* enter needed declarations here */
+    flex: border-box;
 }
 
 section {
     /* enter needed declarations here */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
 }
 
 section:nth-of-type(1) {
     height: 3em;
     background: lightgreen;
     /* enter needed declarations here */
+    align-items: center;
 }
 section:nth-of-type(1) div:last-child {
     /* enter needed declarations here */
+    align-self: flex-start;
 }
 
 .purple-box {

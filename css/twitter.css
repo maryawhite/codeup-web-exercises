@@ -59,6 +59,7 @@ a {
 }
 .profile-form {
     line-height: 80px;
+    float: right;
 }
 .profile-entry {
     margin: .5em;

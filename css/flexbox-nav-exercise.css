@@ -1,9 +1,29 @@
+/*the navbar must have the following: box-sizing: border-box for all elements */
+
 * {
     box-sizing: border-box;
 }
+
+#container {
+    position: relative;
+}
+
+/* the "Logo" text is 3em with .2em of padding above and below
+ font for logo is google fonts montserrat*/
+.logo {
+    font-size: 3em;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: calc(50% - 1.9em);
+    left: calc(50% - 1.9em);
+    padding: .2em;
+}
+
 nav {
     background: #a4a4a4;
+
 }
+/*default styling is removed as needed from the body, unordered list and anchor tag elements */
 nav ul {
     list-style: none;
     padding: 0;
@@ -11,24 +31,29 @@ nav ul {
     display: flex; /* made unordered list a flex container */
     /* display: flex makes the children of this container become flex items  */
     align-items: center;
-
 }
+
+/*link text, the logo, and icons are surrounded by anchor tags
+anchor tags are display: inline-block. clickable area of links immediately flow from one link to the next
+google fonts used for link text work sans*/
 nav a {
     text-decoration: none;
     color: black;
-    font-family: Verdana;
+    font-family: 'Work Sans', sans-serif;
     display: inline-block; /* inline-block to increase clickable area beyond the text */
     padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
 }
+/*links turn blue on hover */
 nav a:hover {
     background: blue;
 }
-nav ul li:nth-child(5) {
+
+nav ul li:nth-child(4) {
     /*
         this allows the item to be right justified
         by filling remaining space to the left of the flex item with margin
     */
-    margin-left: auto;
+    margin-right: auto;
 }
 nav ul li:nth-child(6) {
     /*
@@ -38,26 +63,5 @@ nav ul li:nth-child(6) {
     margin-left: auto;
 }
 
-.icon-wrapper {
-    border: 2px solid grey;
-    border-radius: 2em;
-    height: 2em;
-    width: 2em;
-    /* here we make the icon wrappers into flex containers to center the icons */
-    display: flex;
-}
-.icon-wrapper i {
-    /* here we center the icons inside their flex container wrappers */
-    margin: auto;
-}
 
-#logo {
-    height: 3em;
-    width: 3em;
-    position: absolute;
-    top: 50%;
-    margin-top: -1.5em;
-    left: 50%;
-    margin-left: -1.5em;
-    padding: .2em;
-}
+

@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+nav {
+    background: #a4a4a4;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* made unordered list a flex container */
+    /* display: flex makes the children of this container become flex items  */
+
+}
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: Verdana;
+    display: inline-block; /* inline-block to increase clickable area beyond the text */
+    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
+}
+nav a:hover {
+    background: blue;
+}
+nav ul li:nth-child(5) {
+    /*
+        this allows the last flex item to be right justified
+        by filling remaining space to the left of the flex item with margin
+    */
+    margin-left: auto;
+}
+nav ul li:nth-child(6) {
+    /*
+        this allows the last flex item to be right justified
+        by filling remaining space to the left of the flex item with margin
+    */
+    margin-left: auto;
+}
+
+.icon-wrapper {
+    border: 2px solid grey;
+    border-radius: 2.4em;
+    height: 2.4em;
+    width: 2.4em;
+    /* here we make the icon wrappers into flex containers to center the icons */
+    display: flex;
+}
+.icon-wrapper i {
+    /* here we center the icons inside their flex container wrappers */
+    margin: auto;
+}
+
+nav.logo {
+    position: absolute;
+    top: 0;
+    width: 100%
+    padding: .2em;
+    font-size: 3em;
+}

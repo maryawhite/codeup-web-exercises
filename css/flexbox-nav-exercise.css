@@ -10,6 +10,7 @@ nav ul {
     margin: 0;
     display: flex; /* made unordered list a flex container */
     /* display: flex makes the children of this container become flex items  */
+    align-items: center;
 
 }
 nav a {
@@ -24,7 +25,7 @@ nav a:hover {
 }
 nav ul li:nth-child(5) {
     /*
-        this allows the last flex item to be right justified
+        this allows the item to be right justified
         by filling remaining space to the left of the flex item with margin
     */
     margin-left: auto;
@@ -39,9 +40,9 @@ nav ul li:nth-child(6) {
 
 .icon-wrapper {
     border: 2px solid grey;
-    border-radius: 2.4em;
-    height: 2.4em;
-    width: 2.4em;
+    border-radius: 2em;
+    height: 2em;
+    width: 2em;
     /* here we make the icon wrappers into flex containers to center the icons */
     display: flex;
 }
@@ -50,10 +51,13 @@ nav ul li:nth-child(6) {
     margin: auto;
 }
 
-nav.logo {
+#logo {
+    height: 3em;
+    width: 3em;
     position: absolute;
-    top: 0;
-    width: 100%
+    top: 50%;
+    margin-top: -1.5em;
+    left: 50%;
+    margin-left: -1.5em;
     padding: .2em;
-    font-size: 3em;
 }

@@ -7,36 +7,28 @@
 #container {
     position: relative;
 }
-
-/* the "Logo" text is 3em with .2em of padding above and below
- font for logo is google fonts montserrat*/
-.logo {
-    font-size: 3em;
-    font-family: 'Montserrat', sans-serif;
-    position: absolute;
-    top: calc(50% - 1.9em);
-    left: calc(50% - 1.9em);
-    padding: .2em;
+body {
+    margin: 0;
 }
-
 nav {
-    background: #a4a4a4;
-
+    background: lightgrey;
+    margin: 0;
 }
 /*default styling is removed as needed from the body, unordered list and anchor tag elements */
-nav ul {
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex; /* made unordered list a flex container */
     /* display: flex makes the children of this container become flex items  */
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
-
 /*link text, the logo, and icons are surrounded by anchor tags
 anchor tags are display: inline-block. clickable area of links immediately flow from one link to the next
 google fonts used for link text work sans*/
-nav a {
+ul a {
     text-decoration: none;
     color: black;
     font-family: 'Work Sans', sans-serif;
@@ -48,20 +40,25 @@ nav a:hover {
     background: blue;
 }
 
+/* the "Logo" text is 3em with .2em of padding above and below
+ font for logo is google fonts montserrat*/
+.logo {
+    position: absolute;
+    top: -1.2em;
+    left: calc(50% - 1.2em);
+}
+.logo a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    display: inline-block; /*increases clickable area beyond the text */
+    padding: .2em;     /*this spaces out the links on all sides*/
+}
 nav ul li:nth-child(4) {
-    /*
-        this allows the item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
     margin-right: auto;
 }
-nav ul li:nth-child(6) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
-    margin-left: auto;
-}
+
 
 
 

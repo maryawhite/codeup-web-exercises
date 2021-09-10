@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Media Queries</title>
+    <style>
+        .box {  /*this is our default css not applicable to media queries?*/
+            background-color: rebeccapurple;
+            width: 150px;
+            height: 150px;
+            border: 1px solid crimson;
+            margin: .5em;
+            display: none; /* this makes it disappear from view*/
+        }
+
+        #box1 {
+            display: inline-block; /*default*/
+        }
+
+        #box2 {
+            display: inline-block; /*default*/
+        }
+        #container {
+            width: 100%;
+            background-color: antiquewhite;
+        }
+
+
+        /* Small devices (phones and pocket devices, 576 and up) always start w smallest screen then go up */
+        @media screen and (min-width:576px) {
+            .box {
+                display: inline-block;  /*if the screen is smaller than 576px, it will default to the default display*/
+            }
+            #box1 {
+                background-color: darkred; /*color changes from purple to red as the screen gets bigger than 576*/
+            }
+        }
+
+        /* Medium devices (tablets, 768px and up) */
+        @media screen and (min-width:768px) {
+            .box {
+                border: 5px solid crimson; /* as the screen gets bigger, the border will grow*/
+            }
+            #box2 {
+                background-color: orange; /*as the screen gets bigger than 768, the color changes from purple to orange*/
+            }
+
+        }
+
+        /* Large devices (desktops, 992px and up) */
+        @media screen and (min-width:992px) {
+            .box {
+                width: 200px;
+                height: 200px;
+            }
+
+        }
+
+        /* Extra large devices (large desktops, 1200px and up) */
+        @media screen and (min-width:1200px) {
+            #container {
+                display: flex;
+                width: 50%;
+                flex-wrap: wrap;
+                background-color: lightgray;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+</body>
+</html>

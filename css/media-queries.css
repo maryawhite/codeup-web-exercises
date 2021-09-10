@@ -94,6 +94,8 @@ footer p {
         flex-direction: row;
         padding: 0;
         margin-left: auto;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
     ul li {
         width: 100%;
@@ -103,6 +105,23 @@ footer p {
         background-color: white;
         text-align: right;
         padding: 1em;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+    }
+    section.sub-section {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+    }
+    .subsection p{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
     }
 
 }

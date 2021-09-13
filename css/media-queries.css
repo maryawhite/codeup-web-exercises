@@ -50,10 +50,10 @@ ul li {
 nav a:hover {
     background: lightblue;
 }
-div {            /*there are 2 divs, skip to main content and the img*/
+div {            /*there are 3 divs, skip to main content and the img*/
     display: flex;
     flex-direction: row;
-    width: 100%;
+    /*width: 100%;*/
 
 }
 .header-img, img {
@@ -137,22 +137,23 @@ footer p {
     }
     .main {
         background-color: lightpink;
-        margin-right: auto;
+        /*margin-right: auto;*/
         flex-basis: 70%;
     }
     .sub-section {
         background-color: lightgreen;
-        margin-left: auto;
+        /*margin-left: auto;*/
         flex-basis: 30%;
     }
-
-    div, #social-media-links {
-        /*text-align: left;*/
+footer {
+    width: 100%;
+}
+    footer #social-media-links {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
         margin-left: auto;
-    }
-    #social-media-links {
-        margin: auto;
     }
 
 

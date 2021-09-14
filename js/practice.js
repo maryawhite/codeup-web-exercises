@@ -359,7 +359,34 @@ console.log(whichIsBiggerString("Mary", "encyclopedia"));
 console.log(whichIsBiggerString("apple", "apple"));
 console.log(whichIsBiggerString("four", "fore"));
 
+//in class warmup 9-14-21
+//Given arrays of strings that are orders of food in string form to
+// your function, write a function named tacoTuesday that returns
+// TRUE or FALSE if the array provided has any element mention the word ‘taco’ in its value.
 
+function tacoTuesday(array){
+    for(var i = 0; i < array.length; i++){
+        if (array[i].includes("taco")){
+            return true;
+        }
+    }
+    return false;
+}
+console.log("--taco tuesday");
+var hasTacos = ["blueberry muffin", "banana", "yogurt", "cereal", "brisket and egg taco"];
+var noTacos = ["parfait", "omlette de frumage", "protein shake", "fasting"];
+var breakfastToday = ["banana", "eggs", "taco"];
+var breakfastYesterday = ["coffee", "waffles", "muffins"];
+var multipleTacos = ["chicken taco", "bean taco", "beef taco", "veggie taco", "mini tacos"];
+var notAnArray = 23;
+var string = "taco";
+console.log(tacoTuesday(hasTacos));       //true
+console.log(tacoTuesday(noTacos));        //false
+console.log(tacoTuesday(breakfastToday));   //true
+console.log(tacoTuesday(breakfastYesterday));   //false
+console.log(tacoTuesday(notAnArray));          //false
+console.log(tacoTuesday(string));              //false
+console.log(tacoTuesday(multipleTacos));   //true
 
 
 

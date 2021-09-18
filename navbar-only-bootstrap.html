@@ -11,33 +11,49 @@
   <title>Navbar only</title>
 </head>
 <body>
-<nav class="navbar d-flex justify-content-start flex-column flex-sm-row">
-  <a class="navbar-brand flex-column" href="#">
-    <img src="/img/logo.png" height="105" width="105" class="d-flex flex-column" alt="teal logo">Codeup Design</a>
-  <div class="flex-row">
-    <div class="flex-row">
-      <ul class="navbar-nav flex-row">
-          <li class="nav-item p-2">
+<!--all sizes except small-->
+<nav class="navbar nav d-flex flex-column d-sm-none d-md-flex flex-md-row">
+      <div class="d-flex flex-column flex-md-row justify-content-center"> <!--d-flex is required here-->
+          <img src="/img/logo.png" width="105" alt="teal logo">
+      </div>
+          <a class="navbar-brand" href="#"><h2>Codeup Design</h2></a>
+      <ul class="navbar-nav flex-row ml-md-auto">
+          <li class="nav-item pl-2">
             <a class="nav-link" href="#">Services</a>
           </li>
-          <li class="nav-item p-2">
+          <li class="nav-item pl-2">
             <a class="nav-link" href="#">Work</a>
           </li>
+          <li class="nav-item pl-2">
+              <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item pl-2">
+              <a class="nav-link" href="#">Contact</a>
+          </li>
       </ul>
-    </div>
-    <div>
-      <ul class="navbar-nav flex-row">
-        <li class="nav-item p-2">
-          <a class="nav-link" href="#">Blog</a>
-        </li>
-        <li class="nav-item p-2">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
 </nav>
 
+<!--small screens only-->
+<nav class="navbar nav d-none d-sm-flex flex-sm-row d-md-none"> <!--will only display on small screen size-->
+    <ul class="navbar-nav d-flex flex-row mx-auto align-items-center">
+        <li class="nav-item p-2">
+            <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item p-2">
+            <a class="nav-link" href="#">Work</a>
+        </li>
+        <li>
+            <img src="/img/logo.png" width="105" class="d-flex flex-column m-auto" alt="teal logo">
+            <a class="navbar-brand" href="#"><h2>Codeup Design</h2></a>
+        </li>
+        <li class="nav-item p-2">
+            <a class="nav-link" href="#">Blog</a>
+        </li>
+        <li class="nav-item p-2">
+            <a class="nav-link" href="#">Contact</a>
+        </li>
+    </ul>
+</nav>
 
 
 

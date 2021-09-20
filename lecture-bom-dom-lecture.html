@@ -8,8 +8,8 @@
 <script>
     //TODO: Finish coding this program. You need to stop the setInterval() method after the showTime() function has run five times
 
-
     let count = 0;
+    let max = 5;
 
     function showTime() {
 
@@ -24,9 +24,21 @@
         //if the count reaches 5, stop the program.
 
         console.log(time)
+        if(count >= max){
+            clearInterval(display);
+        }
     }
 
     let display = setInterval(showTime, 5000);
+
+    function greet(){
+        console.log("Hello");
+    }
+
+    var delayedGreeting = window.setTimeout(greet, 2000);  //enter a function and a number of milliseconds
+
+    window.clearTimeout(delayedGreeting);
+
 </script>
 </body>
 </html>

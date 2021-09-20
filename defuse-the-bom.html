@@ -42,6 +42,13 @@
     // We will learn about events in the DOM lessons
     var defuser = document.getElementById('defuser');
     defuser.addEventListener('click', defuseTheBOM);
+
+
+
+    function stillThere(){
+        alert("are you still here? Go study!");
+    }
+    var delayedMsg = window.setInterval(stillThere, 60000);  //60000 ms is 1 minute
 })();
 </script>
 </body>

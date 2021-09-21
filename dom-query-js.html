@@ -52,20 +52,24 @@
             if(i % 2 === 0){
                 listItems[i].style.color = "grey";
             }
-            if(listItems[i].getAttribute("data-dbid")){
-                listItems[i].style.color = "blue";
-            }
+            // if(listItems[i].getAttribute("data-dbid")){
+            //     if("data-dbid" === "1"){
+            //         listItems[i].style.color = "blue";
+            //     }
+            // }
         }
-
-        //start here tomorrow
-
-
+        var el = document.querySelector('li[data-dbid="1"]');  //use bracket notation and single or dbl quotes look at this later
+        console.log(el);
+        el.style.color = "blue";
 
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = ;
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+        console.log(subParagraphs);
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].innerText = "Mission Accomplished";
+
     })();
 </script>
 </body>

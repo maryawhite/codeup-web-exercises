@@ -52,12 +52,18 @@
             if(i % 2 === 0){
                 listItems[i].style.color = "grey";
             }
-            // if(listItems[i].getAttribute("data-dbid")){
-            //     if("data-dbid" === "1"){
-            //         listItems[i].style.color = "blue";
-            //     }
+            // if(listItems[i].getAttribute("data-dbid") === "1"){
+            //
+            //         listItems[i].style.color = "red";
+            //
             // }
+            // this if statement will work or querySelector below
         }
+
+        // Array.prototype.forEach.call(listItems, function(listItem){
+        // if(listItem.getAttribute("data-dbid") === "1") {
+        // listItem.style.color = "blue"
+
         var el = document.querySelector('li[data-dbid="1"]');  //use bracket notation and single or dbl quotes look at this later
         console.log(el);
         el.style.color = "blue";

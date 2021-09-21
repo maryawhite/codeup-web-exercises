@@ -18,15 +18,25 @@ console.log(specialOffers);
 var listItems = document.getElementsByTagName("li");
 console.log(listItems);
 
-
+var listItemsHats = document.getElementsByClassName("hat-sold");
+console.log(listItemsHats);
 //Loop through the hatList and print our nodes
 
 for(var i = 0; i < listItems.length; i++){
     console.log(listItems[i]);
+
 }
 
+// for(var i = 0; i < listItems.length; i++){
+// var dbId = listItems[i].getAttribute("data-dbid");
+// console.log(dbId);
+// }
+var dbId = listItems[4].getAttribute("data-dbid");
+console.log(dbId);
 
 
+var y = document.querySelectorAll(".hat-sold");
+console.log(y);
 
 //~*~ Accessing form input
 
@@ -107,3 +117,4 @@ bodyElement.style.backgroundColor = "cornflowerblue";
 // We had to use [] syntax since the property name has a dash
 
 // Replace dashes with camelCase to use standard . syntax
+

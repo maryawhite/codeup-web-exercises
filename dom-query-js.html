@@ -7,6 +7,8 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="btn1">JavaScript is Cool</button>
+
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -26,6 +28,8 @@
 </p>
 
 <script>
+    var button1 = document.getElementById("btn1");
+
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
@@ -33,7 +37,14 @@
         console.log(mainHeader);
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+        //PART II: add 4 buttons to the page, attach click event listeners to each of the buttons to perform the modifications
+        var isCool = function(){
+            var mainHeader = document.getElementById("main-header");
+                mainHeader.innerHTML = "JavaScript is Cool!";
+        }
+        button1.addEventListener('click', isCool);
+
+        // mainHeader.innerHTML = "JavaScript is Cool";
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById("sub-header");

@@ -31,6 +31,16 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 <button id="btn4">Click here when done</button>
+<p>Pick your least favorite color from the dropdown:</p>
+<form>
+    <select id="favColor">
+        <option>Red</option>
+        <option>Green</option>
+        <option>White</option>
+        <option>Black</option>
+    </select>
+    <input type="button" id="test-button" value="remove">
+</form>
 
 
 <script>
@@ -38,6 +48,7 @@
     var button2 = document.getElementById("btn2");
     var button3 = document.getElementById("btn3");
     var button4 = document.getElementById("btn4");
+    var testButton = document.getElementById("test-button");
 
 
     (function() {
@@ -114,6 +125,13 @@
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         // subParagraphs[0].innerText = "Mission Accomplished";
+
+        //least favorite color picker. remove the one the user selects
+        var lfRemover = function(){
+            var leastFave = document.getElementById("favColor");
+            leastFave.remove(leastFave.onclick);  //this seems to work, maybe .onclick is built in?
+        }
+        testButton.addEventListener('click', lfRemover);
 
     })();
 </script>

@@ -201,6 +201,8 @@ function oddOrEvenW (input){
 }
 console.log(oddOrEvenW(4));
 
+//fizzbuzz if div by 3 print fizz, if div by 5 print buzz, if div by 3 and 5 print fizz buzz
+
 
 
 

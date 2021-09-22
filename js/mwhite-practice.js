@@ -173,7 +173,33 @@ const formatDate = (date = new Date()) => {
 console.log("this is not today's date " + formatDate()); //adding a day? index 0 is Jan.
 
 
+//in class warmup 9-22-21
+//write a function named logNum() that will accept a number parameter indicating the number
+//of times to LOG numbers up to what was provided. LogNum will let me know whether
+//or not the number that we are iterating through is even or odd
 
+function logNum(input){
+    for(var i = 0; i <= input; i++){    //don't use input.length, just input
+        if(i % 2 === 0){
+            console.log(i + " is even");
+        } else {
+            console.log(i + " is odd");
+        }
+    }
+}
+
+console.log(logNum(10));
+
+function oddOrEvenW (input){
+    for(var i = 0; i <= input; i++){
+        if (i % 2 === 0){
+            console.log(i + " is even");
+        } else {
+            console.log(i + " is odd");
+        }
+    }
+}
+console.log(oddOrEvenW(4));
 
 
 

@@ -153,10 +153,16 @@
         e.preventDefault();
         var bonusInput2 = bonusInput.value;
         var bonusRoastType2 = bonusRoastType.value;
-        coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
-        tbody.innerHTML = renderCoffees(coffees);
-        var localSt = JSON.stringify(coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2}));
+        // coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
+        // tbody.innerHTML = renderCoffees(coffees);
+        var localSt = coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
+        localStorage.setItem('localSt', JSON.stringify(localSt))
         console.log(localSt);
+        var retrievedObj = localStorage.getItem('localSt');
+        tbody.innerHTML = renderCoffees(coffees);
+
+
+
     })
 </script>
 </body>

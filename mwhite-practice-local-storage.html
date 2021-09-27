@@ -155,8 +155,9 @@
         var bonusRoastType2 = bonusRoastType.value;
         // coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
         // tbody.innerHTML = renderCoffees(coffees);
-        var localSt = coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
-        localStorage.setItem('localSt', JSON.stringify(localSt))
+        var localSt = [];
+        localSt = coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
+        localStorage.setItem('localSt', JSON.stringify(coffees[coffees.length -1]));
         console.log(localSt);
         var retrievedObj = localStorage.getItem('localSt');
         tbody.innerHTML = renderCoffees(coffees);

@@ -148,6 +148,7 @@
 
     var bonusInput = document.querySelector('#bonus-coffee-input');
     var bonusRoastType = document.querySelector('#bonus-roast-selection');
+    var localStCoffeeArray = [];
 
     addBtn.addEventListener("click", function(e) {
         e.preventDefault();
@@ -155,14 +156,16 @@
         var bonusRoastType2 = bonusRoastType.value;
         // coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
         // tbody.innerHTML = renderCoffees(coffees);
-        var localSt = [];
-        localSt = coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
-        localStorage.setItem('localSt', JSON.stringify(coffees[coffees.length -1]));
-        console.log(localSt);
-        var retrievedObj = localStorage.getItem('localSt');
+        // localStorage.setItem('localSt', JSON.stringify(coffees[coffees.length -1]));
+        // localStCoffeeArray =
+        if(localStorage.length === 0){
+            localStCoffeeArray = coffees;
+        } else {
+        coffees.push({id: (coffees.length + 1), name: bonusInput2, roast: bonusRoastType2});
+        localStorage.setItem("localStCoffeeArray", JSON.stringify(localStCoffeeArray));
+        localStorage.getItem('localStCoffeeArray');
+        }
         tbody.innerHTML = renderCoffees(coffees);
-
-
 
     })
 </script>

@@ -9,7 +9,7 @@
 
 <h1>Example Page</h1>
 <div class="important">
-    <h3>NOTICE</h3>
+    <h2>NOTICE</h2>
     <p>This is an important message!</p>
 </div>
 <div class="not-important">
@@ -19,6 +19,14 @@
     </p>
 </div>
 <p class="important">This is also very important.</p>
+
+<div>
+    <label>Password</label>
+    <div>
+        <input type="password" id="inputPassword" placeholder="Enter password">
+    </div>
+    <input type="checkbox" id="showPassword">Show Password
+</div>
 
 <button type="button" id="btn1">Click Me Once!</button>
 <button type="button" id="btn2">Click Me Twice!</button>
@@ -44,12 +52,14 @@
 
         $("*").css("border" , "1px solid red").css("padding",".2em");
 
+        $("p, div").css("font-size","20px");
+
         //lecture on jquery events
         //click event
         $("#codeup").click(function(){
             alert("h1 with id codeup was clicked");
         });
-        $("#btn1, #btn2").css("background-color","blue").css("color","white");
+        $("#btn1, #btn2").css("background-color","blue").css("color","white").css("margin","1em").css("padding",".5em");
         $("#btn1").click(function(){
             alert("button was clicked");
         });
@@ -64,7 +74,18 @@
             function(){
             $(this).css("background-color", "inherit").css("color", "inherit");
         });
-
+//show/hide password
+        //the code below would be similar to getElement by ID, make a variable and then make an event handler
+        //with an if statment to change the attribute from password to text when it's clicked.
+        $("#showPassword").click(function(){
+            var inputPassword=$("#inputPassword");
+            if(inputPassword.attr("type")==="password")    //If the input field has a type of password, when you check the box with id of showPassword, it will be updated with the text type attribute
+            {
+              inputPassword.attr("type","text");
+            } else {
+                inputPassword.attr("type", "password");
+        }
+    });
 
     });
 

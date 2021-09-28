@@ -20,22 +20,51 @@
 </div>
 <p class="important">This is also very important.</p>
 
+<button type="button" id="btn1">Click Me Once!</button>
+<button type="button" id="btn2">Click Me Twice!</button>
+
+
+
+
+
 
 <!--put JQuery CDN in the body with a script tag-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function() {
-        alert("Document Ready")
+        // alert("Document Ready")
 
-        var contents = $('#codeup').html();
-        alert(contents);
+        // var contents = $('#codeup').html();
+        // alert(contents);
 
         $('.important').css('background-color', 'yellow');
 
         $('p').css('font-size', '16px');
 
         $("*").css("border" , "1px solid red").css("padding",".2em");
+
+        //lecture on jquery events
+        //click event
+        $("#codeup").click(function(){
+            alert("h1 with id codeup was clicked");
+        });
+        $("#btn1, #btn2").css("background-color","blue").css("color","white");
+        $("#btn1").click(function(){
+            alert("button was clicked");
+        });
+        $("#btn2").dblclick(function(){
+            alert("button 2 double clicked");
+        });
+        //hover over
+        //what is this referring to...this refers to the DOM element that triggered the event
+        $("p").hover(function(){
+            $(this).css("background-color", "rebeccapurple").css("color","lightgreen");
+        },
+            function(){
+            $(this).css("background-color", "inherit").css("color", "inherit");
+        });
+
 
     });
 

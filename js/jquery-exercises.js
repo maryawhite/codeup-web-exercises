@@ -2,7 +2,8 @@
 
 $(document).ready(function() {
 //your code should be inside the document ready function
-$("#note-to-self").css("border","1px solid red");
+$("body").css("padding", "1em");
+$("#note-to-self").css("border","1px solid red").css("color", "darkgrey");
 $("li").css("font-size", "20px");
 $(".codeup").css("background-color","yellow");
 var tagline = $("#tagline").html();

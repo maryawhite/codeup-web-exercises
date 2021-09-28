@@ -3,7 +3,6 @@
 $(document).ready(function() {
     alert("Document Ready")
 
-});
+//your code should be inside the document ready function
 
-// $(document).ready();
-// alert("Document ready without function");
+});

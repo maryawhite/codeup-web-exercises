@@ -69,10 +69,10 @@
         //hover over
         //what is this referring to...this refers to the DOM element that triggered the event
         $("p").hover(function(){
-            $(this).css("background-color", "rebeccapurple").css("color","lightgreen");
+            $(this).css("background-color", "rebeccapurple").css("color","lightgreen");  //enter
         },
             function(){
-            $(this).css("background-color", "inherit").css("color", "inherit");
+            $(this).css("background-color", "inherit").css("color", "inherit");  //exit
         });
 //show/hide password
         //the code below would be similar to getElement by ID, make a variable and then make an event handler
@@ -86,6 +86,34 @@
                 inputPassword.attr("type", "password");
         }
     });
+
+        //lecture Wed 9-29-21 Keyboard Events
+        // $("body").keydown(function(event){  //press a key, open the console and see what shows up
+        //     console.log(event.key);
+        // });
+
+        // $("body").keypress(function(event){  //press a key, open the console and see what shows up
+        //     console.log(event.key);
+        // });
+        //keydown all keys
+        //keypress not including modifier keys
+
+        // $("body").keyup(function(event){  //keyup logs when you release the key
+        //     console.log(event.key);
+        // });
+
+        //konami code... up up down down left right left right b a enter
+        var myKeys = "";  //global var
+        $(document).keyup(function(event){
+            console.log("the key you pressed was " + event.key);
+            myKeys = myKeys + event.key;
+            console.log(myKeys);
+            //if user types quasar do something cool
+            if(myKeys === "quasar"){
+                alert("cool");
+            }
+        });
+
 
     });
 

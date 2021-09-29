@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Konami Code</title>
+
 </head>
 <body>
 <h1>Konami Code</h1>
@@ -24,6 +25,7 @@
         if(myKeys === "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter"){
             alert("You have added 30 lives!!!");
             changeBodyColor();
+            playSound();
         }
     });
 
@@ -32,6 +34,12 @@
         $("h1").css("color","white");
 
     }
+
+    function playSound(){
+        var audio = new Audio("sound/arcade_game_alarm_short.mp3");
+        audio.play();
+    }
+
 
 
 </script>

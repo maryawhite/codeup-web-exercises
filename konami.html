@@ -9,7 +9,7 @@
 
 
 
-//remember to include the jquery script src
+<!--remember to include the jquery script src-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
@@ -23,8 +23,15 @@
         //if user types quasar do something cool
         if(myKeys === "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter"){
             alert("You have added 30 lives!!!");
+            changeBodyColor();
         }
     });
+
+    function changeBodyColor(input){
+        $('body').css('background-color', 'green');
+        $("h1").css("color","white");
+
+    }
 
 
 </script>

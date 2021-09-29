@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Konami Code</h1>
-
+<p>Click the body to reset the page.</p>
 
 
 <!--remember to include the jquery script src-->
@@ -39,6 +39,10 @@
         var audio = new Audio("sound/arcade_game_alarm_short.mp3");
         audio.play();
     }
+
+    $("body").click(function(){
+        window.location.reload(true);
+    });
 
 
 

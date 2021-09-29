@@ -7,7 +7,10 @@
 </head>
 <body>
 <h1>Konami Code</h1>
-<p>Click the body to reset the page.</p>
+<p>The Konami Code: Up, Up, Down, Down, Left, Right, Left, Right, b, a, enter ( ↑ ↑ ↓ ↓ ← → ← → b a enter).
+</p>
+<p>Click the h1 to reset the page.</p>
+<p id="hide">Hide and Seek, click me :)</p>
 
 
 <!--remember to include the jquery script src-->
@@ -21,7 +24,6 @@
         console.log("the key you pressed was " + event.key);
         myKeys = myKeys + event.key;
         console.log(myKeys);
-        //if user types quasar do something cool
         if(myKeys === "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter"){
             alert("You have added 30 lives!!!");
             changeBodyColor();
@@ -30,23 +32,27 @@
     });
 
     function changeBodyColor(input){
-        $('body').css('background-color', 'green');
-        $("h1").css("color","white");
+        $('body').css('background', 'linear-gradient(#e66465, #9198e5) fixed');
+        $("h1, p").css("color","white");
 
     }
 
     function playSound(){
-        var audio = new Audio("sound/arcade_game_alarm_short.mp3");
-        audio.play();
+        var lives30 = new Audio("sound/arcade_game_alarm_short.mp3");
+        lives30.play();
     }
 
-    $("body").click(function(){
+    $("#hide").click(function(){
+        $("#hide").hide();
+    });
+
+    $("h1").click(function(){
         window.location.reload(true);
     });
 
 
 
 </script>
-
+<!--sound effect from https://www.zapsplat.com/-->
 </body>
 </html>

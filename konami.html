@@ -7,13 +7,26 @@
 <body>
 <h1>Konami Code</h1>
 
-<script src="/js/jquery.js"></script>
+
+
+//remember to include the jquery script src
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 <script>
     "use strict";
-
+    //konami code... up up down down left right left right b a enter
+    var myKeys = "";  //global var
     $(document).keyup(function(event){
-        console.log(event.key);
+        console.log("the key you pressed was " + event.key);
+        myKeys = myKeys + event.key;
+        console.log(myKeys);
+        //if user types quasar do something cool
+        if(myKeys === "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter"){
+            alert("You have added 30 lives!!!");
+        }
     });
+
+
 </script>
 
 </body>

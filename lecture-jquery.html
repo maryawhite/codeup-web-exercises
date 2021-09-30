@@ -46,6 +46,7 @@
 <div class="important">
     <h2>NOTICE</h2>
     <p>This is an important message!</p>
+    <p>Other common methods include .addClass(), .removeClass() .toggleClass()</p>
 </div>
 <div class="not-important">
     <h2>Lorem Ipsum</h2>
@@ -92,13 +93,12 @@
 
 
         //lecture notes 9-30-21 discuss .each .first and .last methods
-        //try my methods later, can I apply them to paragraphs, not lists?
-            $(".each").each(function(element){
+            $(".each").each(function(){
                 $(this).css("background-color", "orange");
             });
 
             $("p.first").first().css("background-color", "#b201a8");
-            $("p.last").last().css("background-color", "#2d80cb").css("color","white");
+            $("p.last").last().css({"background-color": "#2d80cb", "color":"white"});
 
 
 
@@ -106,7 +106,7 @@
 
         // alert("Document Ready")
 
-        // var contents = $('#codeup').html();
+        // var contents = $('#codeup').html();  //this is an example of an html method
         // alert(contents);
 
         $('.important').css('background-color', 'yellow');
@@ -130,7 +130,7 @@
             alert("button 2 double clicked");
         });
         //hover over
-        //what is this referring to...this refers to the DOM element that triggered the event
+        //what is "this" referring to...this refers to the DOM element that triggered the event
         // $("p").hover(function(){
         //     $(this).css("background-color", "rebeccapurple").css("color","lightgreen");  //enter
         // },
@@ -140,7 +140,7 @@
 
 //show/hide password
         //the code below would be similar to getElement by ID, make a variable and then make an event handler
-        //with an if statment to change the attribute from password to text when it's clicked.
+        //with an if statement to change the attribute from password to text when it's clicked.
         $("#showPassword").click(function(){
             var inputPassword=$("#inputPassword");
             if(inputPassword.attr("type")==="password")    //If the input field has a type of password, when you check the box with id of showPassword, it will be updated with the text type attribute

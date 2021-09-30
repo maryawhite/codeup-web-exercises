@@ -8,6 +8,41 @@
 <h1 id="codeup">Hello Codeup</h1>
 
 <h1>Example Page</h1>
+<h2>Traversing the DOM</h2>
+<p>The .each() method allows us to iterate over a JQuery object and execute a function for each matched element. Here we are going to highlight every other li.</p>
+<ul>
+    <li>Linux</li>
+    <li>Apache</li>
+    <li>MySQL</li>
+    <li>PHP</li>
+    <li>Javascript</li>
+</ul>
+
+<p>The .first() method allows us to reduce the matched elements to the first in the set. Here we change the bg color of the first li.</p>
+<p>The .last() method allows us to reduce the matched element to the final one in the set. Here we change the bg color of the last li.</p>
+
+<hr>
+
+
+<div class="each">
+<p>This is a paragraph in a div. The each method iterates over a JQuery Object, executing a function for each matched element.</p>
+<p>This is a paragraph in the same div.</p>
+<p>This is a paragraph in the same div. The div has a class of .each. Check out the javascript file to see the method.</p>
+</div>
+<hr>
+
+<div class="first">
+    <p class="first">This is a paragraph in a div. The first method reduces the set of matched elements to the first in the set.</p>
+    <p class="first">This is a paragraph in the same div. Both paragraphs have a class of .first.</p>
+</div>
+<hr>
+
+<div class="last">
+    <p class="last">This is a paragraph in a div. The last method reduces the set of matched elements to the last in the set.</p>
+    <p class="last">This is the last paragraph in the div. Both paragraphs have a class of .last.</p>
+</div>
+<hr>
+
 <div class="important">
     <h2>NOTICE</h2>
     <p>This is an important message!</p>
@@ -20,6 +55,10 @@
 </div>
 <p class="important">This is also very important.</p>
 
+<p>This is the last paragraph on the page.</p>
+<hr>
+
+
 <div>
     <label>Password</label>
     <div>
@@ -28,10 +67,9 @@
     <input type="checkbox" id="showPassword">Show Password
 </div>
 
+
 <button type="button" id="btn1">Click Me Once!</button>
 <button type="button" id="btn2">Click Me Twice!</button>
-
-
 
 
 
@@ -41,6 +79,31 @@
 
 <script>
     $(document).ready(function() {
+
+        $('li').each(function(index) {
+            if (index % 2 !== 0) {
+                $(this).css('background-color', '#FF0');
+            }
+        });
+
+        $('li').first().css('background-color', '#b201a8');
+
+        $('li').last().css('background-color', '#c5fac5');
+
+
+        //lecture notes 9-30-21 discuss .each .first and .last methods
+        //try my methods later, can I apply them to paragraphs, not lists?
+            $(".each").each(function(element){
+                $(this).css("background-color", "orange");
+            });
+
+            $("p.first").first().css("background-color", "#b201a8");
+            $("p.last").last().css("background-color", "#2d80cb").css("color","white");
+
+
+
+
+
         // alert("Document Ready")
 
         // var contents = $('#codeup').html();
@@ -48,11 +111,11 @@
 
         $('.important').css('background-color', 'yellow');
 
-        $('p').css('font-size', '16px');
+        // $('p').css('font-size', '16px');
 
-        $("*").css("border" , "1px solid red").css("padding",".2em");
+        // $("*").css("border" , "1px solid red").css("padding",".2em");
 
-        $("p, div").css("font-size","20px");
+        // $("p, div").css("font-size","20px");
 
         //lecture on jquery events
         //click event
@@ -68,12 +131,13 @@
         });
         //hover over
         //what is this referring to...this refers to the DOM element that triggered the event
-        $("p").hover(function(){
-            $(this).css("background-color", "rebeccapurple").css("color","lightgreen");  //enter
-        },
-            function(){
-            $(this).css("background-color", "inherit").css("color", "inherit");  //exit
-        });
+        // $("p").hover(function(){
+        //     $(this).css("background-color", "rebeccapurple").css("color","lightgreen");  //enter
+        // },
+        //     function(){
+        //     $(this).css("background-color", "inherit").css("color", "inherit");  //exit
+        // });
+
 //show/hide password
         //the code below would be similar to getElement by ID, make a variable and then make an event handler
         //with an if statment to change the attribute from password to text when it's clicked.

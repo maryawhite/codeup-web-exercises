@@ -36,10 +36,35 @@
   <dd>No more questions</dd>
 </dl>
 
-  <div>
+  <div class="mb-3">
   <a href="#" id="toggle-link">Click to show or hide the answers.</a>
   </div>
 
+  <h3>National Parks</h3>
+  <ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+  </ul>
+  <h3>State Parks of Texas</h3>
+  <ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+  </ul>
+  <h3>State Parks of Georgia</h3>
+  <ul id="state-parks-georgia">
+    <li>Cloudland Canyon</li>
+    <li>Sweetwater Creek</li>
+    <li>Fort Yargo</li>
+    <li>Amicalola Falls</li>
+    <li>Unicoi State Park</li>
+    <li>Fort Mountain</li>
+  </ul>
 
 
   <!-- Optional JavaScript; choose one of the two! -->
@@ -57,6 +82,15 @@
     event.preventDefault();
     $("dd").toggleClass('invisible');
   });
+
+
+  $(".highlight").css("background-color","yellow");
+  $("dt").click(function(e){
+    e.preventDefault();
+    $(this).css("background-color","yellow");
+  });
+
+
 
 </script>
 </div>

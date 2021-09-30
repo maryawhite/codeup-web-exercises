@@ -66,6 +66,9 @@
     <li>Fort Mountain</li>
   </ul>
 
+  <button type="button" class="btn btn-light">Last li yellow</button>
+
+
 
   <!-- Optional JavaScript; choose one of the two! -->
 
@@ -75,8 +78,9 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <script>
-  $("dd").addClass("invisible");
-  // $(".invisible").css("visibility", "hidden");
+    $(".invisible").css("visibility", "hidden"); //this needs to be above the addClass invisible if you're using bootstrap. If you're not using BS you need a stylesheet with this in it
+
+    $("dd").addClass("invisible");
 
   $('#toggle-link').click(function(event) {
     event.preventDefault();
@@ -89,6 +93,23 @@
     e.preventDefault();
     $(this).css("background-color","yellow");
   });
+
+  $(".btn").click(function (e){
+    // var li =$("li");
+    e.preventDefault();
+    $("#national-parks").each(function(li, length-1){
+      $("li").last().css("background-color", "blue");
+    });
+    // $("li").each(function(){
+    //   $("li").last().css({"background-color": "yellow", "color":"red"});
+    //   // $("li").last().css("background-color", "orange");
+    // });
+  });
+
+    $("#national-parks").each(function(){
+      $("li").css("background-color", "blue");
+    });
+
 
 
 

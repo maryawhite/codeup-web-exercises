@@ -32,8 +32,8 @@
   <dd>121 miles/195 km. Roughly 2.5 hours by car.</dd>
   <dt>How long does it take to drive from Atlanta to Alaska?</dt>
   <dd>Four days with 2 drivers.</dd>
-  <dt>Last FAQ</dt>
-  <dd>No more questions</dd>
+  <dt>Are there mosquitos.</dt>
+  <dd>Yes, bring DEET</dd>
 </dl>
 
   <div class="mb-3">
@@ -100,10 +100,10 @@
     $("#state-parks-texas li").last().css("background-color", "yellow");
     $("#state-parks-georgia li").last().css("background-color", "yellow");
 
-    $("h3").click(function(){
-      $("#national-parks, #state-parks-georgia, #state-parks-texas").children([]).css("font-weight", "bold");
-      $("#state-parks-georgia, #state-parks-texas").children().css("font-weight", "bold");
+    });
 
+    $("h3").click(function() {
+      $("ul").children().css("font-weight", "bold");
     });
 
 
@@ -111,7 +111,7 @@
     //   $("li").last().css({"background-color": "yellow", "color":"red"});
     //   // $("li").last().css("background-color", "orange");
     // });
-  });
+  // });
 
     $("h1").click(function(){
       window.location.reload(true);

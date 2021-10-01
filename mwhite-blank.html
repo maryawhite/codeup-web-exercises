@@ -8,7 +8,7 @@
 <body>
 <div>
     <h1>Parks List</h1>
-    <h3>National Parks</h3>
+    <h3 id="national-parks-heading">National Parks</h3>
     <ul id="national-parks">
         <li>Arches</li>
         <li>Badlands</li>
@@ -31,6 +31,11 @@
     // $('li').css('background-color', '#FF0');
     $('li').first().parent().css('background-color', '#0F0');
     });
+
+    $("h3").click(function(){
+        $('#national-parks-heading').next().css('background-color', 'salmon');
+    })
+
 
 </script>
 

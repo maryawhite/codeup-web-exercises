@@ -100,6 +100,12 @@
     $("#state-parks-texas li").last().css("background-color", "yellow");
     $("#state-parks-georgia li").last().css("background-color", "yellow");
 
+    $("h3").click(function(){
+      $("#national-parks, #state-parks-georgia, #state-parks-texas").children([]).css("font-weight", "bold");
+      $("#state-parks-georgia, #state-parks-texas").children().css("font-weight", "bold");
+
+    });
+
 
     // $("li").each(function(){
     //   $("li").last().css({"background-color": "yellow", "color":"red"});
@@ -107,7 +113,9 @@
     // });
   });
 
-
+    $("h1").click(function(){
+      window.location.reload(true);
+    });
 
 </script>
 </div>

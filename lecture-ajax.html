@@ -90,9 +90,9 @@ var obj = {
   // https://www.themealdb.com/api.php < api documentation main page (hint: looks like there's some kind of URL beneath the 'lookup a single random meal' heading. . and our AJAX method is looking for a url)
   //use the api link in your ajax method, add https:// before www.
 
-  // $.ajax("https://www.themealdb.com/api/json/v1/1/random.php").done(function(data){
-  //   console.log(data);
-  // })
+  $.ajax("https://www.themealdb.com/api/json/v1/1/random.php").done(function(data){
+    console.log(data);
+  })
 
   // ~*~ working with responses ~*~
 

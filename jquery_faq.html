@@ -66,7 +66,7 @@
     <li>Fort Mountain</li>
   </ul>
 
-  <button type="button" class="btn btn-light">Last li yellow</button>
+  <button type="button" class="btn btn-light btn-yellow">Last li yellow</button>
 
 
 
@@ -94,22 +94,18 @@
     $(this).css("background-color","yellow");
   });
 
-  $(".btn").click(function (e){
-    // var li =$("li");
+  $(".btn-yellow").click(function (e){
     e.preventDefault();
-    $("#national-parks").each(function(li, length-1){
-      $("li").last().css("background-color", "blue");
-    });
+    $("#national-parks li").last().css("background-color", "yellow");
+    $("#state-parks-texas li").last().css("background-color", "yellow");
+    $("#state-parks-georgia li").last().css("background-color", "yellow");
+
+
     // $("li").each(function(){
     //   $("li").last().css({"background-color": "yellow", "color":"red"});
     //   // $("li").last().css("background-color", "orange");
     // });
   });
-
-    $("#national-parks").each(function(){
-      $("li").css("background-color", "blue");
-    });
-
 
 
 

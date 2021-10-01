@@ -56,6 +56,31 @@
 </div>
 <p class="important">This is also very important.</p>
 
+<h3>National Parks</h3>
+<ul id="national-parks">
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+</ul>
+<h3>State Parks of Georgia</h3>
+<ul id="state-parks-georgia">
+    <li>Amicalola Falls</li>
+    <li>Cloudland Canyon</li>
+    <li>Fort Yargo</li>
+    <li>Unicoi State Park</li>
+</ul>
+<p>Make the last li in each ul yellow.</p>
+<button type="button" id="btn3">Yellow li</button>
+
+
 <p>This is the last paragraph on the page.</p>
 <hr>
 
@@ -68,11 +93,8 @@
     <input type="checkbox" id="showPassword">Show Password
 </div>
 
-
 <button type="button" id="btn1">Click Me Once!</button>
 <button type="button" id="btn2">Click Me Twice!</button>
-
-
 
 
 <!--put JQuery CDN in the body with a script tag-->
@@ -81,15 +103,15 @@
 <script>
     $(document).ready(function() {
 
-        $('li').each(function(index) {
-            if (index % 2 !== 0) {
-                $(this).css('background-color', '#FF0');
-            }
-        });
+        // $('li').each(function(index) {
+        //     if (index % 2 !== 0) {
+        //         $(this).css('background-color', '#FF0');
+        //     }
+        // });
 
-        $('li').first().css('background-color', '#b201a8');
+        $('li').first().css('background-color', '#b201a8');  //this is changing the very first li on the page
 
-        $('li').last().css('background-color', '#c5fac5');
+        // $('li').last().css('background-color', '#c5fac5');  //very last li on the page
 
 
         //lecture notes 9-30-21 discuss .each .first and .last methods
@@ -99,6 +121,12 @@
 
             $("p.first").first().css("background-color", "#b201a8");
             $("p.last").last().css({"background-color": "#2d80cb", "color":"white"});
+
+        $("#btn3").click(function(){
+            $('#national-parks li').last().css({"background-color": "#2d80cb", "color":"white"});
+            $('#state-parks-georgia li').last().css({"background-color": "#2d80cb", "color":"white"});
+            $('#state-parks-texas li').last().css({"background-color": "#2d80cb", "color":"white"});
+        });
 
 
 

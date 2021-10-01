@@ -106,12 +106,12 @@
       $("ul").children().css("font-weight", "bold");
     });
 
+    //When any list item is clicked, first li of the parent ul should have a font color of blue.
+    $("li").click(function(){
+      $('li').parent().first().css('color', 'blue');
 
-    // $("li").each(function(){
-    //   $("li").last().css({"background-color": "yellow", "color":"red"});
-    //   // $("li").last().css("background-color", "orange");
-    // });
-  // });
+    })
+
 
     $("h1").click(function(){
       window.location.reload(true);

@@ -1,34 +1,35 @@
 <!doctype html>
 <html lang="en"> <head>
     <meta charset="utf-8">
-    <title>children demo</title>
+    <title>blank html</title>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
 <div>
-<ul class="level-1">
-    <li class="item-i">I</li>
-    <li class="item-ii">II
-        <ul class="level-2">
-            <li class="item-a">A</li>
-            <li class="item-b">B
-                <ul class="level-3">
-                    <li class="item-1">1</li>
-                    <li class="item-2">2</li>
-                    <li class="item-3">3</li>
-                </ul>
-            </li>
-            <li class="item-c">C</li>
-        </ul>
-    </li>
-    <li class="item-iii">III</li>
-</ul>
+    <h1>Parks List</h1>
+    <h3>National Parks</h3>
+    <ul id="national-parks">
+        <li>Arches</li>
+        <li>Badlands</li>
+        <li>Carlsbad Caverns</li>
+        <li>Denali</li>
+        <li>Everglades</li>
+    </ul>
+    <h3>State Parks of Texas</h3>
+    <ul id="state-parks-texas">
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
 </div>
 
 <script>
-    $("div").click(function() {
-        $("div").children().css("background-color", "red");
+    $("li").click(function(){
+    // $('li').css('background-color', '#FF0');
+    $('li').first().parent().css('background-color', '#0F0');
     });
 
 </script>

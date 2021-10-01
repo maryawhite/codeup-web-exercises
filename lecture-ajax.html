@@ -2,12 +2,28 @@
 <html>
 <head>
   <title>Online Store</title>
+  <style>
+    img {
+      width: 200px;
+      height: 200px
+    }
+  </style>
 </head>
 <body>
 <!--In this lesson we will learn how to use jQuery to send Ajax requests, and how to work with information returned from Ajax requests-->
 <p>JSON Javascript Object Notation</p>
 <p>AJAX Asynchronous JavaScript XML</p>
 <p>AJAX requests will often employ the use of an API (Application Programming Interface), or JSON file and return us information using JavaScript Object Notation (JSON)</p>
+
+<form action="">
+  <button id="rando">Randomize a recipe for me :)</button>
+</form>
+<form action="">
+  <input type="text" id="searchValue">
+  <button id="userSearch">Find me the closest thing to this!!</button>
+</form>
+<div id="recipeContainer">
+</div>
 
 <h1>My Tool Store</h1>
 
@@ -40,52 +56,56 @@ var obj = {
 
 
   // Notice that the largest difference is the keys are strings (in double quotes).
-  //
+  //We still interact with this object just the same.
   // console.log(obj.key);
   // console.log(obj.number);
   // console.log(obj.arr);
-  // We still interact with this object just the same.
 
   // ~*~ .ajax and some introductory requests ~*~
   // .ajax :: our first API request
 
   // // .ajax(url) - without any OPTIONS, defaults to a GET request:
-  // $.ajax("putHookbinLinkHere").done(function(data){
+  // $.ajax("https://hookb.in/YVD3aokQ1MCQERGGERPj").done(function(data){
   //     console.log(data);
   // })
 
   // .ajax also has a wealth of options we can use in our efforts as programmers:
   // This example: Send out a POST request with some DATA
-  // $.ajax("",
-  //     {
-  //         type: "POST",
-  //         data: {
-  //             cohort: "Quasar",
-  //             type: "Web Development",
-  //             yearStarted: 2021
-  //         }
-  //     })
+  $.ajax("https://hookb.in/YVD3aokQ1MCQERGGERPj",
+      {
+          type: "POST",
+          data: {
+              cohort: "Quasar",
+              name: "Mary",
+              type: "Web Development",
+              yearStarted: 2021,
+              ACD: 2022
+          }
+      })
 
   //TODO: Before we move on: Let's GET a random recipe together :)
   // Help me finish the following AJAX method to console.log the data that comes back!
   // https://www.themealdb.com/ < main website url
   // https://www.themealdb.com/api.php < api documentation main page (hint: looks like there's some kind of URL beneath the 'lookup a single random meal' heading. . and our AJAX method is looking for a url)
+  //use the api link in your ajax method, add https:// before www.
 
-  // $.ajax("url").done(function(data){
-  // //do something with data here})
+  // $.ajax("https://www.themealdb.com/api/json/v1/1/random.php").done(function(data){
+  //   console.log(data);
+  // })
 
   // ~*~ working with responses ~*~
 
   // Asynchronous - be careful presuming your data is coming back with immediacy
   //
   //
-  // $(document).ready(function(){
-  //     console.time("recipeAPI");
-  //     var randomFact = $.ajax("https://www.themealdb.com/api/json/v1/1/random.php").done(function(data){
-  //         console.log(randomFact)
-  //     });
-  //     console.timeEnd("recipeAPI");
-  // })
+  $(document).ready(function(){
+      console.time("recipeAPI");   //console.time starts a timer
+      var randomFact = $.ajax("https://www.themealdb.com/api/json/v1/1/random.php").done(function(data){
+          console.log(randomFact)
+          console.timeEnd("recipeAPI"); //put the end timer inside the callback function. If you want to do something with the data, it needs to be in the callback function
+
+      });
+  })
 
   // Different MS = different response times BACK from our API
 

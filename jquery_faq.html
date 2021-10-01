@@ -68,6 +68,16 @@
 
   <button type="button" class="btn btn-light btn-yellow">Last li yellow</button>
 
+  <div class="frame1">
+    <div class="mat1">
+      <div class="art1">
+        <img src="/img/computer.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="frame2"></div>
+  <div class="frame3"></div>
+
 
 
   <!-- Optional JavaScript; choose one of the two! -->
@@ -112,7 +122,19 @@
 
     })
 
+    //bonus create 3 divs that look like a picture frame
+    $(".frame1").css({"position":"relative", "width":"100%", "padding-bottom":"82.5%", "background":"black", "box-shadow":"0 10px 7px -5px rgba(0, 0, 0, 0.3"});
+    $(".mat1").css({"position": "absolute",
+      "background": "white",
+      "top": "3.0303%", "bottom": "3.0303%", "left": "2.5%", "right": "2.5%",
+      "box-shadow": "0px 0px 20px 0px rgba(0,0,0,0.5) inset"});
+    $(".art1").css({"position": "absolute",
+      "top": "16.129%", "bottom": "16.129%", "left": "13.158%", "right": "13.158%"})
 
+
+
+
+    //reload window by clicking on the h1
     $("h1").click(function(){
       window.location.reload(true);
     });

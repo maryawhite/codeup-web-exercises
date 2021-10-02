@@ -44,5 +44,13 @@
         "tool"
     ],
     "price": 8
+}, {
+    "title": "Leaf Blower",
+    "quantity": 5,
+    "categories": [
+        "tool",
+        "outdoors"
+    ],
+    "price": 125
 }
 ]

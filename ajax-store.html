@@ -18,7 +18,7 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
-<button type="button" class="refresh-button">Refresh the inventory</button>
+<button type="button" id="refresh-button">Refresh the inventory</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
@@ -26,24 +26,27 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-    $.ajax("data/inventory.json").done(function(data){
-      console.log(data);
-      console.log(data[0].categories);
-//render coffee and render coffees
-        for(var i = 0; i < data.length; i++){
-            var productHTML = "<tr>" + "<td>" + data[i].title + "</td>" + "<td>" + data[i].quantity + "</td>"
-                + "<td>" + data[i].price + "</td>" + "<td>" + data[i].categories.join(",") + "</td>" + "</tr>"
-            $("#insertProducts").append(productHTML)  //inside the for loop
-
-        }
-
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
     //       HINT:!!! append inside of the for loop, not outside
 
+    $("#refresh-button").click(function(e){
+        e.preventDefault();
+        $.ajax("data/inventory.json").done(function(data){
+        });
     });
+
+    $.ajax("data/inventory.json").done(function(data){
+        for(var i = 0; i < data.length; i++){
+            var productHTML = "<tr>" + "<td>" + data[i].title + "</td>" + "<td>" + data[i].quantity + "</td>"
+                + "<td>" + data[i].price + "</td>" + "<td>" + data[i].categories.join(",") + "</td>" + "</tr>"
+            $("#insertProducts").append(productHTML)  //inside the for loop
+        }
+    });
+
+
 
 
 

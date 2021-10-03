@@ -15,20 +15,20 @@
       font-family: 'Kalam', cursive;
     }
     * {
-      color: white
+      color: white;
     }
+
   </style>
   <title>AJAX Blog</title>
 </head>
 <body>
 <div class="container d-flex justify-content-center">
   <div id="posts" class="p-4">
-
   </div>
 </div>
-
-
-<!-- Optional JavaScript; choose one of the two! -->
+<div class="container">
+  <button type="button" class="btn btn-light ml-4" id="cat-button">Show/Hide Categories</button>
+</div>
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -42,10 +42,22 @@
 
   $.ajax("data/blog.json").done(function(data){
     for(var i = 0; i < data.length; i++){
-      var display = data[i].date + "<br>" + data[i].content + "<br>" + "Categories: " + data[i].categories.join(",") + "<br>" + "<hr>"
+      var display = "<h3 class='mt-4'>" + data[i].title + "</h3>" + "<p>" + data[i].date + "</p>" + "<p>" + data[i].content + "</p>" + "<p class='categories d-inline'>" + "Categories: " + data[i].categories.join(",") + "</p>" + "<hr>"
       $("#posts").append(display)  //inside the for loop
     }
+    // $("h3").addClass("mt-4");
+    $("hr").css("border-bottom","2px solid");
+
   });
+$("#cat-button").click(function(){
+  var showCat=$(".categories");
+  if(showCat.attr("class") === "categories d-inline"){
+    showCat.attr("class", "categories d-none");
+  } else {
+    showCat.attr("class", "categories d-inline");
+  }
+});
+
 </script>
 
 

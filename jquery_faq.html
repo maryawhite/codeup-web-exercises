@@ -67,17 +67,22 @@
   </ul>
 
   <button type="button" class="btn btn-light btn-yellow">Last li yellow</button>
-
+<div class="d-flex mt-4">
   <div class="frame1">
-    <div class="mat1">
-      <div class="art1">
-        <img src="/img/city.jpg">
-      </div>
-    </div>
+    <img src="/img/city.jpg">
   </div>
-  <div class="frame2"></div>
-  <div class="frame3"></div>
-
+  <div class="frame2">
+    <img src="/img/woman.jpg">
+  </div>
+  <div class="frame3">
+    <img src="/img/apple-ipad.jpg">
+  </div>
+</div>
+  <div class="d-flex align-items-center justify-content-around p-3">
+  <button type="button" class="btn btn-primary" id="lswap-btn">Swap</button>
+  <button type="button" class="btn btn-primary" id="cswap-btn">Swap</button>
+  <button type="button" class="btn btn-primary" id="rswap-btn">Swap</button>
+  </div>
 
 
   <!-- Optional JavaScript; choose one of the two! -->
@@ -127,19 +132,23 @@
       $(this).parent().children().first().css('color', 'blue'); //in class review
     })
 
-    // //bonus create 3 divs that look like a picture frame
-    $(".frame1").css({"position":"relative", "width":"740px", "height":"526px", "padding-bottom": "1%", "background":"black", "box-shadow":"0 10px 7px -5px rgba(0, 0, 0, 0.3"});
-    $(".mat1").css({"position": "absolute", "background": "white",
-        "top": "3.0303%", "bottom": "3.0303%", "left": "2.5%", "right": "2.5%",
-        "box-shadow": "0px 0px 20px 0px rgba(0,0,0,0.5) inset"});
-    // $(".frame1").css({"position":"relative", "width":"100%", "padding-bottom":"82.5%", "background":"black", "box-shadow":"0 10px 7px -5px rgba(0, 0, 0, 0.3"});
-    // $(".mat1").css({"position": "absolute",
-    //   "background": "white",
-    //   "top": "3.0303%", "bottom": "3.0303%", "left": "2.5%", "right": "2.5%",
-    //   "box-shadow": "0px 0px 20px 0px rgba(0,0,0,0.5) inset"});
-    $(".art1").css({
-      "top": "16.129%", "bottom": "16.129%", "left": "13.158%", "right": "13.158%"})
+    //bonus create 3 divs that look like a picture frame
+    //a button underneath that swaps the image from the frame.
+    //The left frame swaps to the right and takes the image from the frame in the center.
+    //The center frame swaps randomly to either the left or right.
+    //The right frame swaps to the left and takes the image from the frame in the center.
+    $(".frame1").css({"width":"440px", "height":"226px", "border":"5px solid red", "margin": "auto", "padding": "15 px 10px", "background":"black", "display":"flex", "justify-content":"center"});
+    $("img").css({"width": "90%", "height": "90%", "margin":"auto"})
+    $(".frame2").css({"width":"440px", "height":"226px", "border":"5px solid blue", "margin": "auto", "padding": "15 px 10px", "background":"black", "display":"flex", "justify-content":"center"});
+    $(".frame3").css({"width":"440px", "height":"226px", "border":"5px solid orange", "margin": "auto", "padding": "15 px 10px", "background":"black", "display":"flex", "justify-content":"center"});
 
+    // $("#lswap-btn").click(function(){
+    //   $(".frame1").children().removeClass(".frame1").addClass(".frame2");
+    // });
+    //
+    // $("#cswap-btn").click(function(){
+    //   $(".frame2").removeClass("frame2").addClass("frame3");
+    // });
 
 
 

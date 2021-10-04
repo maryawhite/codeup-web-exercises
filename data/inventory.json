@@ -52,5 +52,14 @@
         "outdoors"
     ],
     "price": 125
+}, {
+    "title": "Charcoal",
+    "quantity": 250,
+    "categories": [
+        "cooking",
+        "outdoors",
+        "grill"
+    ],
+    "price": 8
 }
 ]

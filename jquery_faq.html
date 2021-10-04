@@ -142,6 +142,24 @@
     $(".frame2").css({"width":"440px", "height":"226px", "border":"5px solid blue", "margin": "auto", "padding": "15 px 10px", "background":"black", "display":"flex", "justify-content":"center"});
     $(".frame3").css({"width":"440px", "height":"226px", "border":"5px solid orange", "margin": "auto", "padding": "15 px 10px", "background":"black", "display":"flex", "justify-content":"center"});
 
+
+    //try to swap images from one div to another
+    var imgArray = ["/img/woman.jpg", "/img/city.jpg", "/img/apple-ipad.jpg", "/img/head.jpg"];
+    $("#lswap-btn").click(function() {
+      $(".frame1 img").attr('src', "/img/woman.jpg");
+      $(".frame2 img").attr('src', "/img/city.jpg");
+    });
+    $("#rswap-btn").click(function(){
+      $(".frame3 img").attr("src", "/img/city.jpg");
+      $(".frame2 img").attr("src", "/img/apple-ipad.jpg");
+    });
+    $("#cswap-btn").click(function(){
+      generateRandomPic(imgArray);
+      function generateRandomPic(array){
+        var randomNum = Math.floor(Math.random() * array.length);
+        $(".frame2 img").attr("src", array[randomNum]);
+      }
+    });
     // $("#lswap-btn").click(function(){
     //   $(".frame1").children().removeClass(".frame1").addClass(".frame2");
     // });

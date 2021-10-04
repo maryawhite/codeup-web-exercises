@@ -96,12 +96,52 @@
 <button type="button" id="btn1">Click Me Once!</button>
 <button type="button" id="btn2">Click Me Twice!</button>
 
+<div class="images-container d-flex mt-4">
+    <div class="frame1">
+        <img src="/img/city.jpg">
+    </div>
+    <div class="frame2">
+        <img src="/img/woman.jpg">
+    </div>
+    <div class="frame3">
+        <img src="/img/apple-ipad.jpg">
+    </div>
+</div>
+<div class="button-container">
+    <button type="button" class="btn btn-primary" id="lswap-btn">Swap</button>
+    <button type="button" class="btn btn-primary" id="cswap-btn">Swap</button>
+    <button type="button" class="btn btn-primary" id="rswap-btn">Swap</button>
+</div>
 
 <!--put JQuery CDN in the body with a script tag-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function() {
+$(".images-container").css("display","flex").css("margin", "12px").css("justify-content","space-around");
+$(".button-container").css("display", "flex").css("justify-content","space-around").css("padding","12px");
+$(".frame1").css("border","5px solid red").css("display","flex");
+$(".frame2").css("border","5px solid blue").css("display","flex");
+$(".frame3").css("border","5px solid orange").css("display","flex");
+$("img").css("width","250px").css("justify-content","space-around").css("padding","12px");
+//try to swap images from one div to another
+var imgArray = ["/img/woman.jpg", "/img/city.jpg", "/img/apple-ipad.jpg", "/img/head.jpg"];
+$("#lswap-btn").click(function() {
+    $(".frame1 img").attr('src', "/img/woman.jpg");
+    $(".frame2 img").attr('src', "/img/city.jpg");
+});
+$("#rswap-btn").click(function(){
+    $(".frame3 img").attr("src", "/img/city.jpg");
+    $(".frame2 img").attr("src", "/img/apple-ipad.jpg");
+});
+$("#cswap-btn").click(function(){
+    generateRandomPic(imgArray);
+    function generateRandomPic(array){
+        var randomNum = Math.floor(Math.random() * array.length);
+        $(".frame2 img").attr("src", array[randomNum]);
+    }
+});
+
 
         // $('li').each(function(index) {
         //     if (index % 2 !== 0) {
@@ -193,6 +233,7 @@
         // $("body").keyup(function(event){  //keyup logs when you release the key
         //     console.log(event.key);
         // });
+
 
         //konami code... up up down down left right left right b a enter
         var myKeys = "";    //global var

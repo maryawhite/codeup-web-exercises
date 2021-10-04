@@ -5,7 +5,11 @@
     <title>Warmup</title>
 </head>
 <body>
+<!--using jQuery, when the paragraph is clicked, an alert should pop up with the contents of the paragraph-->
 <p>Alignment, understanding, and sensor. Where is the colorful processor? Harvest without wind, and we won’t destroy a ship. Particles harvest with understanding at the harmless galaxy! Dozens of crewmates empower final, photonic spacecrafts.</p>
+<div class="imgHolder">
+    <img src="#">
+</div>
 
 <!--put JQuery CDN in the body with a script tag-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -13,9 +17,11 @@
 <script>
     "use strict"
     $(document).ready(function(){
+        $("body").css("background-image", "url(/img/grayscale-bg.jpeg)");
         $("p").click(function(){
-            var contents = $("p").html();   //the html method finds the content of that tag
+            var contents = $("p").html();   //the html method finds the content of that tag. I could use .text
             alert(contents);    //the variable doesn't need to be in quotes.
+            $(".imgHolder img").attr("src", "/img/GalleonShip.jpg");
         });
 
 

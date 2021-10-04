@@ -40,7 +40,7 @@
     //       HINT:!!! append inside of the for loop, not outside
     //Add some new entries to inventory.json and see how the data on the page gets updated.
     //Add a "Refresh" button that will load inventory.json for you without having to refresh the entire page.
-
+$(document).ready(function(){
     $("#refresh-button").click(function(e){
         e.preventDefault();
         $.ajax("data/inventory.json").done(function(data){
@@ -51,15 +51,15 @@
         for(var i = 0; i < data.length; i++){
             var productHTML = "<tr>" + "<td>" + data[i].title + "</td>" + "<td>" + data[i].quantity + "</td>"
                 + "<td>" + data[i].price + "</td>" + "<td>" + data[i].categories.join(",") + "</td>" + "</tr>"
-            $("#insertProducts").append(productHTML)  //inside the for loop
+            $("#insertProducts").append(productHTML);  //inside the for loop
         }
     });
 
-$("table").addClass("table").addClass("table-bordered") //add a class of table to the element table; table is a built in bootstrap class
-$("thead").addClass("thead-light") //thead-light is a bootstrap class
+$("table").addClass("table").addClass("table-bordered"); //add a class of table to the element table; table is a built in bootstrap class
+$("thead").addClass("thead-light"); //thead-light is a bootstrap class
 
 
-
+}); //end of document ready function
 })();
 </script>
 

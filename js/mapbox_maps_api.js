@@ -32,11 +32,13 @@ map.setStyle("mapbox://styles/mapbox/navigation-day-v1")
 //     .addTo(map)
 //     .setPopup(new mapboxgl.Popup().setHTML("<p>Cracker Barrel</p>"))
 
-var infoArray = [{name: "McDonalds", type: "American", location: [-84.25454735410067, 33.88677041009587], color: "red"}, {name: "Dunkin", type: "American", location: [-84.2564265251854, 33.845285779445625], color: "blue"}, {name: "Cracker Barrel", type: "American", location: [-84.20883846049261, 33.91059417185177], color: "brown"}]
+var infoArray = [{img: "/img/frenchfries.jpeg", name: "McDonalds", type: "American", location: [-84.25454735410067, 33.88677041009587], color: "red"}, {img: "/img/dunkin.jpeg", name: "Dunkin", type: "American", location: [-84.2564265251854, 33.845285779445625], color: "blue"}, {img: "/img/cb.jpg", name: "Cracker Barrel", type: "American", location: [-84.20883846049261, 33.91059417185177], color: "brown"}]
 
 infoArray.forEach(function(info){
     new mapboxgl.Marker({color: info.color})
         .setLngLat(info.location)
-        .setPopup(new mapboxgl.Popup().setHTML("<p>" + info.name + "-" + info.type + "</p>"))
+        .setPopup(new mapboxgl.Popup().setHTML("<p>" + info.name + "-" + info.type + "</p>" + '<img src="' + info.img +'">'))
         .addTo(map)
+
 });
+

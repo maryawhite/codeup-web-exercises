@@ -41,4 +41,23 @@ infoArray.forEach(function(info){
         .addTo(map)
 
 });
+$("#zoomLevel").click(function(){
+    var zoomLevel = $("#zoomLevel");
+    if(zoomLevel.attr("value") === "5"){
+        map.setZoom(5)
+    } else if (zoomLevel.attr("value") === "10"){
+        map.setZoom(10)
+    } else {
+        map.setZoom(15)
+    }
+})
 
+// $("#showPassword").click(function(){
+//     var inputPassword=$("#inputPassword");
+//     if(inputPassword.attr("type")==="password")    //If the input field has a type of password, when you check the box with id of showPassword, it will be updated with the text type attribute
+//     {
+//         inputPassword.attr("type","text");
+//     } else {
+//         inputPassword.attr("type", "password");
+//     }
+// });

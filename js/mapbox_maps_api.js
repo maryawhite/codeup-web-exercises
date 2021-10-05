@@ -5,7 +5,7 @@ var map = new mapboxgl.Map(
     {
         container: "map",
         style: "mapbox://styles/mapbox/streets-v11",
-        zoom: 3,   //1 would be far away, 20 would be close
+        zoom: 8,   //1 would be far away, 20 would be close
         center: [-84.250855892393,33.88110533623017]
     });
 // map.setZoom(10);
@@ -44,7 +44,6 @@ infoArray.forEach(function(info){
 
 $("#zoomLevel").change(function(){
    var userSelect = $("#zoomLevel option:selected").text();
-   console.log(userSelect);
     if(userSelect === "5"){
         map.setZoom(5)
     } else if (userSelect === "10"){
@@ -54,15 +53,16 @@ $("#zoomLevel").change(function(){
     }
 });
 
-
-
-
-// $("#showPassword").click(function(){
-//     var inputPassword=$("#inputPassword");
-//     if(inputPassword.attr("type")==="password")    //If the input field has a type of password, when you check the box with id of showPassword, it will be updated with the text type attribute
-//     {
-//         inputPassword.attr("type","text");
-//     } else {
-//         inputPassword.attr("type", "password");
-//     }
-// });
+$("#userSearch").click(function(e){
+    e.preventDefault();
+    let query = $("#searchValue").val(); // a string that was input
+    geocode(query, mapboxApiKey).then(function(results){
+    var popUp = new mapboxgl.Popup()
+        .setHTML("thanks Geocode")
+    new mapboxgl.Marker()
+        .setLngLat(results)
+        .setPopup(popUp)
+        .addTo(map)
+        map.jumpTo({center: results})
+});
+});

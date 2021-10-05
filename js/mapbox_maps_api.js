@@ -5,10 +5,10 @@ var map = new mapboxgl.Map(
     {
         container: "map",
         style: "mapbox://styles/mapbox/streets-v11",
-        zoom: 10,   //1 would be far away, 20 would be close
+        zoom: 3,   //1 would be far away, 20 would be close
         center: [-84.250855892393,33.88110533623017]
     });
-map.setZoom(10);
+// map.setZoom(10);
 map.setStyle("mapbox://styles/mapbox/navigation-day-v1")
 
 // var marker = new mapboxgl.Marker()
@@ -41,16 +41,21 @@ infoArray.forEach(function(info){
         .addTo(map)
 
 });
-$("#zoomLevel").click(function(){
-    var zoomLevel = $("#zoomLevel");
-    if(zoomLevel.attr("value") === "5"){
+
+$("#zoomLevel").change(function(){
+   var userSelect = $("#zoomLevel option:selected").text();
+   console.log(userSelect);
+    if(userSelect === "5"){
         map.setZoom(5)
-    } else if (zoomLevel.attr("value") === "10"){
+    } else if (userSelect === "10"){
         map.setZoom(10)
     } else {
         map.setZoom(15)
     }
-})
+});
+
+
+
 
 // $("#showPassword").click(function(){
 //     var inputPassword=$("#inputPassword");

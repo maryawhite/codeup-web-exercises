@@ -43,14 +43,14 @@
 $(document).ready(function(){
     $("#refresh-button").click(function(e){
         e.preventDefault();
-        $.ajax("data/inventory.json").done(function(data){
-        });
+        // $.ajax("data/inventory.json").done(function(data){
+        window.location.reload();   //we want to refresh the window, not the json file
     });
 
     $.ajax("data/inventory.json").done(function(data){
         for(var i = 0; i < data.length; i++){
             var productHTML = "<tr>" + "<td>" + data[i].title + "</td>" + "<td>" + data[i].quantity + "</td>"
-                + "<td>" + data[i].price + "</td>" + "<td>" + data[i].categories.join(",") + "</td>" + "</tr>"
+                + "<td>" + data[i].price + "</td>" + "<td>" + data[i].categories.join(", ") + "</td>" + "</tr>"
             $("#insertProducts").append(productHTML);  //inside the for loop
         }
     });

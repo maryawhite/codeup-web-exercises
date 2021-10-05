@@ -20,7 +20,7 @@ var map = new mapboxgl.Map(
     {
         container: "map",
         style: "mapbox://styles/mapbox/streets-v11",
-        zoom: 15,   //1 would be far away, 20 would be close
+        zoom: 12,   //1 would be far away, 20 would be close
         center: [-98.4861, 29.4252]
     });
 
@@ -28,7 +28,7 @@ var maptwo = new mapboxgl.Map(
     {
         container: "maptwo",
         style: "mapbox://styles/mapbox/streets-v11",
-        zoom: 15,   //1 would be far away, 20 would be close
+        zoom: 12,   //1 would be far away, 20 would be close
         center: [-84.2253, 34.4531]
     });
 
@@ -75,9 +75,9 @@ var maptwo = new mapboxgl.Map(
 //     .setLngLat([-98.4895, 29.4267])
 //     .addTo(map);
 
-var redMarker = new mapboxgl.Marker({color: "red", draggable: "true"})
-    .setLngLat([-84.2253120786325, 34.4531397630891])
-    .addTo(map);
+// var redMarker = new mapboxgl.Marker({color: "red", draggable: "true"})
+//     .setLngLat([-84.2253120786325, 34.4531397630891])
+//     .addTo(map);
 
 
 /**********************************************
@@ -168,23 +168,15 @@ reverseGeocode({lat: 29.4260, lng: -98.4861}, mapboxApiKey).then(function(result
     console.log(results);
 })
 
-//Array forEach loop
-let myArray = ["one", "two", "three", "four"];
-myArray.forEach(function(element,index, items){  //or you can use value, index, array
-    console.log(element);
-    console.log(index);
-    console.log(items);
+
+var markerArray = [{img: "/img/frenchfries.jpeg", name: "Denny's", hours: "open 24 hours", color: "green", location: [-98.4828098081147, 29.4233819399988]},
+    {img: "/img/frenchfries.jpeg", name: "McDonald's", hours: "open 24 hours", color: "red", location: [-98.48696732306696, 29.426365474445742]},
+    {img: "/img/frenchfries.jpeg", name: "McDonald's", hours: "open 24 hours", color: "orange", location: [-98.50155853969585, 29.42920621907428]}]
+
+markerArray.forEach(function(marker){
+    new mapboxgl.Marker({color: marker.color})
+        .setLngLat(marker.location)
+        .setPopup(new mapboxgl.Popup().setHTML("<p>" + marker.name + "-" + marker.hours + '<img src="' + marker.img +'">' + "</p>"))
+        .addTo(map)
 });
 
-var newArray = [{color: "red", draggable: "true"}, {color: "orange", draggable: "true"}, {color: "blue", draggable: "true"}]
-
-var markerArray = [{name: ".setLngLat([-98.4916, 29.4260])"}, {name: ".setLngLat([-98.4916, 29.4252])"}];
-
-function showMarkers(marker) {
-    marker.forEach(function (element) {
-        console.log(marker.name);
-    });
-}
-
-var markers = new mapboxgl.Marker()
-    showMarkers()

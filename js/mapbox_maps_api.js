@@ -16,7 +16,7 @@ map.setStyle("mapbox://styles/mapbox/navigation-day-v1")
 //     .addTo(map);
 
 //create a marker on the exact location of your favorite restaurant
-// new mapboxgl.Marker({color: "red"})
+// var mcdMarker = new mapboxgl.Marker({color: "red"})
 //     .setLngLat([-84.25454735410067, 33.88677041009587])
 //     .setPopup(new mapboxgl.Popup().setHTML("<p>McDonalds</p>"))
 //     .addTo(map)
@@ -32,15 +32,34 @@ map.setStyle("mapbox://styles/mapbox/navigation-day-v1")
 //     .addTo(map)
 //     .setPopup(new mapboxgl.Popup().setHTML("<p>Cracker Barrel</p>"))
 
-var infoArray = [{img: "/img/frenchfries.jpeg", name: "McDonalds", type: "American", location: [-84.25454735410067, 33.88677041009587], color: "red"}, {img: "/img/dunkin.jpeg", name: "Dunkin", type: "American", location: [-84.2564265251854, 33.845285779445625], color: "blue"}, {img: "/img/cb.jpg", name: "Cracker Barrel", type: "American", location: [-84.20883846049261, 33.91059417185177], color: "brown"}]
+var infoArray = [
+    {
+        img: "/img/frenchfries.jpeg",
+        name: "McDonald's",
+        type: "American",
+        location: [-84.25454735410067, 33.88677041009587],
+        color: "red"},
+    {
+        img: "/img/dunkin.jpeg",
+        name: "Dunkin",
+        type: "American",
+        location: [-84.2564265251854, 33.845285779445625],
+        color: "blue"},
+    {
+        img: "/img/cb.jpg",
+        name: "Cracker Barrel",
+        type: "American",
+        location: [-84.20883846049261, 33.91059417185177],
+        color: "brown"}]
 
 infoArray.forEach(function(info){
     new mapboxgl.Marker({color: info.color})
         .setLngLat(info.location)
-        .setPopup(new mapboxgl.Popup().setHTML("<p>" + info.name + "-" + info.type + "</p>" + '<img src="' + info.img +'">'))
+        .setPopup(new mapboxgl.Popup().setHTML("<h4>" + info.name + "</h4>" + "<p>" + info.type + "</p>" + '<img src="' + info.img +'">'))
         .addTo(map)
-
 });
+
+//I forgot to use geocode to set the markers, go back later and refactor with an address, then use the address in the geocode, see in class review
 
 $("#zoomLevel").change(function(){
    var userSelect = $("#zoomLevel option:selected").text();

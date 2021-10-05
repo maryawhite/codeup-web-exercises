@@ -63,9 +63,9 @@ var maptwo = new mapboxgl.Map(
 
 
 // TODO TOGETHER: Change the color of the marker
-// var marker = new mapboxgl.Marker({color: "orange"})  //Marker is a method of mapboxgl. What are other methods
-//     .setLngLat([-98.4861, 29.4260])
-//     .addTo(map);
+var marker = new mapboxgl.Marker({color: "orange", symbol: '<img src="/img/fast-food.svg" alt="burger">'})  //Marker is a method of mapboxgl. What are other methods
+    .setLngLat([-98.48513654941831, 29.423245862389425])
+    .addTo(map);
 
 
 // TODO: Make a new marker! Let's experiment with the color and setting the LngLat [how about a marker for Codeup San Antone? -98.4895, 29.4267 Codeup Dallas? -96.8056, 32.7786]

@@ -16,24 +16,27 @@ map.setStyle("mapbox://styles/mapbox/navigation-day-v1")
 //     .addTo(map);
 
 //create a marker on the exact location of your favorite restaurant
-var mcdMarker = new mapboxgl.Marker({color: "red"})
-    .setLngLat([-84.25454735410067, 33.88677041009587])
-    .setPopup(new mapboxgl.Popup().setHTML("<p>McDonalds</p>"))
-    .addTo(map)
+// new mapboxgl.Marker({color: "red"})
+//     .setLngLat([-84.25454735410067, 33.88677041009587])
+//     .setPopup(new mapboxgl.Popup().setHTML("<p>McDonalds</p>"))
+//     .addTo(map)
+//
+// var dunkinMarker = new mapboxgl.Marker({color: "blue"})
+//     //reference the object
+//     .setLngLat([-84.2564265251854, 33.845285779445625])
+//     .addTo(map)
+//     .setPopup(new mapboxgl.Popup().setHTML("<p>Dunkin Donuts</p>"))
+//
+// var cb = new mapboxgl.Marker({color: "brown"})
+//     .setLngLat([-84.20883846049261, 33.91059417185177])
+//     .addTo(map)
+//     .setPopup(new mapboxgl.Popup().setHTML("<p>Cracker Barrel</p>"))
 
-var dunkinMarker = new mapboxgl.Marker({color: "blue"})
-    .setLngLat([-84.2564265251854, 33.845285779445625])
-    .addTo(map)
-    .setPopup(new mapboxgl.Popup().setHTML("<p>Dunkin Donuts</p>"))
+var infoArray = [{name: "McDonalds", type: "American", location: [-84.25454735410067, 33.88677041009587], color: "red"}, {name: "Dunkin", type: "American", location: [-84.2564265251854, 33.845285779445625], color: "blue"}, {name: "Cracker Barrel", type: "American", location: [-84.20883846049261, 33.91059417185177], color: "brown"}]
 
-var cb = new mapboxgl.Marker({color: "brown"})
-    .setLngLat([-84.20883846049261, 33.91059417185177])
-    .addTo(map)
-    .setPopup(new mapboxgl.Popup().setHTML("<p>Cracker Barrell</p>"))
-
-
-// var redMarker = new mapboxgl.Marker({color: "red", draggable: "true"})
-//     .setLngLat([-84.2253120786325, 34.4531397630891])
-//     .addTo(map);
-
-
+infoArray.forEach(function(info){
+    new mapboxgl.Marker({color: info.color})
+        .setLngLat(info.location)
+        .setPopup(new mapboxgl.Popup().setHTML("<p>" + info.name + "-" + info.type + "</p>"))
+        .addTo(map)
+});

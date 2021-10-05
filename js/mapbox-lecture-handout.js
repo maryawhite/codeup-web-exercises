@@ -63,9 +63,9 @@ var maptwo = new mapboxgl.Map(
 
 
 // TODO TOGETHER: Change the color of the marker
-var marker = new mapboxgl.Marker({color: "orange"})  //Marker is a method of mapboxgl. What are other methods
-    .setLngLat([-98.4861, 29.4260])
-    .addTo(map);
+// var marker = new mapboxgl.Marker({color: "orange"})  //Marker is a method of mapboxgl. What are other methods
+//     .setLngLat([-98.4861, 29.4260])
+//     .addTo(map);
 
 
 // TODO: Make a new marker! Let's experiment with the color and setting the LngLat [how about a marker for Codeup San Antone? -98.4895, 29.4267 Codeup Dallas? -96.8056, 32.7786]
@@ -97,16 +97,16 @@ var redMarker = new mapboxgl.Marker({color: "red", draggable: "true"})
 
     // TODO: Review the popup docs. What are some additional options we can pass to the popup? Choose one and experiment with implementing that option to a popup!
 // TODO: Try setting the text of a popup by using ".setText()" instead of ".setHTML()" - what happens with HTML tags between the two?
-var alamoPopup = new mapboxgl.Popup({anchor: "left"})
-    .setHTML("<p>Remember the Alamo!</p>")
-    .addTo(map)
-
-marker.setPopup(alamoPopup)  //marker is the variable name that we set earlier
+// var alamoPopup = new mapboxgl.Popup({anchor: "left"})
+//     .setHTML("<p>Remember the Alamo!</p>")
+//     .addTo(map)
+//
+// marker.setPopup(alamoPopup)  //marker is the variable name that we set earlier
 
 //other things we can program...
-alamoPopup.on("close" , function(){  //on is an event handler we learned during jquery lecture
-    console.log("the popup was closed")
-})
+// alamoPopup.on("close" , function(){  //on is an event handler we learned during jquery lecture
+//     console.log("the popup was closed")
+// })
 
 
 
@@ -129,14 +129,14 @@ geocode("San Antonio", mapboxApiKey).then(function(results) {
 })
 
 //TODO: Using the geocode method above, add a marker at Codeup to the map
-geocode("600 Navarro St, #600, San Antonio, TX 78205", mapboxApiKey).then(function(results){
-    var popUp = new mapboxgl.Popup()
-        .setHTML("thanks Geocode")
-    new mapboxgl.Marker()
-        .setLngLat(results)
-        .setPopup(popUp)
-        .addTo(map)
-})
+// geocode("600 Navarro St, #600, San Antonio, TX 78205", mapboxApiKey).then(function(results){
+//     var popUp = new mapboxgl.Popup()
+//         .setHTML("thanks Geocode")
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popUp)
+//         .addTo(map)
+// })
 
 
 
@@ -177,3 +177,14 @@ myArray.forEach(function(element,index, items){  //or you can use value, index, 
 });
 
 var newArray = [{color: "red", draggable: "true"}, {color: "orange", draggable: "true"}, {color: "blue", draggable: "true"}]
+
+var markerArray = [{name: ".setLngLat([-98.4916, 29.4260])"}, {name: ".setLngLat([-98.4916, 29.4252])"}];
+
+function showMarkers(marker) {
+    marker.forEach(function (element) {
+        console.log(marker.name);
+    });
+}
+
+var markers = new mapboxgl.Marker()
+    showMarkers()

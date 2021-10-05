@@ -142,7 +142,7 @@ geocode("Portland, Maine", mapboxApiKey).then(function(results){
         .setPopup(popUp)
         .addTo(map)
 
-        map.flyTo({center: results})
+        // map.flyTo({center: results})
 })
 
 
@@ -159,3 +159,13 @@ reverseGeocode({lat: 29.4260, lng: -98.4861}, mapboxApiKey).then(function(result
      // do something with results
     console.log(results);
 })
+
+//Array forEach loop
+let myArray = ["one", "two", "three", "four"];
+myArray.forEach(function(element,index, items){  //or you can use value, index, array
+    console.log(element);
+    console.log(index);
+    console.log(items);
+});
+
+var newArray = [{color: "red", draggable: "true"}, {color: "orange", draggable: "true"}, {color: "blue", draggable: "true"}]

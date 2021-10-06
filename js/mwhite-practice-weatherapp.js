@@ -13,7 +13,7 @@ const weather = {
         unit : "celsius"
     },
     description : "partly cloudy",
-    iconId: "partlycloudy",  //not sure if I should have renamed my icons...
+    iconId: "01d",
     city: "London",
     country: "GB"
 };
@@ -33,7 +33,7 @@ function celsiusToFahrenheit(temperature){
 
 //add an event listener so that when the user clicks the temp it will change from C to F
 tempElement.addEventListener("click", function(){
-    if(weather.temperature.value === undefined) return //this line of code will prevent the rest of the code from running if the temp value is undefined
+    if(weather.temperature.value === undefined) return;   //this line of code will prevent the rest of the code from running if the temp value is undefined
     if(weather.temperature.unit === "celsius"){
         let fahrenheit = celsiusToFahrenheit(weather.temperature.value);    //this is stored in the weather object
         fahrenheit = Math.floor(fahrenheit);    //use math.floor to round to the integer not 86.3354
@@ -45,12 +45,6 @@ tempElement.addEventListener("click", function(){
     }
 })
 
-//getCurrentPosition(setPosition, error);
-//setPosition(position)
-//position.coords.latitude
-//position.coords.longitude
-//error(error, )
-//error.message
 if("geolocation" in navigator){
     navigator.geolocation.getCurrentPosition(setPosition, showError); //create these 2 functions below
 } else {
@@ -61,7 +55,7 @@ if("geolocation" in navigator){
 function setPosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    getWeather(latitude, longitude);   //create a function later, getWeather from OpenWeatherMap
+    getWeather(latitude, longitude);   //create a function below, the info will come from OpenWeatherMap API
 }
 
 function showError(error){
@@ -90,7 +84,15 @@ function getWeather(latitude, longitude){
         });
 }
 
-function displayWeather(){}
+//display weather function
+function displayWeather(){
+    iconElement.innerHTML = '<img src="img/weather-icons/' + weather.iconId + '.png" + />'
+    tempElement.innerHTML = weather.temperature.value + "&#176;" + "<span>C</span>";
+    descElement.innerHTML = weather.description;
+    locationElement.innerHTML = weather.city + ", " + weather.country;
+}
+
+
 
 
 

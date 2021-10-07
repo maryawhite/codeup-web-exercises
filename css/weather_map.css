@@ -1,3 +1,11 @@
 h1, h2, h3, h4, h5, h6, p, body {
     font-family: 'Acme', sans-serif;
 }
+
+.card-body {
+    background-color: #ffe9e3;
+}
+
+#card-title {
+    background-color: #c4c1e0;
+}

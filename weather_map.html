@@ -18,21 +18,47 @@
 </head>
 <body>
 <div class="container">
-<h1 class="text-center">Weather Map Project</h1>
-<div id="weather-container" class="card w-auto align-items-center text-center">
-  <div id="card-title" class="card-header w-100"><h5>Current Conditions</h5></div>
-  <div class="card-body">
-    <div id="weather-icon"><img src="/img/weather-icons/unknown.png"></div>
-    <div id="temperature-value"></div>
-    <div id="weather-main"></div>
-    <div id="wind-speed"></div>
-    <div id="location"><p>-</p></div>
+  <h1 class="text-center">Weather Map Project</h1>
+  <div id="weather-container" class="card w-auto align-items-center text-center">
+    <div id="card-title" class="card-header w-100"><h5>Current Conditions</h5></div>
+    <div class="card-body w-100">
+      <div id="weather-icon"><img src="/img/weather-icons/unknown.png"></div>
+      <div id="temperature-value"></div>
+      <div id="weather-main"></div>
+      <div id="wind-speed"></div>
+      <div id="location"><p>-</p></div>
+    </div>
+  </div>
+<!--start 5 day forecast div-->
+  <div id="five-day" class="d-flex">
+    <div id="day-one" class="card text-center">
+      <div id="d1-header" class="card-header">Day 1</div>
+      <div id="day1-temp" class="card-body w-100"></div>
+      <div id="d1-weather-main" class="card-body w-100 pt-0"></div>
+    </div>
+    <div id="day-two" class="card">
+      <div class="card-header">Day 2</div>
+    </div>
+    <div id="day-three" class="card">
+      <div class="card-header">Day 3</div>
+
+    </div>
+    <div id="day-four" class="card">
+      <div class="card-header">Day 4</div>
+
+    </div>
+    <div id="day-five" class="card">
+      <div class="card-header">Day 5</div>
+
+    </div>
+
+
+
+
+
+
   </div>
 
-
-
-
-</div>
 
 </div> <!--end of container div-->
 

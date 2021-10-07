@@ -6,6 +6,17 @@ h1, h2, h3, h4, h5, h6, p, body {
     background-color: #ffe9e3;
 }
 
-#card-title {
+#card-title, .card-header {
     background-color: #c4c1e0;
+}
+
+#purple-bg {
+    background-color: #7373e6;
+    width: 100%;
+}
+
+#weather-container {
+    background-image: url("/img/city.jpg");
+    background-size: cover;
+
 }

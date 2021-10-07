@@ -25,7 +25,6 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
 //this is the onecall api, note that the url is different and the documentation is different, you can include different keys
     $.get("https://api.openweathermap.org/data/2.5/onecall", {
         APPID: openWeatherAppKey,
-        // q:     "San Antonio, US", //you can use various keys to get the location, city, id, long/lat etc
         lat: 33.8823,
         lon: -84.2502,
         units: "imperial",       //the default temperature is Kelvin, this changes it to F
@@ -33,11 +32,17 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
     }).done(function(data) {
         console.log(data);
         //insert code inside the .done
+        // var forecast;
+        for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
+            var forecast = '<div class="card text-center text-nowrap mb-4"> <div class="card-header w-100">' + new Date((data.daily[i].dt) * 1000).toLocaleString("en-US", {weekday: "long"}) + ' </div><div class="card-body w-100"> High/Low <br> ' + Math.floor(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.floor(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
 
-        $("#day1-temp").html("High/Low" + "<br>" +Math.floor(data.daily[0].temp.max) + "&#176;" + "<span>F</span>" + "/" + Math.floor(data.daily[0].temp.min) + "&#176;" + "<span>F</span>");
-        $("#d1-weather-main").html(data.daily[0].weather[0].main);
-        // $("#d1-header").html(new Date((data.daily[0].dt)*1000).toISOString())
-        $("#d1-header").html(new Date((data.daily[0].dt) * 1000).toLocaleString("en-US"));
+            $("#five-day").append(forecast);
+
+        }
+
+        // $("#day1-temp").html("High/Low" + "<br>" +Math.floor(data.daily[0].temp.max) + "&#176;" + "<span>F</span>" + "/" + Math.floor(data.daily[0].temp.min) + "&#176;" + "<span>F</span>");
+        // $("#d1-weather-main").html(data.daily[0].weather[0].main);
+        // $("#d1-header").html(new Date((data.daily[0].dt) * 1000).toLocaleString("en-US"));
 
 
 //html = html + "<p>Weather: " + data.daily[0].weather[0].main + "</p>"

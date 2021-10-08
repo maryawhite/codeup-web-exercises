@@ -4,6 +4,7 @@ h1, h2, h3, h4, h5, h6, p, body {
 
 .card-body {
     background-color: #ffe9e3;
+
 }
 
 #card-title, .card-header {
@@ -18,5 +19,6 @@ h1, h2, h3, h4, h5, h6, p, body {
 #weather-container {
     background-image: url("/img/city.jpg");
     background-size: cover;
-
 }
+
+/*color palette from https://www.csscolorpalettes.com/palettes/purple/color*/

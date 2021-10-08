@@ -1,5 +1,4 @@
 "use strict"
-
 //Codeup: When you start exploring a new API, it is important to learn what data is sent back from each request. We can exploring this information using console.log() inside of a .done() handler:
 
 //this is the call current api, note that the url is different and the documentation is different, you can include different keys
@@ -35,37 +34,21 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
         // var forecast;
         for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
             var forecast = '<div class="card text-center text-nowrap mb-4"> <div class="card-header w-100">' + new Date((data.daily[i].dt) * 1000).toLocaleString("en-US", {weekday: "long"}) + ' </div><div class="card-body w-100"> High/Low <br> ' + Math.floor(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.floor(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
-
             $("#five-day").append(forecast);
-
         }
-
-        // $("#day1-temp").html("High/Low" + "<br>" +Math.floor(data.daily[0].temp.max) + "&#176;" + "<span>F</span>" + "/" + Math.floor(data.daily[0].temp.min) + "&#176;" + "<span>F</span>");
-        // $("#d1-weather-main").html(data.daily[0].weather[0].main);
-        // $("#d1-header").html(new Date((data.daily[0].dt) * 1000).toLocaleString("en-US"));
-
-
-//html = html + "<p>Weather: " + data.daily[0].weather[0].main + "</p>"
-        //html = html + "<p>Temp: " + data.daily[0].temp.day + " F</p>"
-        //             html = html + "<p>ICON</p>"
-        //             html = html + "<p>Weather: " + data.daily[0].weather[0].main + "</p>"
-        //             html = html + "<p>Humidity: " + data.daily[0].humidity + "</p>"
-        //             html = html + "<p>Wind: " + data.daily[0].wind_speed + "</p>"
-        //             html = html + "<p>Pressure: " + data.daily[0].pressure + "</p>"
-
-        //$.ajax("data/blog.json").done(function(data){
-        //     for(var i = 0; i < data.length; i++){
-        //       var display = "<h3 class='mt-4'>" + data[i].title + "</h3>" + "<p>" + data[i].date + "</p>" + "<p>" + data[i].content + "</p>" + "<p class='categories d-inline'>" + "Categories: " + data[i].categories.join(",") + "</p>" + "<hr>"
-        //       $("#posts").append(display)  //inside the for loop
-        //     }
-        //     // $("h3").addClass("mt-4");
-        //     $("hr").css("border-bottom","2px solid");
-        //   });
-
         ////how to calculate C to F  temp in cel * 9/5 + 32. Got this from tutorial from https://github.com/CodeExplainedRepo/Weather-App-JavaScript. Might use it later.
         // function celsiusToFahrenheit(temperature){
         //     return (temperature * 9/5) + 32;
         // }
+    });
 
+mapboxgl.accessToken = mapboxApiKey;  //paste your api key
+
+var map = new mapboxgl.Map(
+    {
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11",
+        zoom: 8,   //1 would be far away, 20 would be close
+        center: [-84.250855892393,33.88110533623017]
     });
 

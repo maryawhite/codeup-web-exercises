@@ -2,7 +2,7 @@ h1, h2, h3, h4, h5, h6, p, body {
     font-family: 'Acme', sans-serif;
 }
 
-.card-body {
+.card-body, #map-container {
     background-color: #ffe9e3;
 
 }
@@ -19,6 +19,12 @@ h1, h2, h3, h4, h5, h6, p, body {
 #weather-container {
     background-image: url("/img/city.jpg");
     background-size: cover;
+}
+
+#map {
+    width: 500px;
+    height: 500px;
+    margin: auto;
 }
 
 /*color palette from https://www.csscolorpalettes.com/palettes/purple/color*/

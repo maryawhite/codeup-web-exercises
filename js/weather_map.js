@@ -1,13 +1,11 @@
 "use strict"
-//Codeup: When you start exploring a new API, it is important to learn what data is sent back from each request. We can exploring this information using console.log() inside of a .done() handler:
+//console.log() inside of a .done() handler then check the console to see the data
 
-//this is the call current api, note that the url is different and the documentation is different, you can include different keys
+//this is the call current api
 $.get("https://api.openweathermap.org/data/2.5/weather", {
     APPID: openWeatherAppKey,
-    q:     "Atlanta, GA US", //you can use various keys to get the location, city, id, long/lat etc
-    // lat: 33.8823,
-    // lon: -84.2502,
-    units: "imperial",       //the default temperature is Kelvin, this changes it to F
+    q:     "Atlanta, GA US",
+    units: "imperial",
 }).done(function(data) {
     console.log(data);
     //insert code inside the .done
@@ -35,9 +33,6 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
         $("#temperature-value").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span>F</span>");
     })
 });
-
-
-
 
 function convertDt(dtNum){
     const unixTimestamp = dtNum
@@ -75,10 +70,9 @@ $("#userSearch").click(function(e){
                 latitude += results[i];
             }
         }
-        //add an if statement here and put my onecall func inside of the geocode
         var popUp = new mapboxgl.Popup()
             .setHTML("thanks Geocode")
-        new mapboxgl.Marker({color: "black", rotation: 45, draggable: true})
+       var myMarker = new mapboxgl.Marker({color: "black", rotation: 45, draggable: true})
             .setLngLat(results)
             .setPopup(popUp)
             .addTo(map)
@@ -86,8 +80,19 @@ $("#userSearch").click(function(e){
         map.jumpTo({center: results})
         console.log(query);
 
-        //put onecall inside of geocode?
-        //this is the onecall api, note that the url is different and the documentation is different, you can include different keys
+        //working on draggable marker
+        var results = myMarker.getLngLat();
+        var coordArr = Object.values(results)  //this puts it in an array
+        console.log(results)
+        console.log(coordArr)
+        function onDragEnd() {
+            const lngLat = myMarker.getLngLat();
+            console.log(lngLat);
+        }
+        myMarker.on('dragend', onDragEnd);
+        //end working on draggable marker
+
+        //put onecall inside of geocode. this is the onecall api
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: openWeatherAppKey,
             lat: latitude,
@@ -102,23 +107,31 @@ $("#userSearch").click(function(e){
                 var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
                 $("#five-day").append(forecast);
             }
-        });
-
+        }); //end of .done for the one call
 
     });
 });
 
+//refresh button
+$('#refresh-5day').click(function() {
+    location.reload();
+});
+
+
+
 //how to convert C to F: temp in cel * 9/5 + 32. From tutorial from https://github.com/CodeExplainedRepo/Weather-App-JavaScript.
 
-//this is from mapbox documentation test it out later
+// this is from mapbox documentation test it out later
 // map.on('click', (e) => {
-//     document.getElementById('info').innerHTML =
+//     e.preventDefault();
+//     // document.getElementById('info').innerHTML =
 // // `e.point` is the x, y coordinates of the `mousemove` event
 // // relative to the top-left corner of the map.
-//         JSON.stringify(e.point) +
-//         '<br />' +
-//         // `e.lngLat` is the longitude, latitude geographical position of the event.
-//         JSON.stringify(e.lngLat.wrap());
+//         var coord = JSON.stringify(e.point) + '<br />' + JSON.stringify(e.lngLat.wrap());
+//     // `e.lngLat` is the longitude, latitude geographical position of the event.
+// console.log(coord);
 // });
+
+
 
 

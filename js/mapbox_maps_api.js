@@ -85,3 +85,8 @@ $("#userSearch").click(function(e){
         map.jumpTo({center: results})
 });
 });
+
+$(".mapboxgl-map").click(function(e){
+    e.preventDefault();
+
+})

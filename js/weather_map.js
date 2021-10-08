@@ -37,22 +37,7 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
 });
 
 
-//this is the onecall api, note that the url is different and the documentation is different, you can include different keys
-    $.get("https://api.openweathermap.org/data/2.5/onecall", {
-        APPID: openWeatherAppKey,
-        lat: 33.8823,
-        lon: -84.2502,
-        units: "imperial",       //the default temperature is Kelvin, this changes it to F
-        exclude: "minutely"
-    }).done(function(data) {
-        console.log(data);
-        //insert code inside the .done
-        // var forecast;
-        for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-            var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
-            $("#five-day").append(forecast);
-        }
-    });
+
 
 function convertDt(dtNum){
     const unixTimestamp = dtNum
@@ -71,26 +56,69 @@ var map = new mapboxgl.Map(
         style: "mapbox://styles/mapbox/streets-v11",
         zoom: 8,   //1 would be far away, 20 would be close
         center: [-84.250855892393,33.88110533623017]
+
     });
 
 $("#userSearch").click(function(e){
     e.preventDefault();
+    // $("#input-form").css("display", "none");
+
     let query = $("#searchValue").val(); // a string that was input
+    var latitude = "";
+    var longitude = "";
     geocode(query, mapboxApiKey).then(function(results){
         console.log(results);
+        for(var i = 0; i < results.length; i++){
+            if(i === 0){
+                longitude += results[i];
+            } else {
+                latitude += results[i];
+            }
+        }
         //add an if statement here and put my onecall func inside of the geocode
         var popUp = new mapboxgl.Popup()
             .setHTML("thanks Geocode")
-        new mapboxgl.Marker({color: "black", rotation: 45})
+        new mapboxgl.Marker({color: "black", rotation: 45, draggable: true})
             .setLngLat(results)
             .setPopup(popUp)
             .addTo(map)
         map.setZoom(12)
         map.jumpTo({center: results})
         console.log(query);
+
+        //put onecall inside of geocode?
+        //this is the onecall api, note that the url is different and the documentation is different, you can include different keys
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            APPID: openWeatherAppKey,
+            lat: latitude,
+            lon: longitude,
+            units: "imperial",       //the default temperature is Kelvin, this changes it to F
+            exclude: "minutely"
+        }).done(function(data) {
+            console.log(data);
+            //insert code inside the .done
+            // var forecast;
+            for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
+                var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+                $("#five-day").append(forecast);
+            }
+        });
+
+
     });
 });
 
 //how to convert C to F: temp in cel * 9/5 + 32. From tutorial from https://github.com/CodeExplainedRepo/Weather-App-JavaScript.
+
+//this is from mapbox documentation test it out later
+// map.on('click', (e) => {
+//     document.getElementById('info').innerHTML =
+// // `e.point` is the x, y coordinates of the `mousemove` event
+// // relative to the top-left corner of the map.
+//         JSON.stringify(e.point) +
+//         '<br />' +
+//         // `e.lngLat` is the longitude, latitude geographical position of the event.
+//         JSON.stringify(e.lngLat.wrap());
+// });
 
 

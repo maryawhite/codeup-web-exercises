@@ -34,7 +34,6 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
     $("#purple-bg").click(function(){
         $("#temperature-value").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span>F</span>");
     })
-
 });
 
 
@@ -50,10 +49,9 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
         //insert code inside the .done
         // var forecast;
         for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-            var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 ">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+            var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
             $("#five-day").append(forecast);
         }
-
     });
 
 function convertDt(dtNum){
@@ -79,14 +77,17 @@ $("#userSearch").click(function(e){
     e.preventDefault();
     let query = $("#searchValue").val(); // a string that was input
     geocode(query, mapboxApiKey).then(function(results){
+        console.log(results);
+        //add an if statement here and put my onecall func inside of the geocode
         var popUp = new mapboxgl.Popup()
             .setHTML("thanks Geocode")
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({color: "black", rotation: 45})
             .setLngLat(results)
             .setPopup(popUp)
             .addTo(map)
         map.setZoom(12)
         map.jumpTo({center: results})
+        console.log(query);
     });
 });
 

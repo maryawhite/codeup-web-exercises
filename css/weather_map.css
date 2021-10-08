@@ -2,16 +2,20 @@ h1, h2, h3, h4, h5, h6, p, body {
     font-family: 'Acme', sans-serif;
 }
 
-.card-body, #map-container {
+.card-body, #map-container, #input-form {
     background-color: #ffe9e3;
 
+}
+
+#card5d img {
+    width: 50%;
 }
 
 #card-title, .card-header {
     background-color: #c4c1e0;
 }
 
-#purple-bg {
+#purple-bg, footer {
     background-color: #7373e6;
     width: 100%;
 }

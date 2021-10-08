@@ -50,7 +50,7 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
         //insert code inside the .done
         // var forecast;
         for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-            var forecast = '<div class="card text-center text-nowrap mb-4"> <h5 class="card-header w-100">' + new Date((data.daily[i].dt) * 1000).toLocaleString("en-US", {weekday: "long"}) + ' </h5><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.floor(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.floor(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+            var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 ">' + new Date((data.daily[i].dt) * 1000).toLocaleString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"}) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.floor(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.floor(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
             $("#five-day").append(forecast);
         }
 

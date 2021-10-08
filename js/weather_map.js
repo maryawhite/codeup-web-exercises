@@ -11,7 +11,7 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
 }).done(function(data) {
     console.log(data);
     //insert code inside the .done
-    var temperatureF = Math.floor(data.main.temp);
+    var temperatureF = (data.main.temp).toFixed(1);
 
     $("#weather-main").html("<p>" + data.weather[0].main + "</p>");
     $("#temperature-value").html(temperatureF + "&#176;" + "<span>F</span>");
@@ -19,12 +19,12 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
     $("#location").html(data.name);
     $("#wind-speed").html("Current Wind Speed: " + data.wind.speed);
 
-    var celsius = Math.floor((temperatureF - 32) * 5/9);
+    var celsius = ((temperatureF - 32) * 5/9).toFixed(1);
     function fahrenheitToCelsius(temperatureF){
         return celsius;
     }
     function celsiusToFahrenheit(celsius){
-        return (celsius * 9/5) + 32;
+        return ((celsius * 9/5) + 32).toFixed(1);
     }
 
     $("#temperature-value").click(function(){
@@ -50,11 +50,20 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
         //insert code inside the .done
         // var forecast;
         for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-            var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 ">' + new Date((data.daily[i].dt) * 1000).toLocaleString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"}) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.floor(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.floor(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+            var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 ">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
             $("#five-day").append(forecast);
         }
 
     });
+
+function convertDt(dtNum){
+    const unixTimestamp = dtNum
+    const milliseconds = unixTimestamp * 1000
+    const dateObject = new Date(milliseconds)
+    const humanDateFormat = dateObject.toLocaleString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"}) //2019-12-9 10:30:15
+    return humanDateFormat;
+}
+//using the function instead of concatenating this in the forloop, new Date((data.daily[i].dt) * 1000).toLocaleString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"})
 
 mapboxgl.accessToken = mapboxApiKey;  //paste your api key
 

@@ -23,11 +23,8 @@ return dateString
 //https://coderrocketfuel.com/article/convert-a-unix-timestamp-to-a-date-in-vanilla-javascript
 function convertDt(dtNum){
 const unixTimestamp = dtNum
-
 const milliseconds = unixTimestamp * 1000
-
 const dateObject = new Date(milliseconds)
-
 const humanDateFormat = dateObject.toLocaleString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"}) //2019-12-9 10:30:15
     return humanDateFormat;
 }

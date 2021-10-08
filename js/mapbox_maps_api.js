@@ -78,7 +78,7 @@ $("#userSearch").click(function(e){
     geocode(query, mapboxApiKey).then(function(results){
     var popUp = new mapboxgl.Popup()
         .setHTML("thanks Geocode")
-    new mapboxgl.Marker()
+    new mapboxgl.Marker({color: "black", rotation: 45})
         .setLngLat(results)
         .setPopup(popUp)
         .addTo(map)

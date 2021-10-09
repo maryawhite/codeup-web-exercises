@@ -11,8 +11,12 @@ h1, h2, h3, h4, h5, h6, p, body {
     width: 50%;
 }
 
-#card-title, .card-header {
-    background-color: #c4c1e0;
+#card-title, #new-five-day .card-header {
+    background-color: #fafafa;
+}
+
+#five-day .card-header {
+    background-color: #fecd51;
 }
 
 #purple-bg, footer {

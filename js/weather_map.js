@@ -50,9 +50,15 @@ var map = new mapboxgl.Map(
         container: "map",
         style: "mapbox://styles/mapbox/streets-v11",
         zoom: 8,   //1 would be far away, 20 would be close
-        center: [-84.250855892393,33.88110533623017]
+        center: [-84.250855892393, 33.88110533623017]
 
     });
+
+new mapboxgl.Marker({color: "black", rotation: 45, draggable: true})
+    .setLngLat([-84.2502, 33.8823])
+    .addTo(map)
+map.setZoom(12)
+
 
 $("#userSearch").click(function(e){
     e.preventDefault();
@@ -73,7 +79,7 @@ $("#userSearch").click(function(e){
         var popUp = new mapboxgl.Popup()
             .setHTML("thanks Geocode")
        var myMarker = new mapboxgl.Marker({color: "black", rotation: 45, draggable: true})
-            .setLngLat(results)
+            .setLngLat([-84.2502, 33.8823])
             .setPopup(popUp)
             .addTo(map)
         map.setZoom(12)

@@ -38,7 +38,7 @@ function convertDt(dtNum){
     const unixTimestamp = dtNum
     const milliseconds = unixTimestamp * 1000
     const dateObject = new Date(milliseconds)
-    const humanDateFormat = dateObject.toLocaleString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"}) //2019-12-9 10:30:15
+    const humanDateFormat = dateObject.toLocaleString("en-US", {weekday: "short", month: "short", day: "numeric", year: "numeric"}) //2019-12-9 10:30:15
     return humanDateFormat;
 }
 //using the function instead of concatenating this in the forloop, new Date((data.daily[i].dt) * 1000).toLocaleString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"})

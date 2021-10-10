@@ -57,7 +57,7 @@ var map = new mapboxgl.Map(
 new mapboxgl.Marker({color: "black", rotation: 45, draggable: true})
     .setLngLat([-84.2502, 33.8823])
     .addTo(map)
-map.setZoom(12)
+map.setZoom(8)
 
 
 $("#userSearch").click(function(e){
@@ -65,21 +65,12 @@ $("#userSearch").click(function(e){
     // $("#input-form").css("display", "none");
 
     let query = $("#searchValue").val(); // a string that was input
-    var latitude = "";
-    var longitude = "";
     geocode(query, mapboxApiKey).then(function(results){
         console.log(results);
-        for(var i = 0; i < results.length; i++){
-            if(i === 0){
-                longitude += results[i];
-            } else {
-                latitude += results[i];
-            }
-        }
         var popUp = new mapboxgl.Popup()
-            .setHTML("thanks Geocode")
-       var myMarker = new mapboxgl.Marker({color: "black", rotation: 45, draggable: true})
-            .setLngLat([-84.2502, 33.8823])
+            .setHTML("Hello!")
+       var myMarker = new mapboxgl.Marker({color: "blue", rotation: 45, draggable: true})
+            .setLngLat([results[0], results[1]])
             .setPopup(popUp)
             .addTo(map)
         map.setZoom(12)
@@ -94,6 +85,25 @@ $("#userSearch").click(function(e){
         function onDragEnd() {
             const lngLat = myMarker.getLngLat();
             console.log(lngLat);
+            var newlngLat = Object.values(lngLat);
+            console.log(newlngLat);
+            $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                APPID: openWeatherAppKey,
+                lat: newlngLat[1],
+                lon: newlngLat[0],
+                units: "imperial",       //the default temperature is Kelvin, this changes it to F
+                exclude: "minutely"
+            }).done(function(data) {
+                console.log(data);
+                var forecast = "";
+                for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
+                    forecast += '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+                }
+                $("#five-day").html(forecast);
+
+            }); //end of .done for the one call
+
+
         }
         myMarker.on('dragend', onDragEnd);
         //end working on draggable marker
@@ -101,13 +111,12 @@ $("#userSearch").click(function(e){
         //put onecall inside of geocode. this is the onecall api
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: openWeatherAppKey,
-            lat: latitude,
-            lon: longitude,
+            lat: coordArr[1],
+            lon: coordArr[0],
             units: "imperial",       //the default temperature is Kelvin, this changes it to F
             exclude: "minutely"
         }).done(function(data) {
             console.log(data);
-            //insert code inside the .done
             // var forecast;
             for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
                 var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'

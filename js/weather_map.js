@@ -12,26 +12,31 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
     var temperatureF = (data.main.temp).toFixed(1);
 
     $("#weather-main").html("<p>" + data.weather[0].main + "</p>");
-    $("#temperature-value").html(temperatureF + "&#176;" + "<span>F</span>");
+    $("#temperature-value").html(temperatureF + "&#176;" + "<span class='fah'>F</span>");
     $("#weather-icon").html('<img src="img/weather-icons/' + data.weather[0].icon + '.png" + />');
     $("#location").html(data.name);
     $("#wind-speed").html("Current Wind Speed: " + data.wind.speed);
 
     var celsius = ((temperatureF - 32) * 5/9).toFixed(1);
+
     function fahrenheitToCelsius(temperatureF){
-        return celsius;
+        return ((temperatureF - 32) * 5/9).toFixed(1);
     }
     function celsiusToFahrenheit(celsius){
         return ((celsius * 9/5) + 32).toFixed(1);
     }
 
     $("#temperature-value").click(function(){
-        $("#temperature-value").html(fahrenheitToCelsius(temperatureF) + "&#176;" + "<span>C</span>");
+        var fah = $(".fah")
+        if(data.main.temp === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
+        if (fah.text() === "F") {
+            var temperatureF = (data.main.temp).toFixed(1);
+            $("#temperature-value").html(fahrenheitToCelsius(temperatureF) + "&#176;" + "<span>C</span>");
+        } else {
+            $("#temperature-value").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span class='fah'>F</span>");
+        }
     });
 
-    $("#purple-bg").click(function(){
-        $("#temperature-value").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span>F</span>");
-    })
 });
 
 function convertDt(dtNum){
@@ -77,7 +82,7 @@ $("#userSearch").click(function(e){
         map.jumpTo({center: results})
         console.log(query);
 
-        //working on draggable marker
+        //draggable marker
         var results = myMarker.getLngLat();
         var coordArr = Object.values(results)  //this puts it in an array
         console.log(results)
@@ -100,6 +105,8 @@ $("#userSearch").click(function(e){
                     forecast += '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
                 }
                 $("#five-day").html(forecast);
+
+                //test a reverse geocode
 
             }); //end of .done for the one call
 

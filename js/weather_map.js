@@ -31,8 +31,8 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
         if(data.main.temp === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
         if (fah.text() === "F") {
             var temperatureF = (data.main.temp).toFixed(1);
-            $("#temperature-value").html(fahrenheitToCelsius(temperatureF) + "&#176;" + "<span>C</span>");
-        } else {
+            $("#temperature-value").html(fahrenheitToCelsius(temperatureF) + "&#176;" + "<span class='fah'>C</span>");
+        } else if(fah.text() === "C"){
             $("#temperature-value").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span class='fah'>F</span>");
         }
     });
@@ -92,6 +92,19 @@ $("#userSearch").click(function(e){
             console.log(lngLat);
             var newlngLat = Object.values(lngLat);
             console.log(newlngLat);
+
+            //test a reverse geocode
+            // var newLngLat = Object.values(lngLat);
+            // console.log(lngLat);
+            // console.log(newLngLat);
+            // reverseGeocode(lngLat, mapboxApiKey).then(function(dropresults) {
+            //     console.log(dropresults);
+            //     var city = dropresults.indexOf(",");
+            //     var newDropresults = dropresults.slice(city + 1, dropresults.length).trim();
+            //     console.log(newDropresults);
+            // });
+
+
             $.get("https://api.openweathermap.org/data/2.5/onecall", {
                 APPID: openWeatherAppKey,
                 lat: newlngLat[1],
@@ -102,20 +115,16 @@ $("#userSearch").click(function(e){
                 console.log(data);
                 var forecast = "";
                 for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-                    forecast += '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+                    forecast += '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span class="fah">F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span class="fah">F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
                 }
                 $("#five-day").html(forecast);
 
-                //test a reverse geocode
-
             }); //end of .done for the one call
-
-
         }
         myMarker.on('dragend', onDragEnd);
         //end working on draggable marker
 
-        //put onecall inside of geocode. this is the onecall api
+        //put onecall inside of geocode. this is the onecall api again
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: openWeatherAppKey,
             lat: coordArr[1],
@@ -126,7 +135,7 @@ $("#userSearch").click(function(e){
             console.log(data);
             // var forecast;
             for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-                var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span>F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span>F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+                var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span class="fah">F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span class="fah">F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
                 $("#five-day").append(forecast);
             }
         }); //end of .done for the one call
@@ -139,6 +148,25 @@ $('#refresh-5day').click(function() {
     location.reload();
 });
 
+//move this into the .done
+//function fahrenheitToCelsius(tempFMax){
+//         return Math.round((tempFMax - 32) * 5/9);
+//     }
+//     function celsiusToFahrenheit(celsius){
+//         return Math.round(((celsius * 9/5) + 32));
+//     }
+
+// function toggleTempMax(){
+//         var fah = $(".fah")
+//         if(data.daily[i].temp === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
+//         if (fah.text() === "F") {
+//             var tempFMax = Math.round((data.daily[i].temp.max));
+            // var tempFMin = Math.round((data.daily[i].temp.min));
+//             $("#card5d").html(fahrenheitToCelsius(tempFMax) + "&#176;" + "<span>C</span>");
+//         } else {
+//             $("#card5d").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span class='fah'>F</span>");
+//         }
+// }
 
 
 //how to convert C to F: temp in cel * 9/5 + 32. From tutorial from https://github.com/CodeExplainedRepo/Weather-App-JavaScript.

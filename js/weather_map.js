@@ -12,6 +12,7 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
     var temperatureF = (data.main.temp).toFixed(1);
 
     $("#weather-main").html("<p>" + data.weather[0].main + '/' + capitalizeFirstLetter(data.weather[0].description) + "</p>");
+    $("#current-humidity").html("Humidity: " + data.main.humidity + '&#37;');
     $("#temperature-value").html(temperatureF + "&#176;" + "<span class='fah'>F</span>");
     $("#weather-icon").html('<img src="img/weather-icons/' + data.weather[0].icon + '.png" + />');
     $("#location").html(data.name);
@@ -75,8 +76,6 @@ map.setZoom(8)
 
 $("#userSearch").click(function(e){
     e.preventDefault();
-    // $("#input-form").css("display", "none");
-
     let query = $("#searchValue").val(); // a string that was input
     geocode(query, mapboxApiKey).then(function(results){
         console.log(results);
@@ -118,11 +117,51 @@ $("#userSearch").click(function(e){
             }).done(function(data) {
                 console.log(data);
                 var forecast = "";
-                for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-                    forecast += '<div class="card text-center text-nowrap mb-4 shadow-sm"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span class="fahr">F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span class="fahr">F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + "/" + capitalizeFirstLetter(data.daily[i].weather[0].description) + '<div class="small text-wrap">' + refresults + '</div> </div></div>'
+                for(var i = 0; i < 5; i++) { //or use data.daily.length for the 8 day forecast from the data
+                    forecast += '<div class="card text-center text-nowrap mb-4 shadow-sm"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low </div><div id="temp-max-min"> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span class="fahr">F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span class="fahr">F</span></div> <div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + "/" + capitalizeFirstLetter(data.daily[i].weather[0].description) + "<br> Humidity: " + data.daily[i].humidity + '&#37;' + '<div class="small text-wrap">' + refresults + '</div> </div> </div>'
                 }
 
-                $("#five-day").html(forecast);
+                    $("#five-day").html(forecast);
+
+                //**the code below does not work exactly at the moment. It should traverse through each temp-max-min div and convert the temperature. I need to look into how to traverse**
+                    var tempFMax = Math.round(data.daily[i].temp.max)
+                    var tempFMin = Math.round(data.daily[i].temp.min)
+                    var celsiusMax = Math.round((tempFMax[i] - 32) * 5 / 9);
+                    var celsiusMin = Math.round((tempFMin[i] - 32) * 5 / 9);
+
+                    function fahrenheitToCelsiusMax(tempFMax) {
+                        return Math.round((tempFMax - 32) * 5 / 9);
+                    }
+
+                    function fahrenheitToCelsiusMin(tempFMin) {
+                        return Math.round((tempFMin - 32) * 5 / 9);
+                    }
+
+                    function celsiusToFahrenheitMax(celsiusMax) {
+                        return Math.round((celsiusMax * 9 / 5) + 32);
+                    }
+
+                    function celsiusToFahrenheitMin(celsiusMin) {
+                        return Math.round((celsiusMin * 9 / 5) + 32);
+                    }
+
+                    $("#temp-max-min").click(function () {
+                        $("#temp-max-min").each(function(index){
+                            var fahr = $(".fahr");
+                        console.log(fahr.text()[i]);  //F
+
+                        if (data.daily[i].temp.max === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
+                        if (fahr.text()[i] === "F") {
+                            var tempFMax = Math.round((data.daily[i].temp.max));
+                            var tempFMin = Math.round((data.daily[i].temp.min));
+                            $("#temp-max-min").html(fahrenheitToCelsiusMax(tempFMax) + "&#176; <span class='fahr'>C</span> /" + fahrenheitToCelsiusMin(tempFMin) + ' &#176; <span class="fahr">C</span>').css("color", "blue");
+                        } else if (fahr.text()[i] === "C") {
+                            $("#temp-max-min").html(celsiusToFahrenheitMax(celsiusMax) + "&#176; <span class='fahr'>F</span> /" + celsiusToFahrenheitMin(celsiusMin) + ' &#176; <span class="fahr">F</span>');
+                        }
+                    });
+                    });
+                    //** **
+
                 function capitalizeFirstLetter(input){
                     var newString = input.split(" ");    //this splits it into an array at the space ['first', 'last']
                     for(var i = 0; i < newString.length; i++){
@@ -149,7 +188,7 @@ $("#userSearch").click(function(e){
             for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
                 var tempFMax = Math.round((data.daily[i].temp.max));
                 var tempFMin = Math.round((data.daily[i].temp.min));
-                var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <div id="temp-max-min"> ' + tempFMax + ' &#176; <span class="fahr">F</span> / ' + tempFMin + ' &#176; <span class="fahr">F</span></div> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + '/' + capitalizeFirstLetter(data.daily[i].weather[0].description)  +' </div></div>'
+                var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low </div><div id="temp-max-min"> ' + tempFMax + ' &#176; <span class="fahr">F</span> / ' + tempFMin + ' &#176; <span class="fahr">F</span></div> <div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + '/' + capitalizeFirstLetter(data.daily[i].weather[0].description) + "<br> Humidity: " + data.daily[i].humidity + '&#37;' +' </div></div>'
                 $("#five-day").append(forecast);
             }
 
@@ -173,7 +212,7 @@ $('#refresh-5day').click(function() {
 
 
 
-//move this into the .done when ready. This is not working
+//move this into the .done when ready. This is not working the way I intend it to
 //
 // var celsiusMax = Math.round((tempFMax - 32) * 5/9);
 // var celsiusMin = Math.round((tempFMin - 32) * 5/9);

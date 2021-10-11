@@ -2,7 +2,7 @@ h1, h2, h3, h4, h5, h6, p, body {
     font-family: 'Acme', sans-serif;
 }
 
-.card-body, #map-container, #input-form {
+.card-body, #map-container, #input-form, #temp-max-min {
     background-color: #ffe9e3;
 }
 

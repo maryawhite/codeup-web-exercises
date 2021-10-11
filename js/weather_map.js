@@ -150,7 +150,9 @@ $("#userSearch").click(function(e){
                 //         // var updatedCodeMin = "";
                 //         var fahr = $(".fahr");
                 //         $("#temp-max-min").each(function(index, element){
-                //             console.log("element" + element);
+                //             console.log("Index: " + index);
+                //             console.log("Element: " + element);
+                //             console.log($(element).text());
                 //
                 //             console.log(fahr.text()[i]);  //F
                 //             if (data.daily[i].temp.max === "undefined") return; //this will keep the rest of the code from running if the temp is undefined

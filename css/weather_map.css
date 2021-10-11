@@ -15,8 +15,10 @@ h1, h2, h3, h4, h5, h6, p, body {
 }
 
 #purple-bg, footer {
-    background-color: #7373e6;
+    /*background-color: #7375e6;*/
     width: 100%;
+    background: rgb(177,207,255);
+    background: linear-gradient(171deg, rgba(177,207,255,1) 0%, rgba(191,171,255,1) 61%, rgba(255,234,255,1) 98%);
 }
 
 #weather-container {
@@ -31,3 +33,4 @@ h1, h2, h3, h4, h5, h6, p, body {
 }
 
 /*color palette from https://www.csscolorpalettes.com/palettes/purple/color*/
+/*gradient generator https://cssgradient.io/*/

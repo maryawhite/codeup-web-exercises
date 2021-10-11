@@ -39,9 +39,9 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
         if(data.main.temp === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
         if (fah.text() === "F") {
             var temperatureF = (data.main.temp).toFixed(1);
-            $("#temperature-value").html(fahrenheitToCelsius(temperatureF) + "&#176;" + "<span class='fah'>C</span>");
+            $("#temperature-value").html(fahrenheitToCelsius(temperatureF) + "&#176;" + "<span class='fah'>C</span>").css("color", "blue");
         } else if(fah.text() === "C"){
-            $("#temperature-value").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span class='fah'>F</span>");
+            $("#temperature-value").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span class='fah'>F</span>").css("color", "red");
         }
     });
 
@@ -105,16 +105,8 @@ $("#userSearch").click(function(e){
             var newLngLat = Object.values(lngLat);
             console.log(lngLat);
             console.log(newLngLat);
-            // reverseGeocode(lngLat, mapboxApiKey).then(function(dropresults) {
-            //     console.log(dropresults);
-            //     var city = dropresults.indexOf(",");
-            //     var newDropresults = dropresults.slice(city + 1, dropresults.length).trim();
-            //     console.log(newDropresults);
-
                 reverseGeocodeRef(lngLat, mapboxApiKey).then(function(refresults){
                     console.log(refresults);
-
-
 
 
             $.get("https://api.openweathermap.org/data/2.5/onecall", {

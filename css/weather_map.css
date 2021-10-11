@@ -32,5 +32,9 @@ h1, h2, h3, h4, h5, h6, p, body {
     margin: 2rem auto;
 }
 
+div#temperature-value {
+    font-size: 2em;
+}
+
 /*color palette from https://www.csscolorpalettes.com/palettes/purple/color*/
 /*gradient generator https://cssgradient.io/*/

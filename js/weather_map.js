@@ -123,47 +123,50 @@ $("#userSearch").click(function(e){
 
                     $("#five-day").html(forecast);
 
-                //**the code below does not work exactly at the moment. It should traverse through each temp-max-min div and convert the temperature. I need to look into how to traverse**
-                    var tempFMax = Math.round(data.daily[i].temp.max)
-                    var tempFMin = Math.round(data.daily[i].temp.min)
-                    var celsiusMax = Math.round((tempFMax[i] - 32) * 5 / 9);
-                    var celsiusMin = Math.round((tempFMin[i] - 32) * 5 / 9);
-
-                    function fahrenheitToCelsiusMax(tempFMax) {
-                        return Math.round((tempFMax - 32) * 5 / 9);
-                    }
-
-                    function fahrenheitToCelsiusMin(tempFMin) {
-                        return Math.round((tempFMin - 32) * 5 / 9);
-                    }
-
-                    function celsiusToFahrenheitMax(celsiusMax) {
-                        return Math.round((celsiusMax * 9 / 5) + 32);
-                    }
-
-                    function celsiusToFahrenheitMin(celsiusMin) {
-                        return Math.round((celsiusMin * 9 / 5) + 32);
-                    }
-
-                    $("#temp-max-min").click(function () {
-                        $("#temp-max-min").each(function(index){
-                            var fahr = $(".fahr");
-                        console.log(fahr.text()[i]);  //F
-
-                        if (data.daily[i].temp.max === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
-                        if (fahr.text()[i] === "F") {
-                            var tempFMax = Math.round((data.daily[i].temp.max));
-                            var tempFMin = Math.round((data.daily[i].temp.min));
-                            $("#temp-max-min").html(fahrenheitToCelsiusMax(tempFMax) + "&#176; <span class='fahr'>C</span> /" + fahrenheitToCelsiusMin(tempFMin) + ' &#176; <span class="fahr">C</span>').css("color", "blue");
-                        } else if (fahr.text()[i] === "C") {
-                            $("#temp-max-min").html(celsiusToFahrenheitMax(celsiusMax) + "&#176; <span class='fahr'>F</span> /" + celsiusToFahrenheitMin(celsiusMin) + ' &#176; <span class="fahr">F</span>');
-                        }
-                    });
-                    });
+                //**the code below does not work exactly how I want at the moment. It should traverse through each temp-max-min div and convert the temperature. I need to look into how to traverse**
+                //     var tempFMax = Math.round(data.daily[i].temp.max)
+                //     var tempFMin = Math.round(data.daily[i].temp.min)
+                //     var celsiusMax = Math.round((tempFMax[i] - 32) * 5 / 9);
+                //     var celsiusMin = Math.round((tempFMin[i] - 32) * 5 / 9);
+                //
+                //     function fahrenheitToCelsiusMax(tempFMax) {
+                //         return Math.round((tempFMax - 32) * 5 / 9);
+                //     }
+                //
+                //     function fahrenheitToCelsiusMin(tempFMin) {
+                //         return Math.round((tempFMin - 32) * 5 / 9);
+                //     }
+                //
+                //     function celsiusToFahrenheitMax(celsiusMax) {
+                //         return Math.round((celsiusMax * 9 / 5) + 32);
+                //     }
+                //
+                //     function celsiusToFahrenheitMin(celsiusMin) {
+                //         return Math.round((celsiusMin * 9 / 5) + 32);
+                //     }
+                //
+                //     $("#temp-max-min").click(function () {
+                //         // var updatedCodeMax = ""; //can I create a var up here outside of the each loop to save my html content for the if statement
+                //         // var updatedCodeMin = "";
+                //         var fahr = $(".fahr");
+                //         $("#temp-max-min").each(function(index, element){
+                //             console.log("element" + element);
+                //
+                //             console.log(fahr.text()[i]);  //F
+                //             if (data.daily[i].temp.max === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
+                //             if (fahr.text()[i] === "F") {
+                //             var tempFMax = Math.round((data.daily[i].temp.max));
+                //             var tempFMin = Math.round((data.daily[i].temp.min));
+                //             $("#temp-max-min").html(fahrenheitToCelsiusMax(tempFMax) + "&#176; <span class='fahr'>C</span> /" + fahrenheitToCelsiusMin(tempFMin) + ' &#176; <span class="fahr">C</span>').css("color", "blue");
+                //         } else if (fahr.text()[i] === "C") {
+                //             $("#temp-max-min").html(celsiusToFahrenheitMax(celsiusMax) + "&#176; <span class='fahr'>F</span> /" + celsiusToFahrenheitMin(celsiusMin) + ' &#176; <span class="fahr">F</span>').css("color", "red");
+                //         }
+                //         });
+                //     });
                     //** **
 
                 function capitalizeFirstLetter(input){
-                    var newString = input.split(" ");    //this splits it into an array at the space ['first', 'last']
+                    var newString = input.split(" ");    //this splits it into an array at the space
                     for(var i = 0; i < newString.length; i++){
                         newString[i] = newString[i][0].toUpperCase() + newString[i].substring(1);  //this capitalizes index 0 and concats the rest of the string from index 1 to end
                     }
@@ -212,7 +215,7 @@ $('#refresh-5day').click(function() {
 
 
 
-//move this into the .done when ready. This is not working the way I intend it to
+//move this into the .done when ready. not ready
 //
 // var celsiusMax = Math.round((tempFMax - 32) * 5/9);
 // var celsiusMin = Math.round((tempFMin - 32) * 5/9);
@@ -231,7 +234,7 @@ $('#refresh-5day').click(function() {
 //
 // $("#temp-max-min").click(function(){
 //     var fahr = $(".fahr")
-//     console.log(fahr.text());  //FFFFFFFFFF
+//     console.log(fahr.text());  //F
 //
 //     if(data.daily[i].temp.max === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
 //     if (fahr.text() === "F") {

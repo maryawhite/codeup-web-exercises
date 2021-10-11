@@ -11,11 +11,19 @@ $.get("https://api.openweathermap.org/data/2.5/weather", {
     //insert code inside the .done
     var temperatureF = (data.main.temp).toFixed(1);
 
-    $("#weather-main").html("<p>" + data.weather[0].main + "</p>");
+    $("#weather-main").html("<p>" + data.weather[0].main + '/' + capitalizeFirstLetter(data.weather[0].description) + "</p>");
     $("#temperature-value").html(temperatureF + "&#176;" + "<span class='fah'>F</span>");
     $("#weather-icon").html('<img src="img/weather-icons/' + data.weather[0].icon + '.png" + />');
     $("#location").html(data.name);
     $("#wind-speed").html("Current Wind Speed: " + data.wind.speed);
+
+    function capitalizeFirstLetter(input){
+        var newString = input.split(" ");    //this splits it into an array at the space ['first', 'last']
+        for(var i = 0; i < newString.length; i++){
+            newString[i] = newString[i][0].toUpperCase() + newString[i].substring(1);  //this capitalizes index 0 and concats the rest of the string from index 1 to end
+        }
+        return newString.join(" ");
+    }
 
     var celsius = ((temperatureF - 32) * 5/9).toFixed(1);
 
@@ -104,7 +112,6 @@ $("#userSearch").click(function(e){
                 console.log(newDropresults);
 
 
-
             $.get("https://api.openweathermap.org/data/2.5/onecall", {
                 APPID: openWeatherAppKey,
                 lat: newlngLat[1],
@@ -115,12 +122,18 @@ $("#userSearch").click(function(e){
                 console.log(data);
                 var forecast = "";
                 for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-                    forecast += '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span class="fah">F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span class="fah">F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + '<div class="small text-wrap">' + newDropresults + '</div> </div></div>'
+                    forecast += '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span class="fahr">F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span class="fahr">F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + "/" + capitalizeFirstLetter(data.daily[i].weather[0].description) + '<div class="small text-wrap">' + newDropresults + '</div> </div></div>'
                 }
 
                 $("#five-day").html(forecast);
-            }); //end of testing reverse geocode from line 96
-
+                function capitalizeFirstLetter(input){
+                    var newString = input.split(" ");    //this splits it into an array at the space ['first', 'last']
+                    for(var i = 0; i < newString.length; i++){
+                        newString[i] = newString[i][0].toUpperCase() + newString[i].substring(1);  //this capitalizes index 0 and concats the rest of the string from index 1 to end
+                    }
+                    return newString.join(" ");
+                }
+            }); //end of test a reverse geocode
             }); //end of .done for the one call
         }
         myMarker.on('dragend', onDragEnd);
@@ -137,9 +150,20 @@ $("#userSearch").click(function(e){
             console.log(data);
             // var forecast;
             for(var i = 0; i < 5; i++){ //or use data.daily.length for the 8 day forecast from the data
-                var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <br> ' + Math.round(data.daily[i].temp.max) + ' &#176; <span class="fah">F</span> / ' + Math.round(data.daily[i].temp.min) + ' &#176; <span class="fah">F</span> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + ' </div></div>'
+                var tempFMax = Math.round((data.daily[i].temp.max));
+                var tempFMin = Math.round((data.daily[i].temp.min));
+                var forecast = '<div class="card text-center text-nowrap mb-4"> <p class="card-header w-100 text-wrap">' + convertDt(data.daily[i].dt) + ' </p><div id="card5d" class="card-body w-100 pb-1"><img class="m-auto d-flex flex-column pb-2" src="img/weather-icons/' + data.daily[i].weather[0].icon + '.png"' + '<br> High/Low <div id="temp-max-min"> ' + tempFMax + ' &#176; <span class="fahr">F</span> / ' + tempFMin + ' &#176; <span class="fahr">F</span></div> </div><div class="card-body w-100 pt-0"> ' + data.daily[i].weather[0].main + '/' + capitalizeFirstLetter(data.daily[i].weather[0].description)  +' </div></div>'
                 $("#five-day").append(forecast);
             }
+
+            function capitalizeFirstLetter(input){
+                var newString = input.split(" ");    //this splits it into an array at the space ['first', 'last']
+                for(var i = 0; i < newString.length; i++){
+                    newString[i] = newString[i][0].toUpperCase() + newString[i].substring(1);  //this capitalizes index 0 and concats the rest of the string from index 1 to end
+                }
+                return newString.join(" ");
+            }
+
         }); //end of .done for the one call
 
     });
@@ -150,40 +174,39 @@ $('#refresh-5day').click(function() {
     location.reload();
 });
 
-//move this into the .done
-//function fahrenheitToCelsius(tempFMax){
-//         return Math.round((tempFMax - 32) * 5/9);
-//     }
-//     function celsiusToFahrenheit(celsius){
-//         return Math.round(((celsius * 9/5) + 32));
-//     }
 
-// function toggleTempMax(){
-//         var fah = $(".fah")
-//         if(data.daily[i].temp === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
-//         if (fah.text() === "F") {
-//             var tempFMax = Math.round((data.daily[i].temp.max));
-            // var tempFMin = Math.round((data.daily[i].temp.min));
-//             $("#card5d").html(fahrenheitToCelsius(tempFMax) + "&#176;" + "<span>C</span>");
-//         } else {
-//             $("#card5d").html(celsiusToFahrenheit(celsius) + "&#176;" + "<span class='fah'>F</span>");
-//         }
+
+//move this into the .done when ready. This is not working
+//
+// var celsiusMax = Math.round((tempFMax - 32) * 5/9);
+// var celsiusMin = Math.round((tempFMin - 32) * 5/9);
+// function fahrenheitToCelsiusMax(tempFMax){
+//     return Math.round((tempFMax - 32) * 5/9);
 // }
-
-
-//how to convert C to F: temp in cel * 9/5 + 32. From tutorial from https://github.com/CodeExplainedRepo/Weather-App-JavaScript.
-
-// this is from mapbox documentation test it out later
-// map.on('click', (e) => {
-//     e.preventDefault();
-//     // document.getElementById('info').innerHTML =
-// // `e.point` is the x, y coordinates of the `mousemove` event
-// // relative to the top-left corner of the map.
-//         var coord = JSON.stringify(e.point) + '<br />' + JSON.stringify(e.lngLat.wrap());
-//     // `e.lngLat` is the longitude, latitude geographical position of the event.
-// console.log(coord);
+// function fahrenheitToCelsiusMin(tempFMin){
+//     return Math.round((tempFMin - 32) * 5/9);
+// }
+// function celsiusToFahrenheitMax(celsiusMax){
+//     return Math.round((celsiusMax * 9/5) + 32);
+// }
+// function celsiusToFahrenheitMin(celsiusMin){
+//     return Math.round((celsiusMin * 9/5) + 32);
+// }
+//
+// $("#temp-max-min").click(function(){
+//     var fahr = $(".fahr")
+//     console.log(fahr.text());  //FFFFFFFFFF
+//
+//     if(data.daily[i].temp.max === "undefined") return; //this will keep the rest of the code from running if the temp is undefined
+//     if (fahr.text() === "F") {
+//         var tempFMax = Math.round((data.daily[i].temp.max));
+//         var tempFMin = Math.round((data.daily[i].temp.min));
+//         $("#temp-max-min").html(fahrenheitToCelsiusMax(tempFMax) + "&#176; <span class='fahr'>C</span> /" + fahrenheitToCelsiusMin(tempFMin) + ' &#176; <span class="fahr">C</span>');
+//     } else if (fahr.text() === "C") {
+//         $("#temp-max-min").html(celsiusToFahrenheitMax(celsiusMax) + "&#176; <span class='fahr'>F</span> /" + celsiusToFahrenheitMin(celsiusMin) + ' &#176; <span class="fahr">F</span>');
+//     }
 // });
 
-
+//how to convert C to F: temp in cel * 9/5 + 32. From tutorial from https://github.com/CodeExplainedRepo/Weather-App-JavaScript.
 
 

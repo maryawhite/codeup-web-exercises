@@ -344,6 +344,8 @@ console.log(text);
 
 //default function
 //object destructuring
+//temporal deadzone
+
 
 
 

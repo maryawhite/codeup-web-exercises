@@ -33,17 +33,19 @@ const users = [
 // to the languages array
 // TODO: replace the `var` keyword with `const`, then try to reassign a variable
 // declared as `const`
-var name = 'mary';
+const name = 'mary';
 var email = 'mary.a.white28@gmail.com';
 var languages = ['html', 'css', 'javascript'];
+// var name = "mary ann";   //this results in a syntax error, Identifier name has already been declared
 console.log(users);
 
 // TODO: rewrite the object literal using object property shorthand
 users.push({
-  name: name,
-  email: email,
-  languages: languages
+  name,
+  email,
+  languages
 });
+
 
 // TODO: replace `var` with `let` in the following variable declarations
 var emails = [];

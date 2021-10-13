@@ -205,7 +205,7 @@
 
 
 //es6 practice 10-12-21
-//object property shorthand
+//** object property shorthand **
 //old way
 const name = "codeup";
 const address = "123 main street";
@@ -261,7 +261,7 @@ let theObject = {
 console.log(theObject);
 
 
-//var or let or const
+//** var or let or const **
 //var is not block scoped, let is
 //let and const statements are not hoisted to the top of their enclosing scope.
 var thousand = 1000;
@@ -321,10 +321,32 @@ function getFood(food) {
 console.log(getFood(false));; // 'Meow Mix'
 
 
-//arrow functions
-//object destructuring
-//for of
-//template strings
+//** arrow functions **
+const sayHello = function (name) {
+    return 'Hello, ' + name + '!';
+}
+// same as
+const sayHello2 = (name) => 'Hello, ' + name + '!';
+
+console.log(sayHello("Mary"));
+console.log(sayHello2("Mary"));
+
+//the parenthesis can be omitted if theres only one parameter
+const sayHello3 = name => 'Hello, ' + name + '!';
+
+//arrow functions can have multiple statements, for multiple lines you need the curly braces. the curly braces make it block scope
+//Like traditional function expressions, arrow functions are not hoisted, and so you cannot
+// call them before you declare them. They are also always anonymous—there is no way to name an arrow function
+const sayHello4 = name => {
+    const greeting = 'Hello, ' + name + '!';
+    return greeting;
+};
+console.log(sayHello4("Mary"));
+
+
+//** object destructuring **
+//** for of **
+//** template strings **
 const nameOld = 'codeup';
 console.log('Hello, ' + nameOld + '!');
 // same as
@@ -342,8 +364,60 @@ let text = `The time and date is ${today.toLocaleString()}`;
 console.log(text);
 
 
-//default function
-//object destructuring
+//** default function parameter values **
+// old way
+function sayHelloDef(name) {
+    if (typeof name === 'undefined') {
+        name = 'World';   //this is the default if a parameter is not put it
+    }
+    return 'Hello, ' + name + '!';
+}
+
+console.log(sayHelloDef());; // "Hello, World!"
+console.log(sayHelloDef('codeup'));; // "Hello, codeup!"
+
+// es6 syntax (including template strings)
+function sayHelloEs6(name = 'WorldEs6') {
+    return `Hello, ${name}!`;
+}
+
+console.log(sayHelloEs6()); // "Hello, World!"
+console.log(sayHelloEs6('codeupEs6')); // "Hello, codeup!"
+
+
+
+//** object destructuring **
+// old way
+var persondest = {name: 'codeup', age: 4};
+var namedest = persondest.name;
+var agedest = persondest.age;
+console.log(namedest); // 'codeup'
+console.log(agedest); // 4
+
+
+// new way
+const person2 = {name: 'codeup', age: 4};
+const {name2, age} = person;
+console.log(name); // 'codeup'
+console.log(age); // 4
+
+//old way destructuring objects
+// var luke = { occupation: 'jedi', father: 'anakin' };
+// var occupation = luke.occupation; // 'jedi'
+// var father = luke.father; // 'anakin'
+//
+// console.log(occupation);
+// console.log(father);
+
+//new way destructuring objects. Think about how this would work with the weather project
+let luke = { occupation: 'jedi', father: 'anakin' };
+let {occupation, father} = luke;
+
+console.log(occupation); // 'jedi'
+console.log(father); // 'anakin'
+
+
+
 //temporal deadzone
 
 

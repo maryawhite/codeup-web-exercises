@@ -416,9 +416,16 @@ let {occupation, father} = luke;
 console.log(occupation); // 'jedi'
 console.log(father); // 'anakin'
 
-
-
 //temporal deadzone
+
+//map, filter, and reduce
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+var evens = numbers.filter(function(n) {
+    return n % 2 === 0;
+});
+console.log(evens); // [2, 4, 6, 8, 10]
+//the old way for the above would have been a for loop and if statement
 
 
 

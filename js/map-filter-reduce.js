@@ -70,12 +70,10 @@ console.log(totalYearsExpArrow);
 //5. Use .reduce to get the longest email from the list of users.
 let longestEmail = users.reduce(function(acc, val){
     console.log(val.email.length);
-    if(acc > val.email.length){
-        return val.email.length
-    } else {
-        return val
-    }
+    users.sort(function(a,b){return a.email.length - b.email.length});
+    console.log(users.sort);
+
 }, 0)
-console.log(longestEmail);
+// console.log(longestEmail);
 
 //6. Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.

@@ -44,6 +44,7 @@ let atLeast3 = users.filter(function(user){
 });
 console.log(atLeast3);
 
+//same thing with an arrow function
 let atLeast3Arrow = users.filter((user) => user.languages.length >= 3);
 console.log(atLeast3Arrow);
 
@@ -53,6 +54,7 @@ let usersEmail = users.map(function(user){
 });
 console.log(usersEmail);
 
+//same thing with an arrow function
 let userEmailArrow = users.map((user) => user.email);
 console.log(userEmailArrow);
 
@@ -64,6 +66,7 @@ let average = totalYearsExp/users.length;
 console.log(totalYearsExp);
 console.log(average);
 
+//same thing with an arrow function
 let totalYearsExpArrow = users.reduce((accumulator, currentValue) => accumulator + currentValue.yearsOfExperience, 0);
 console.log(totalYearsExpArrow);
 
@@ -71,17 +74,35 @@ console.log(totalYearsExpArrow);
 let longestEmail = users.reduce((acc, val) => acc.email.length > val.email.length ? acc : val)
 console.log(longestEmail);
 
+//same thing without an arrow function
 let longestEmailNoArrow = users.reduce(function(email1, email2){
     return email1.email.length > email2.email.length ? email1 : email2;
 });
 console.log(longestEmailNoArrow);
 
+//from Larry's review
+let longestEmailLarry = users.reduce(function(longestEmail, user){
+    return longestEmail.length > user.email.length ? longestEmail : user.email
+}, "")
+console.log(longestEmailLarry);
 
 //6. Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
-let usersNames = users.reduce(function(accumulator, value){
-    return accumulator + value.name + ", "
-}, name);
+let usersNames = users.reduce(function(accumulator, value, index){
+    if(index != users.length - 1){
+        return accumulator + value.name + ", "
+    }
+    return accumulator + value.name + ". "
+}, "Your instructors are: ");
 console.log(usersNames);
 
+//same thing with an arrow function
 let usersNamesArrow = users.reduce((acc, val) => `${acc}${val.name} ,`, name);
 console.log(usersNamesArrow);
+
+//Tip from Douglas, use map and join
+var nameString = users.map(function(user){
+    return user.name
+}).join(",");
+console.log(nameString);
+
+//bonus use reduce to get the unique list of languages from the list of users.

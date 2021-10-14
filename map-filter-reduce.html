@@ -93,7 +93,7 @@ console.log(MarysFavoriteRestaurantsMap);
 
 //TODO Together: Once again, let's take a look at the old way we might approach an issue: getting only one type of values out of an array (for example: even numbers only from an array of nums!)
 
-// var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //
 // var evens = [];
 //
@@ -110,6 +110,9 @@ console.log(MarysFavoriteRestaurantsMap);
 //     return n % 2 === 0;
 // });
 // console.log(evens);
+
+let evens = numbers.filter(n => n % 2 === 0)
+console.log(evens);
 
 //TODO Together: Using my favoriteRestaurants list, let's filter out all of the non-buffet restaurants
 let hasBuffet = favoriteRestaurants.filter(function(restaurant){
@@ -139,7 +142,7 @@ console.log(nameLength);
 
 //TODO Together: Let's sum up some numbers with the .reduce() method and a number array!
 
-let numbers = [1, 2, 3, 4, 5];
+// let numbers = [1, 2, 3, 4, 5];
 
 // function sum (acc, numbers){
 //     return acc + numbers;     //the accumulator starts at 0, similar to how we would set var sum = 0 before a for loop;
@@ -151,7 +154,7 @@ let numbers = [1, 2, 3, 4, 5];
 
 // let sum = numbers.reduce((accumulator, currentValue) => { return accumulator + currentValue;},0); //0 is the initial value
 let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);  //you can simplify to this
-console.log(sum);
+// console.log(sum);
 
 // function findMax(acc, val){
 //     if(val > acc){

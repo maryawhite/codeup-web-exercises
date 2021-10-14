@@ -48,6 +48,13 @@ let atLeast3Arrow = users.filter((user) => user.languages.length >= 3);
 console.log(atLeast3Arrow);
 
 //Use .map to create an array of strings where each element is a user's email address
+let usersEmail = users.map(function(user){
+    return user.email;
+});
+console.log(usersEmail);
+
+let userEmailArrow = users.map((user) => user.email);
+console.log(userEmailArrow);
 
 //Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average
 

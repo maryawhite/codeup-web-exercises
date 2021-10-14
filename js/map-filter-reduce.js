@@ -106,3 +106,7 @@ var nameString = users.map(function(user){
 console.log(nameString);
 
 //bonus use reduce to get the unique list of languages from the list of users.
+let bonus = users.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue.languages + ", ";
+}, name)
+console.log(bonus);

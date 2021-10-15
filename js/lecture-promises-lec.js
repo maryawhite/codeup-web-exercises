@@ -5,7 +5,7 @@
  *        USING FETCH WITH PROMISES
  ******************************************** */
 
-// var pokemonAPI = fetch('https://pokeapi.co/api/v2/pokemon')
+var pokemonAPI = fetch('https://pokeapi.co/api/v2/pokemon')
 // return of fetch request is a Promise object
 
 
@@ -34,17 +34,18 @@
 //    Taking a look at this second return, what are the results? What is the shape of our data?
 // TODO: Finally, chain another .then method that would log all of the name properties of the
 //  returned pokemon.
-fetch('https://pokeapi.co/api/v2/pokemon')
-    .then(function(results) {  //you can name this results or response
-        console.log(results)
-        results.json()
-            .then((resultsObject) => {
-                return resultsObject.results
-            })
-            .then((pokemon) => console.log(pokemon[0]))
-    }).catch(function(error){
-    console.log(error);
-    })
+// fetch('https://pokeapi.co/api/v2/pokemon')
+//     .then(function(results) {  //you can name this results or response
+//         console.log(results)
+//         results.json()
+//             .then((resultsObject) => {
+//                 console.log(resultsObject.results)
+//                 return resultsObject.results
+//             })
+//             .then((pokemon) => console.log(pokemon[0].name))
+//     }).catch(function(error){
+//     console.log(error);
+//     })
 //
 // // BONUS: Is there a way for us to clean up our code?
 // fetch('https://pokeapi.co/api/v2/pokemon')
@@ -59,8 +60,8 @@ fetch('https://pokeapi.co/api/v2/pokemon')
 
 // Let's try working with the Star Wars API!
 // fetch("https://swapi.dev/api/films")
-//
-// // TODO: Using Promises, make a fetch request to the Star Wars API
+// //
+// // // TODO: Using Promises, make a fetch request to the Star Wars API
 //     .then((response)=>{
 //         return response.json();     //the json method returns a promise, you have to chain another .then() after it
 //     }).then((starWarsFilmsData)=>{           //you can name this parameter whatever you want
@@ -72,8 +73,8 @@ fetch('https://pokeapi.co/api/v2/pokemon')
 // TODO: chain another method that iterates through the results array and console logs the names
 
 // TODO: Demonstrate Promise.all and Promise.race
-let pokemonAPI = fetch('https://pokeapi.co/api/v2/pokemon');
-let starWarsAPI = fetch("https://swapi.dev/api/films");
+// let pokemonAPI = fetch('https://pokeapi.co/api/v2/pokemon');
+// let starWarsAPI = fetch("https://swapi.dev/api/films");
 // Promise.all([pokemonAPI, starWarsAPI])
 //     .then((responses) => {
 //         //responses contains the resolved promises in the same order that they were passed into when using all
@@ -87,7 +88,7 @@ let starWarsAPI = fetch("https://swapi.dev/api/films");
 //         console.log(parsedResults);  //this will give us both objects in an array
 //         // console.log(parsedResults[0].results[0]);
 //     })
-
-Promise.race([pokemonAPI, starWarsAPI])
-    .then((response) => {console.log(response)})
+//
+// Promise.race([pokemonAPI, starWarsAPI])
+//     .then((response) => {console.log(response)})
 

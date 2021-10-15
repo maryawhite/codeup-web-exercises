@@ -34,17 +34,17 @@
 //    Taking a look at this second return, what are the results? What is the shape of our data?
 // TODO: Finally, chain another .then method that would log all of the name properties of the
 //  returned pokemon.
-// fetch('https://pokeapi.co/api/v2/pokemon')
-//     .then(function(results) {  //you can name this results or response
-//         console.log(results)
-//         results.json()
-//             .then((resultsObject) => {
-//                 return resultsObject.results
-//             })
-//             .then((pokemon) => console.log(pokemon[0]))
-//     }).catch(function(error){
-//     console.log(error);
-//     })
+fetch('https://pokeapi.co/api/v2/pokemon')
+    .then(function(results) {  //you can name this results or response
+        console.log(results)
+        results.json()
+            .then((resultsObject) => {
+                return resultsObject.results
+            })
+            .then((pokemon) => console.log(pokemon[0]))
+    }).catch(function(error){
+    console.log(error);
+    })
 //
 // // BONUS: Is there a way for us to clean up our code?
 // fetch('https://pokeapi.co/api/v2/pokemon')

@@ -13,10 +13,12 @@ fetch('https://api.github.com/users/maryawhite/events', {headers: {'Authorizatio
             console.log(resultsArray);
             // let myArray = resultsArray.results
             // return myArray;
+            console.log("created Date and Time: " + resultsArray[0].created_at);
         })
 
 
 function getCommitDate(username){
+
 
 }
 

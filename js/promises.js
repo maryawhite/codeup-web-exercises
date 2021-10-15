@@ -1,4 +1,5 @@
 "use strict"
+$(document).ready(function(){
 //Create a function that accepts a GitHub username,
 // and returns a promise that resolves returning just the date of the last commit that user made.
 
@@ -66,3 +67,4 @@ console.log(getCommitDate("maryawhite"));
 //             return resultsObject.results
 //         });
 // })
+})

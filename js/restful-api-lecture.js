@@ -1,10 +1,14 @@
 "use strict"
 const API_URL = "https://vagabond-glacier-verse.glitch.me/dogs";
 
-// function getDogs(){
-//     return fetch(API_URL)
-//         .then((response) => response.json());
-// }
+function getDogs(){
+    return fetch(API_URL,{
+        method: "GET",
+        headers: {"Content-type": "application/json;charset=UTF-8"}
+    })
+        .then((response) => response.json())
+        .then(json => console.log(json))
+}
 //
 // function getDog(id){
 //     return fetch(`${API_URL}/${id}`)
@@ -45,20 +49,23 @@ const API_URL = "https://vagabond-glacier-verse.glitch.me/dogs";
 // }
 
 //Create dog
-// function createDog(dog) {
-//     let options = {
-//         method: 'POST',       //use put to edit the dog, we are not creating a new one
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(dog)
-//     }
-//     return fetch(API_URL, options)
-//         .then((response)=>response.json())
-// }
-// let charlie = {
-//     name: 'Charlie',
-//     isGoodDog: false,
-//     age: 8
-// }
+let _data = {
+    name: 'Charlie',
+    isGoodDog: false,
+    age: 14
+}
+function createDog(dog) {
+    let options = {
+        method: 'POST',       //use put to edit the dog, we are not creating a new one
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(_data)
+    }
+    return fetch(API_URL, options)
+        .then((response)=>response.json())
+        .then(json => console.log(json))
+        .catch(err => console.log(err))
+}
+
 //createDog(charlie).then((newDog)=>console.log(newdog));

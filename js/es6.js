@@ -101,3 +101,23 @@ list += `</ul>`
 console.log(developers);
 console.log(list);
 
+
+//Classes
+class Polygon {
+  constructor(height, width){
+    this.height = height;
+    this.width = width;
+  }
+  get area(){
+    return this.calcArea();
+  }
+  calcArea(){
+    return this.height * this.width;
+  }
+}
+const rectangle = new Polygon(10, 5);
+const rectangle2 = new Polygon(8, 10);
+console.log("classes...")
+console.log(rectangle.area);
+console.log(rectangle2.area);
+

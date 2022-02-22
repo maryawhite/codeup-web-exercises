@@ -184,4 +184,9 @@ function mathQuestions () {
 }
 mathQuestions ()
 
-
+let number = 20;
+var display = function (){
+    console.log(number);
+    // let number = 10;
+}
+display();

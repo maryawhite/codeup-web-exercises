@@ -21,7 +21,7 @@ pokemonAPI.then(function(response){  //you can name this results or response
         .then((responseObject) => {
             console.log(responseObject)
             console.log(responseObject.results[0])
-            document.getElementsByClassName("pokemon-container").innerHTML = responseObject.results[0];
+            document.getElementsByClassName(".pokemon-container").innerHTML = responseObject.results[0];
 
         })
 
